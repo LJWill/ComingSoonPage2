@@ -1,13 +1,15 @@
+var comingSoon = 'Coming soon';
 
-var faker = require('faker');
-var users = [];
+module.exports = comingSoon;
 
-for (i=0; i<10; i++) {
-    var user = {
-        name: faker.name.findName(),
-        email: faker.internet.email()
-    }
-    users.push(user);
-}
 
-module.exports = users;
+// var faker = require('faker');
+// var users = [];
+//
+// for (var i=0; i<10; i++){
+//     var user = {
+//         name: faker.name.findName(),
+//         email: faker.internet.email()
+//     }
+//     users.push(user);
+// }
