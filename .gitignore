@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 node_modules/
+=======
+node_modules/
+.idea/
+.DS_Store
+>>>>>>> d944868560ade10d497f83cb26d77532720ff952

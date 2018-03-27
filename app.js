@@ -1,21 +1,14 @@
-var express = require('express');
+const PORT = process.env.PORT || 3000;
+
+const express = require('express');
 var app = express();
-var path = require('path');
+const router = require('./routers/router.js');
 
-var users = require('./models/db.js');
-var routes = require('./routes/index');
-
-//view engine setup
-app.set('views', path.join(__dirname, 'views'));
+// set the view engine to ejs
 app.set('view engine', 'ejs');
 
+app.use('/', router);
 
-app.get('/hello', (req, res) => res.send('Hello World!!!'));
-app.get('/users', (req, res) => res.send(users));
-app.get('/bye', (req, res) => res.send("Good Night!"));
-
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, function(){ console.log(`Express listening on port ${PORT}`); });
+app.listen(PORT, function(){
+    console.log('Express serving at port ${PORT}');
+});
