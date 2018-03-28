@@ -1,14 +1,12 @@
 const express = require('express');
-var app = express();
-const router = require('./routers/router.js');
+const app = express();
 
-// set the view engine to ejs
+const router = require('./routes/routes');
+
 app.set('view engine', 'ejs');
-
-app.use(express.static(__dirname + '/public'));
-app.use('/', router);
+app.use(router);
+app.use(express.static('public'));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, function(){
-    console.log('Express serving at port ${PORT}');
-});
+app.listen(PORT, function(){ });
+console.log(`Express listening on port ${PORT}`);
