@@ -4,11 +4,6 @@ html {
     height: 100%;
 }
 
-.logo{
-    text-indent: -9999999999999px;
-    background:url("image/logo.jpg");
-}
-
 body {
     background:url("https://source.unsplash.com/Np_nvRuhpUo/4000×6016");
     background-size: cover;
