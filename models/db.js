@@ -1,4 +1,4 @@
-var comingSoon = 'Coming soon';
+var comingSoon = 'COMING SOON';
 
 module.exports = comingSoon;
 

@@ -1,3 +1,8 @@
-module.exports.renderPage = function (req, res) {
-    res.render('index');
+
+var db = require('../models/db.js');
+
+module.exports = indexPage = function (req, res) {
+    res.render('index.ejs', {
+        title: "COMING SOON"
+    });
 }
