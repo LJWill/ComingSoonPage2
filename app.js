@@ -12,10 +12,26 @@ const router = require('./routes/router.js');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(__dirname +'/public'));
 
-// app.get('/hello', (req, res) => res.send('Hello World!!!'));
-// app.get('/users', (req, res) => res.send(users));
-// app.get('/bye', (req, res) => res.send("Good Night!"));
+app.get('/hello', (req, res) => res.send('Hello World!!!'));
+app.get('/users', (req, res) => res.send(users));
+app.get('/bye', (req, res) => res.send("Good Night!"));
+
+//add 404 not found page
+app.use(function(req, res, next){
+    res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+    // respond with html page
+    if (req.accepts('html')) {
+        res.render('404', { url: req.url });
+        return;
+    }
+    // respond with json
+    if (req.accepts('json')) {
+        res.send({ error: 'Not found' });
+        return;
+}
+});
 
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', router);
