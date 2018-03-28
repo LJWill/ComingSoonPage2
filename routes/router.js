@@ -5,4 +5,4 @@ var home = require('../controllers/controller.js');
 
 router.get('/', controller);
 
-module.export = router;
+module.exports = router;
