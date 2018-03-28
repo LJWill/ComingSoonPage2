@@ -1,18 +1,23 @@
 {
-  "name": "first_nodejs",
+  "name": "web-info-tech",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "author": "will",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StrangeParadise/Web-Info-Tech.git"
+  },
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "ejs": "^2.5.7",
-    "express": "^4.16.3",
-    "faker": "^4.1.0"
+  "bugs": {
+    "url": "https://github.com/StrangeParadise/Web-Info-Tech/issues"
   },
-  "devDependencies": {},
-  "description": "cooooool"
+  "homepage": "https://github.com/StrangeParadise/Web-Info-Tech#readme",
+  "dependencies": {
+    "ejs": "^2.5.8",
+    "express": "^4.16.3"
+  }
 }
