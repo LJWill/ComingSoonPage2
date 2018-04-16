@@ -1,12 +1,8 @@
-const express = require('express');
-var users = require('../models/db.js');
+var db = require('../models/db.js');    // whatever you exported in db.js (in module.exports)
 
-// Display Coming soon at home page
-
-module.exports = controller = function(req, res) {
-    res.render('homePage.ejs', {
-        coming: 'coming soon'
+module.exports = indexPage = function (req, res) {
+    res.render('index.ejs', {
+        title: db.comingSoon,
+        groupMembers : db.groupMembers
     });
 };
-
-// examples
