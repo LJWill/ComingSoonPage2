@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
-@import url('https://fonts.googleapis.com/css?family=Lato');
-
-
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans');
 
 .login {
     width: 300px;
@@ -19,6 +15,7 @@
     background-color: #333;
     text-align: center;
     color:white;
+
 }
 .line {
     font-size: 16px;
@@ -30,6 +27,7 @@
 }
 .line input {
     width: 150px;
+
 }
 .log_submit {
     display: block;
@@ -47,12 +45,15 @@
     left: 50%;
     top: 50%;
     margin-left: -200px;
-    margin-top: -200px
+    margin-top: -200px;
 }
+
 .wrap{
     background-color: white;
     opacity: 0.9;
+
 }
+
 
 body {
     background-image:url("https://source.unsplash.com/OX_en7CXMj4/1600x900");

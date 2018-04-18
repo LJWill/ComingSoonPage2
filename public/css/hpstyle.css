@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans');
 
 html{
     height:100%;
@@ -32,14 +30,12 @@ body{
     height: 100px;
     width:100px;
 }
+
 h1{
-    font-family: "Dancing Script";
-    font-size: 60px;
+    font-family: "Dancing Script"!important;
+    font-size: 70px !important;
     margin-left:40%;
 }
-
-
-
 
 
 
@@ -49,11 +45,11 @@ h1{
 .login{
     position: absolute;
     right:0px;
-    font-family: "Dancing Script";
+    font-family: "Noto Sans";
     font-weight:bold;
     font-size:16px;
     border:none;
-    color:#333;
+    color:#3e4444;
     background-color: white;
     height: 30px;
     margin:0px;
@@ -69,11 +65,11 @@ h1{
 .signup{
     position: absolute;
     right:70px;
-    font-family: "Dancing Script";
+    font-family: "Noto Sans";
     font-weight:bold;
     font-size:16px;
     border:none;
-    color:#333;
+    color:#3e4444;
     background-color: white;
     height: 30px;
     margin:0px;
@@ -87,19 +83,28 @@ h1{
     border:none;
 
 }
-
-
-
-
+.sigup a:link{
+    color:#3e4444;
+}
+.signup a:visited{
+    color:#3e4444;
+}
+.login a:link{
+    color:#3e4444;
+}
+.login a:visited{
+    color:#3e4444;
+}
 
 
 
 ul {
     list-style-type: none;
-    margin:0;
+    margin:0!important;
     padding: 0;
+    width:100%;
     overflow: hidden;
-    background-color: #333;
+    background-color: #3e4444;
 }
 li {
     float: right;
@@ -110,7 +115,8 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-family: "Pacifico";
+    font-family: "Noto Sans";
+    color:white;
 
 }
 li a:hover {
@@ -119,40 +125,15 @@ li a:hover {
 
 
 
-
-.loop-wrap {
-    position:relative;
-    width: 1277px;
-    height:700px;
-    overflow: hidden;
-}
-.loop-image{
-    width: 1277px;
+img{
+    width:100%;
+    margin:0;
+    padding:0;
     height:700px;
 }
 
-.loop-images-container{
-    position: absolute;
-    padding:0px 0px 0px;
-    width: 500%;
-    height: 100%;
-    font-size: 0;
-    transform: translate(0,0);
-    animation: loop 10s linear infinite;
-}
 
-@keyframes loop {
-    0% {transform: translate(0,0);}
-    25% {transform: translate(0,0);}
 
-    35% {transform: translate(-20%,0);}
-    60% {transform: translate(-20%,0);}
-
-    70% {transform: translate(-40%,0);}
-    95% {transform: translate(-40%,0);}
-
-    100% {transform: translate(0,0);}
-}
 
 
 .icon{
@@ -176,31 +157,31 @@ li a:hover {
 }
 
 h2{
-    font-family: Pacifico;
+    font-family: Noto Sans;
 }
 
 .quiz_intro{
     word-wrap:break-word;
-    font-family: Pacifico;
+    font-family: Noto Sans;
 }
 .evaluation_intro{
     word-wrap:break-word;
-    font-family: Pacifico;
+    font-family: Noto Sans;
 }
 .diy_intro{
     word-wrap:break-word;
-    font-family: Pacifico;
+    font-family: Noto Sans;
 }
 
 .content_button {
     display: inline-block;
     border-radius: 4px;
-    background-color: #333;
-    font-family:"Pacifico";
+    background-color: #3e4444;
+    font-family:"Noto Sans";
     border: none;
     color: #FFFFFF;
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
     padding: 20px;
     width: 200px;
     hight:100px;
@@ -241,16 +222,16 @@ h2{
     margin:0;
     padding:0;
     height:100%;
-    background-color:#333;
+    background-color:#3e4444;
     color: white;
 }
 h3{
-    font-family:"Dancing Script";
+    font-family:"Noto Sans";
     font-size:16px;
     font-weight: bold;
 }
 .footer_content{
-    font-family:"Dancing Script";
+    font-family:"Noto Sans";
     font-size:14px;
     word-wrap:break-word;
     font-weight: bold;

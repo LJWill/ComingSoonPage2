@@ -1,61 +1,200 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans');
+
+
+
+html{
+    height:100%;
+    width:100%;
+}
+
+.main_wrap{
+    min-height:100%
+}
+.content_wrap{
+    text-align: center;
+}
+.main{
+    padding-bottom:30px;
+    overflow:hidden;
+}
+
+body{
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    padding-up:0px;
+}
+
+.homepage_logo{
+    float:left;
+    height: 100px;
+    width:100px;
+}
+
+h1{
+    font-family: "Dancing Script"!important;
+    font-size: 70px !important;
+    margin-left:40%;
+}
+
+
+
+
+
+
+.login{
+    position: absolute;
+    right:0px;
+    font-family: "Noto Sans";
+    font-weight:bold;
+    font-size:16px;
+    border:none;
+    color:#3e4444;
+    background-color: white;
+    height: 30px;
+    margin:0px;
+    padding:0px;
+    width: 70px;
+    top: 0px;
+}
+.login:hover {
+    opacity:0.8;
+    border:none;
+
+}
+.signup_page{
+    position: absolute;
+    right:70px;
+    font-family: "Noto Sans";
+    font-weight:bold;
+    font-size:16px;
+    border:none;
+    color:#3e4444;
+    background-color: white;
+    height: 30px;
+    margin:0px;
+    padding:0px;
+    width: 70px;
+    top: 0px;
+}
+
+.signup_page:hover {
+    opacity:0.8;
+    border:none;
+
+}
+.sigup_page a:link{
+    color:#3e4444;
+}
+.signup_page a:visited{
+    color:#3e4444;
+}
+.login a:link{
+    color:#3e4444;
+}
+.login a:visited{
+    color:#3e4444;
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin:0!important;
+    padding: 0;
+    width:100%;
+    overflow: hidden;
+    background-color: #3e4444;
+}
+li {
+    float: right;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "Noto Sans";
+    color:white;
+
+}
+li a:hover {
+    background-color: #111;
+}
+
 
 
 
 .signup {
-    width: 300px;
-    height:200px;
+    width: 400px;
+    height:220px;
     overflow: hidden;
-    border: solid 1px #333;
-    margin:0 auto;
+    border: solid 3px #3e4444;
+    margin:0;
+    padding:0;
+    font-family:"Noto Sans";
 
 }
 .signup_title {
     width: 100%;
     height: 40px;
     line-height: 40px;
-    background-color: #333;
+    background-color: #3e4444;
     text-align: center;
     color:white;
+    font-family:"Noto Sans";
 }
 .line {
     font-size: 16px;
-    width: 250px;
-    height: 30px;
-    line-height: 30px;
-    margin-left: 20px;
+    margin-top:0.8em;
     text-align: center;
+    font-family:"Noto Sans";
 }
 .line input {
     width: 150px;
+    font-family:"Noto Sans";
 }
 .signup_submit {
-    display: block;
-    width: 200px;
-    height: 30px;
-    margin-left: 45px;
-    margin-top: 15px;
-    margin-bottom: 5px;
+    font-family: "Noto Sans";
+    font-size: 16px;
+    text-align: center;
+    margin:0.6em;
+    margin-left: 10em;
 }
-.singup_container{
-    width: 400px;
-    height: 260px;
-    padding: 13px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -200px;
-    margin-top: -200px
-}
+
 .wrap{
     background-color: white;
     opacity: 0.9;
+    font-family:"Noto Sans";
 }
 
-body {
-    background-image:url("https://source.unsplash.com/OX_en7CXMj4/1600x900");
-    background-size:cover ;
+.line a:link{
+    color:#3e4444;
+}
+.line a:visited{
+    color:#3e4444;
 }
 
+.goback a:visited{
+    color:white;
+}
+.goback a:link{
+    color:white;
+}
+.goback{
+    background-color: #3e4444;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: "Noto Sans";
+
+}
