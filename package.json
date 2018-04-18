@@ -1,12 +1,12 @@
 {
-  "name": "first_nodejs",
+  "name": "The_Abucus",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "will",
+  "author": "Will, Jojo, Hogan",
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.5.7",
@@ -14,5 +14,5 @@
     "faker": "^4.1.0"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "cooooooooooooooooooooooooooooooooool"
 }
