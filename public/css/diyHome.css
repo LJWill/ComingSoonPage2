@@ -1,0 +1,12 @@
+.header {
+    text-align: center;
+    padding: 5px;
+    font-family: cursive;
+    font-weight: 400;
+    font-size: 4em;
+
+    grid-column: 2;
+    grid-column-end: 3;
+    grid-row: 2;
+
+}

@@ -6,3 +6,9 @@ module.exports = indexPage = function (req, res) {
         groupMembers : db.groupMembers
     });
 };
+
+module.exports = diyHome = function (req, res) {
+    res.render('diyHome.ejs', {
+
+    });
+};
