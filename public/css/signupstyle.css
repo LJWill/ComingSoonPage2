@@ -178,23 +178,22 @@ li a:hover {
     color:#3e4444;
 }
 
-.goback a:visited{
-    color:white;
-}
-.goback a:link{
-    color:white;
-}
-.goback{
-    background-color: #3e4444;
-    border: none;
-    color: white;
-    padding: 10px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    font-family: "Noto Sans";
 
+.footer {
+    margin:0;
+    padding:0;
+    height:100%;
+    background-color:#3e4444;
+    color: white;
+}
+h3{
+    font-family:"Noto Sans";
+    font-size:16px;
+    font-weight: bold;
+}
+.footer_content{
+    font-family:"Noto Sans";
+    font-size:14px;
+    word-wrap:break-word;
+    font-weight: bold;
 }
