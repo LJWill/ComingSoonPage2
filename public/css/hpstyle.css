@@ -125,10 +125,23 @@ li a:hover {
 
 
 
+<<<<<<< HEAD
 img{
     width:100%;
     margin:0;
     padding:0;
+=======
+
+.loop-wrap {
+    position:relative;
+    width: 1277px;
+    height:700px;
+    overflow: hidden;
+    margin:0 auto;
+}
+.loop-image{
+    width: 1277px;
+>>>>>>> 14d164f55f6833df9ed7b592b17f73b0a5d43fa8
     height:700px;
 }
 
