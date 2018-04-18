@@ -8,4 +8,6 @@ router.get('/login',loginPage);
 
 router.get('/signup',signupPage);
 
+router.get('/index',indexPage);
+
 module.exports = router;
