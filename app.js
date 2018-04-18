@@ -18,6 +18,7 @@ app.get('/hello', (req, res) => res.send('Hello World!!!'));
 app.get('/users', (req, res) => res.send(users));
 app.get('/bye', (req, res) => res.send("Good Night!"));
 
+
 //add 404 not found page
 app.use(function(req, res, next){
     res.status(404).render('404_error_template', {title: "Sorry, page not found"});
@@ -34,6 +35,8 @@ app.use(function(req, res, next){
 });
 
 // app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', router);
+// app.use('/', router);
+app.use('/', (req, res) => res.render('index', {title: 'coming soon'}));
+
 
 app.listen(PORT, function(){ console.log(`Express listening on port ${PORT}`); });
