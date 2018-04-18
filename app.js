@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = process.env.PORT || 8088;
+const PORT = process.env.PORT || 3000;
 
 var app = express();
 var path = require('path');
