@@ -6,3 +6,11 @@ module.exports = indexPage = function (req, res) {
         groupMembers : db.groupMembers
     });
 };
+
+
+module.exports = quizPage = function (req, res) {
+    res.render('quizPage.ejs', {
+        title: "this is a quiz page",
+        groupMembers: db.groupMembers
+    });
+};

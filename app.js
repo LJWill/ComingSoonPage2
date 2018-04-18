@@ -6,6 +6,7 @@ const router = require('./routers/router');
 app.set('view engine', 'ejs');
 app.use(router);
 app.use(express.static(__dirname +'/public'));
+
 app.use(function(req, res, next){
     res.status(404);
     // respond with html page
