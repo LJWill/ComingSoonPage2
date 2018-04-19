@@ -137,20 +137,23 @@ img{
 
 
 .icon{
-    height:200px;
-    width:200px;
+    height:180px;
+    width:180px;
 }
 .quiz_content_container{
+    margin-top:3em;
     float: left;
     width: 33.33%;
     box-sizing: border-box;
 }
 .evaluation_content_container{
+    margin-top:3em;
     float: left;
     width: 33.33%;
     box-sizing: border-box;
 }
 .diy_content_container{
+    margin-top:3em;
     float: left;
     width: 33.33%;
     box-sizing: border-box;
