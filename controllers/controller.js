@@ -35,3 +35,15 @@ module.exports = quizWin = function (req, res) {
         groupMembers: db.groupMembers
     });
 };
+
+module.exports = diyHome = function (req, res) {
+    res.render('diyHome.ejs', {
+
+    });
+};
+
+module.exports = diyTemplete = function (req, res) {
+    res.render('diyTemplete.ejs', {
+
+    });
+};
