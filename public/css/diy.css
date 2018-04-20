@@ -365,7 +365,7 @@ a{
 
 
 footer {
-    position: absolute!important;
+    position: fixed!important;
     bottom: 0;
     left:0;
 
@@ -376,6 +376,7 @@ footer {
     background-color:#3e4444;
     color: white;
 }
+
 footer h3{
     font-family:"Noto Sans";
     font-size:16px;
