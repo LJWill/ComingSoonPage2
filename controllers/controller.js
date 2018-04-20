@@ -8,6 +8,20 @@ module.exports = indexPage = function (req, res) {
     });
 };
 
+<<<<<<< HEAD
+=======
+module.exports = diyHome = function (req, res) {
+    res.render('diyHome.ejs', {
+
+    });
+};
+
+module.exports = diyTemplete = function (req, res) {
+    res.render('diyTemplete.ejs', {
+      });
+};
+
+>>>>>>> 024d2ce1983f8d43603742a07abb4327fc6b0fad
 
 module.exports = quizPage = function (req, res) {
     res.render('quizPage.ejs', {
@@ -34,6 +48,7 @@ module.exports = quizWin = function (req, res) {
     res.render('quizWin.ejs', {
         title: "this is a quiz page",
         groupMembers: db.groupMembers
+<<<<<<< HEAD
     });
 };
 
@@ -57,5 +72,7 @@ module.exports = diyTemplete = function (req, res) {
 module.exports=signupPage=function(req,res){
     res.render('signup.ejs',{
 
+=======
+>>>>>>> 024d2ce1983f8d43603742a07abb4327fc6b0fad
     });
 };
