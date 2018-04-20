@@ -26,7 +26,7 @@ body{
     margin-top: 0px;
     padding-up:0px;
 }
-
+/* 
 .homepage_logo{
     float:left;
     height: 100px;
@@ -127,7 +127,7 @@ li a {
 }
 li a:hover {
     background-color: #111;
-}
+} */
 
 
 img{
@@ -234,7 +234,7 @@ h2{
 }
 
 
-.footer {
+/* .footer {
     margin:0;
     padding:0;
     height:100%;
@@ -255,4 +255,4 @@ h3{
     font-size:14px;
     word-wrap:break-word;
     font-weight: bold;
-}
+} */

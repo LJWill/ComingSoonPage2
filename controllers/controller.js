@@ -59,3 +59,9 @@ module.exports=signupPage=function(req,res){
 
     });
 };
+
+module.exports=evaluation=function(req,res){
+    res.render('evaluation.ejs',{
+
+    });
+};
