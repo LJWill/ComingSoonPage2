@@ -11,7 +11,7 @@ app.use(function(req, res, next){
     res.status(404);
     // respond with html page
     if (req.accepts('html')) {
-        res.render('404_error_template', { url: req.url });
+        res.render('404', { url: req.url });
     }
     // respond with json
     if (req.accepts('json')) {

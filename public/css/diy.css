@@ -1,0 +1,389 @@
+/* Label styles: style as needed */
+label {
+    display:block;
+    margin: 2em 1em .25em .75em;
+    font-size: 1.25em;
+    color:#333;
+}
+
+/* Container used for styling the custom select, the buttom class adds the bg gradient, corners, etc. */
+.dropdown {
+    position: relative;
+    display:block;
+    margin-top:0.5em;
+    padding:0;
+}
+/* This is the native select, we're making everything the text invisible so we can see the button styles in the wrapper */
+.dropdown select {
+    width: 100%;
+    margin:0;
+    background:none;
+    border: 1px solid transparent;
+    outline: none;
+    /* Prefixed box-sizing rules necessary for older browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Remove select styling */
+    appearance: none;
+    -webkit-appearance: none;
+    /* Magic font size number to prevent iOS text zoom */
+    font-size:1.25em;
+    /* General select styles: change as needed */
+    /* font-weight: bold; */
+    color: #ffffff;
+    padding: .6em 1.9em .5em .8em;
+    line-height:1.3;
+}
+/*.dropdown::after {*/
+    /*content: "";*/
+    /*position: absolute;*/
+    /*width: 9px;*/
+    /*height: 8px;*/
+    /*top: 50%;*/
+    /*right: 1em;*/
+    /*margin-top:-4px;*/
+    /*z-index: 2;*/
+    /*!*background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12'%3E%3Cpolygon fill='rgb(102,102,102)' points='8,12 0,0 16,0'/%3E%3C/svg%3E") 0 0 no-repeat;*!*/
+    /*!* These hacks make the select behind the arrow clickable in some browsers *!*/
+    /*pointer-events:none;*/
+/*}*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .dropdown select::-ms-expand {
+        display: none;
+    }
+    /* Removes the odd blue bg color behind the text in IE 10/11 and sets the text to match the focus style text */
+    select:focus::-ms-value {
+        background: transparent;
+        color: #ffffff;
+    }
+}
+body:last-child .dropdown::after, x:-moz-any-link {
+    display: none;
+}
+/* reduce padding */
+body:last-child .dropdown select, x:-moz-any-link {
+    padding-right: .8em;
+}
+/* Hover style */
+.dropdown:hover {
+    border:1px solid #888;
+}
+/* Focus style */
+select:focus {
+    outline:none;
+    box-shadow: 0 0 1px 3px rgba(180,222,250, 1);
+    background: -moz-linear-gradient(top, #405d27 0%, #82b74b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#405d27), color-stop(100%,#82b74b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #405d27 0%,#82b74b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #405d27 0%,#82b74b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #405d27 0%,#82b74b 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #405d27 0%,#82b74b 100%); /* W3C */
+    background-color: #82b74b;
+    color: #ffffff;
+    border:1px solid #aaa;
+}
+/* Firefox focus has odd artifacts around the text, this kills that */
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+option {
+    font-weight:normal;
+}
+/* These are just demo button-y styles, style as you like */
+.button {
+    border: 1px solid #bbb;
+    border-radius: .3em;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    background: #405d27; /* Old browsers */
+    background: -moz-linear-gradient(top, #405d27 0%, #82b74b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#405d27), color-stop(100%,#82b74b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #405d27 0%,#82b74b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #405d27 0%,#82b74b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #405d27 0%,#82b74b 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #405d27 0%,#82b74b 100%); /* W3C */
+}
+.output {
+    margin: 0 auto;
+    padding: 1em;
+}
+.snip1584 {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 10px 8px;
+    min-width: 230px;
+    max-width: 315px;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: left;
+}
+.snip1584 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.snip1584:before {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    top: 100%;
+    content: '';
+    background-color: rgba(51, 51, 51, 0.9);
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    -webkit-transition-delay: 0.25s;
+    transition-delay: 0.25s;
+}
+.snip1584 img {
+    vertical-align: top;
+    max-width: 100%;
+    backface-visibility: hidden;
+}
+.snip1584 figcaption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    align-items: center;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.snip1584 h3,
+.snip1584 h5 {
+    margin: 0;
+    opacity: 0;
+    letter-spacing: 1px;
+}
+.snip1584 h3 {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    font-weight: 400;
+    -webkit-transition-delay: 0.05s;
+    transition-delay: 0.05s;
+    margin-bottom: 5px;
+}
+.snip1584 h5 {
+    font-weight: normal;
+    background-color: #826347;
+    padding: 1px 5px;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.snip1584:hover:before,
+.snip1584.hover:before {
+    top: 10px;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.snip1584:hover h3,
+.snip1584.hover h3,
+.snip1584:hover h5,
+.snip1584.hover h5 {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+.snip1584:hover h3,
+.snip1584.hover h3 {
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+.snip1584:hover h5,
+.snip1584.hover h5 {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+
+
+
+
+.col-sm-4{
+    border-style: solid!important;
+    border-width: 5px;
+    border-color: #405d27;
+    align-content: center!important;
+}
+.price-summary {
+    width: 340px;
+    margin-bottom: 15px;
+}
+.price-summary table {
+    width:100%;
+}
+.price-summary th {
+    font-size:20px;
+    padding-bottom:5px;
+}
+.price-summary td {
+    font-size:16px;
+}
+
+.one-third { width: 32.3%; }
+.two-thirds {width: 66.6%; }
+
+.left { float: left; text-align:left; }
+.right { float:right; text-align:right; }
+
+.total { font-weight:bold; }
+
+.border {
+    border-top: 1px solid #ccc;
+    display: block;
+}
+
+a{
+    align-content: center!important;
+}
+.btn {
+    align-content: center!important;
+    cursor: pointer!important;
+    color: #fff!important;
+    width: 340px!important;
+    height: 3em!important;
+    padding: 0.5em!important;
+    background-color: #405d27!important;
+    border: 0 transparent!important;
+    -webkit-box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.18)!important;
+    -moz-box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.18)!important;
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.18)!important;
+    /*-webkit-transition:all 0.1s ease 0s;
+    -moz-transition:all 0.1s ease 0s;
+    transition: all 0.1s ease ;*/
+    -webkit-transition: none!important;
+    -moz-transition: none!important;
+    transition: none!important;
+}
+
+.btn:hover {
+    background-color: #82b74b!important;
+}
+
+.btn:active {
+    transform: scale(0.9, 1)!important;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* this is new whoa */
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    z-index: 5;
+    border-radius: 5px;
+    width: 70%;
+    height: 70%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 70%;
+    overflow: auto;
+}
+
+
+
+
+
+
+
+#map-canvas {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+#panel {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    margin-left: -180px;
+    z-index: 10;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+}
+
+/*
+  Weird scrolbars displaying on the initial info window. Fixed by:
+  http://www.canbike.ca/information-technology/2013/11/01/firefox-infowindow-scrollbar-fix-google-maps-api-v3.html
+*/
+.noscrollbar {
+    line-height:1.35;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+
+footer {
+    position: absolute!important;
+    bottom: 0;
+    left:0;
+
+    margin:0;
+    padding:0;
+    width: 100%;
+    /* height:100%; */
+    background-color:#3e4444;
+    color: white;
+}
+footer h3{
+    font-family:"Noto Sans";
+    font-size:16px;
+    font-weight: bold;
+}
+.footer_content{
+    font-family:"Noto Sans";
+    font-size:14px;
+    word-wrap:break-word;
+    font-weight: bold;
+}

@@ -12,8 +12,7 @@ router.get('/quiz3', quizPage3);
 
 router.get('/quizWin', quizWin);
 
-router.get('/diyHome', diyHome);
-router.get('/diyTemplete', diyTemplete);
+router.get('/diy', diy);
 
 router.get('/login',loginPage);
 
