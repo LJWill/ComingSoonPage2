@@ -1,6 +1,6 @@
-
-
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans');
+
+
 
 html{
     height:100%;
@@ -41,6 +41,9 @@ h1{
 
 
 
+
+
+
 .login{
     position: absolute;
     right:0px;
@@ -61,10 +64,9 @@ h1{
     border:none;
 
 }
-.signup{
+.signup_page{
     position: absolute;
     right:70px;
-
     font-family: "Noto Sans";
     font-weight:bold;
     font-size:16px;
@@ -78,16 +80,15 @@ h1{
     top: 0px;
 }
 
-.signup:hover {
+.signup_page:hover {
     opacity:0.8;
     border:none;
 
 }
-
-.sigup a:link{
+.sigup_page a:link{
     color:#3e4444;
 }
-.signup a:visited{
+.signup_page a:visited{
     color:#3e4444;
 }
 .login a:link{
@@ -99,16 +100,13 @@ h1{
 
 
 
-
 ul {
     list-style-type: none;
-
     margin:0!important;
     padding: 0;
     width:100%;
     overflow: hidden;
     background-color: #3e4444;
-
 }
 li {
     float: right;
@@ -119,10 +117,8 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-
     font-family: "Noto Sans";
     color:white;
-
 
 }
 li a:hover {
@@ -130,107 +126,56 @@ li a:hover {
 }
 
 
-img{
-    width:100%;
+
+
+.signup {
+    width: 400px;
+    height:220px;
+    overflow: hidden;
+    border: solid 3px #3e4444;
     margin:0;
     padding:0;
-    height:700px;
-}
-
-
-
-
-
-.icon{
-    height:180px;
-    width:180px;
-}
-.quiz_content_container{
-    margin-top:3em;
-
-    float: left;
-    width: 33.33%;
-    box-sizing: border-box;
-}
-.evaluation_content_container{
-
-    margin-top:3em;
-
-    float: left;
-    width: 33.33%;
-    box-sizing: border-box;
-}
-.diy_content_container{
-
-    margin-top:3em;
-    float: left;
-    width: 33.33%;
-    box-sizing: border-box;
-}
-
-h2{
-
-    font-family: Noto Sans;
-}
-
-.quiz_intro{
-    word-wrap:break-word;
-
-    font-family: Noto Sans;
-}
-.evaluation_intro{
-    word-wrap:break-word;
-    font-family: Noto Sans;
-}
-.diy_intro{
-    word-wrap:break-word;
-    font-family: Noto Sans;
-}
-
-.content_button {
-    display: inline-block;
-    border-radius: 4px;
-
-    background-color: #3e4444;
     font-family:"Noto Sans";
-    border: none;
-    color: #FFFFFF;
+
+}
+.signup_title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #3e4444;
     text-align: center;
-    font-size: 20px;
-
-    padding: 20px;
-    width: 200px;
-    hight:100px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    vertical-align:middle;
+    color:white;
+    font-family:"Noto Sans";
 }
-.content_button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-    vertical-align:middle
+.line {
+    font-size: 16px;
+    margin-top:0.8em;
+    text-align: center;
+    font-family:"Noto Sans";
 }
-.content_button span:after {
-    content: '»';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-    vertical-align:middle
+.line input {
+    width: 150px;
+    font-family:"Noto Sans";
 }
-.content_button:hover span {
-    padding-right: 25px;
-    vertical-align:middle
+.signup_submit {
+    font-family: "Noto Sans";
+    font-size: 16px;
+    text-align: center;
+    margin:0.6em;
+    margin-left: 10em;
 }
 
-.content_button:hover span:after {
-    opacity: 1;
-    right: 0;
-    vertical-align:middle
+.wrap{
+    background-color: white;
+    opacity: 0.9;
+    font-family:"Noto Sans";
+}
+
+.line a:link{
+    color:#3e4444;
+}
+.line a:visited{
+    color:#3e4444;
 }
 
 
@@ -238,20 +183,16 @@ h2{
     margin:0;
     padding:0;
     height:100%;
-
     background-color:#3e4444;
     color: white;
 }
 h3{
     font-family:"Noto Sans";
-
     font-size:16px;
     font-weight: bold;
 }
 .footer_content{
-
     font-family:"Noto Sans";
-
     font-size:14px;
     word-wrap:break-word;
     font-weight: bold;

@@ -2,6 +2,7 @@ var db = require('../models/db.js');    // whatever you exported in db.js (in mo
 
 module.exports = indexPage = function (req, res) {
     res.render('index.ejs', {
+
         title: db.comingSoon,
         groupMembers : db.groupMembers
     });
@@ -42,8 +43,19 @@ module.exports = diyHome = function (req, res) {
     });
 };
 
+module.exports=loginPage=function(req,res){
+    res.render('login.ejs',{
+
+    });
+};
+
 module.exports = diyTemplete = function (req, res) {
     res.render('diyTemplete.ejs', {
+    });
+};
+
+module.exports=signupPage=function(req,res){
+    res.render('signup.ejs',{
 
     });
 };

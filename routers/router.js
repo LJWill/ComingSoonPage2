@@ -4,7 +4,6 @@ const controller = require('../controllers/controller');
 
 router.get('/', indexPage);
 
-
 router.get('/quiz', quizPage);
 
 router.get('/quiz2', quizPage2);
@@ -16,5 +15,10 @@ router.get('/quizWin', quizWin);
 router.get('/diyHome', diyHome);
 router.get('/diyTemplete', diyTemplete);
 
+router.get('/login',loginPage);
+
+router.get('/signup',signupPage);
+
+router.get('/index',indexPage);
 
 module.exports = router;
