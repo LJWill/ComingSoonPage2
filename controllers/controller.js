@@ -76,3 +76,9 @@ module.exports=signupPage=function(req,res){
 >>>>>>> 024d2ce1983f8d43603742a07abb4327fc6b0fad
     });
 };
+
+module.exports=evaluation=function(req,res){
+    res.render('evaluation.ejs',{
+
+    });
+};

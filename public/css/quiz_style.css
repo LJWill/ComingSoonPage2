@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans');
 img {
     max-width: 70%;
     width: 70%;
@@ -78,6 +79,5 @@ img {
     -o-transition: width 6s ease-in-out;
     transition: width 6s ease-in-out;
 }
-
 
 
