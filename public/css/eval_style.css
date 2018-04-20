@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans');
+
+.bg {
+    /* The image used */
+    background-image: url("/images/shoe_eval.jpg");
+
+    /* Full height */
+    height: 60%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-title {
+    color:white;
+    font-family: "Noto Sans";
+    position: relative;
+    top:9em;
+}
+
+.select-bar {
+    position:relative;
+    left:10%
+}
