@@ -12,3 +12,9 @@ module.exports = diyHome = function (req, res) {
 
     });
 };
+
+module.exports = diyTemplete = function (req, res) {
+    res.render('diyTemplete.ejs', {
+
+    });
+};

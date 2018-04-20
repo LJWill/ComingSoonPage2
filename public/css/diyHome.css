@@ -1,12 +1,459 @@
-.header {
+
+/* HEADER */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+.homepage_logo{
+    float:left;
+    height: 100px;
+    width:100px;
+}
+.login{
+    position: absolute;
+    right:0px;
+    font-family: "Dancing Script";
+    font-weight:bold;
+    font-size:16px;
+    border:none;
+    color:#333;
+    background-color: white;
+    height: 30px;
+    margin:0px;
+    padding:0px;
+    width: 70px;
+    top: 0px;
+}
+.login:hover {
+    opacity:0.8;
+    border:none;
+
+}
+.signup{
+    position: absolute;
+    right:70px;
+    font-family: "Dancing Script";
+    font-weight:bold;
+    font-size:16px;
+    border:none;
+    color:#333;
+    background-color: white;
+    height: 30px;
+    margin:0px;
+    padding:0px;
+    width: 70px;
+    top: 0px;
+}
+h1{
+    font-family: "Dancing Script";
+    font-size: 60px;
+    margin-left:40%;
+}
+
+ul {
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li {
+    float: right;
+}
+li a {
+    display: block;
+    color: white;
     text-align: center;
-    padding: 5px;
-    font-family: cursive;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "Pacifico";
+
+}
+li a:hover {
+    background-color: #111;
+}
+
+
+
+
+
+body {
+    font: 100%/1.5 AvenirNext-Regular, Corbel, "Lucida Grande", "Trebuchet Ms", sans-serif;
+    color: #111;
+    background-color: #fff;
+    margin: 2em 10%
+}
+
+/* Label styles: style as needed */
+label {
+    display:block;
+    margin: 2em 1em .25em .75em;
+    font-size: 1.25em;
+    color:#333;
+}
+
+/* Container used for styling the custom select, the buttom class adds the bg gradient, corners, etc. */
+.dropdown {
+    position: relative;
+    display:block;
+    margin-top:0.5em;
+    padding:0;
+}
+/* This is the native select, we're making everything the text invisible so we can see the button styles in the wrapper */
+.dropdown select {
+    width:100%;
+    margin:0;
+    background:none;
+    border: 1px solid transparent;
+    outline: none;
+    /* Prefixed box-sizing rules necessary for older browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Remove select styling */
+    appearance: none;
+    -webkit-appearance: none;
+    /* Magic font size number to prevent iOS text zoom */
+    font-size:1.25em;
+    /* General select styles: change as needed */
+    /* font-weight: bold; */
+    color: #444;
+    padding: .6em 1.9em .5em .8em;
+    line-height:1.3;
+}
+.dropdown select,
+label {
+    font-family: AvenirNextCondensed-DemiBold, Corbel, "Lucida Grande","Trebuchet Ms", sans-serif;
+}
+.dropdown::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 8px;
+    top: 50%;
+    right: 1em;
+    margin-top:-4px;
+    z-index: 2;
+    background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12'%3E%3Cpolygon fill='rgb(102,102,102)' points='8,12 0,0 16,0'/%3E%3C/svg%3E") 0 0 no-repeat;
+    /* These hacks make the select behind the arrow clickable in some browsers */
+    pointer-events:none;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .dropdown select::-ms-expand {
+        display: none;
+    }
+    /* Removes the odd blue bg color behind the text in IE 10/11 and sets the text to match the focus style text */
+    select:focus::-ms-value {
+        background: transparent;
+        color: #222;
+    }
+}
+body:last-child .dropdown::after, x:-moz-any-link {
+    display: none;
+}
+/* reduce padding */
+body:last-child .dropdown select, x:-moz-any-link {
+    padding-right: .8em;
+}
+/* Hover style */
+.dropdown:hover {
+    border:1px solid #888;
+}
+/* Focus style */
+select:focus {
+    outline:none;
+    box-shadow: 0 0 1px 3px rgba(180,222,250, 1);
+    background-color:transparent;
+    color: #222;
+    border:1px solid #aaa;
+}
+/* Firefox focus has odd artifacts around the text, this kills that */
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+option {
+    font-weight:normal;
+}
+/* These are just demo button-y styles, style as you like */
+.button {
+    border: 1px solid #bbb;
+    border-radius: .3em;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
+}
+.output {
+    margin: 0 auto;
+    padding: 1em;
+}
+
+
+
+
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,600);
+figure.snip1195 {
+    font-family: 'Raleway', Arial, sans-serif;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 10px 1%;
+    min-width: 400px;
+    max-width: 480px;
+    width: 100%;
+    background: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+figure.snip1195 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+figure.snip1195 .image {
+    background-color: #000000;
+    width: 50%;
+    overflow: hidden;
+}
+figure.snip1195 img {
+    max-width: 100%;
+    vertical-align: top;
+}
+figure.snip1195 figcaption {
+    position: absolute;
+    width: 50%;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 10px 35px;
+}
+figure.snip1195 h4,
+figure.snip1195 p,
+figure.snip1195 .price {
+    margin: 0 0 8px;
+}
+figure.snip1195 h4 {
+    position: absolute;
+    width: 50%;
+    top: 10px;
+    text-transform: uppercase;
     font-weight: 400;
-    font-size: 4em;
+    color: #ffffff;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+figure.snip1195 p {
+    font-size: 0.7em;
+    font-weight: 500;
+    line-height: 1.6em;
+}
+figure.snip1195 .rating {
+    position: absolute;
+    width: 50%;
+    line-height: 44px;
+    color: #ffffff;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+figure.snip1195 .price {
+    color: #ffffff;
+    font-size: 1.3em;
+    opacity: 0.8;
+}
+figure.snip1195 .price s {
+    display: inline-block;
+    padding: 0 8px 0 0;
+    font-size: 0.85em;
+    color: #f39c12;
+}
+figure.snip1195 .add-to-cart {
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-weight: 600;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    line-height: 44px;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+figure.snip1195:hover img,
+figure.snip1195.hover img {
+    opacity: 0.6;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+figure.snip1195:hover .add-to-cart,
+figure.snip1195.hover .add-to-cart {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+/* Demo purposes only */
+body {
+    background-color: #212121;
+}
 
-    grid-column: 2;
-    grid-column-end: 3;
-    grid-row: 2;
 
+
+
+
+
+
+
+
+body {
+    font-family: sans-serif;
+}
+
+.imgLoader {
+    display: none;
+    opacity: 0 !important;
+}
+
+.pricebox {
+    font-size: 30px;
+    color: orange;
+}
+
+.ui.items .item.active {
+    border: 3px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+.snip1584 {
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 10px 8px;
+    min-width: 230px;
+    max-width: 315px;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: left;
+}
+.snip1584 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.snip1584:before {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    top: 100%;
+    content: '';
+    background-color: rgba(51, 51, 51, 0.9);
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    -webkit-transition-delay: 0.25s;
+    transition-delay: 0.25s;
+}
+.snip1584 img {
+    vertical-align: top;
+    max-width: 100%;
+    backface-visibility: hidden;
+}
+.snip1584 figcaption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.snip1584 h3,
+.snip1584 h5 {
+    margin: 0;
+    opacity: 0;
+    letter-spacing: 1px;
+}
+.snip1584 h3 {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    text-transform: uppercase;
+    font-weight: 400;
+    -webkit-transition-delay: 0.05s;
+    transition-delay: 0.05s;
+    margin-bottom: 5px;
+}
+.snip1584 h5 {
+    font-weight: normal;
+    background-color: #ae895d;
+    padding: 3px 10px;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.snip1584 a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.snip1584:hover:before,
+.snip1584.hover:before {
+    top: 10px;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.snip1584:hover h3,
+.snip1584.hover h3,
+.snip1584:hover h5,
+.snip1584.hover h5 {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+.snip1584:hover h3,
+.snip1584.hover h3 {
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+.snip1584:hover h5,
+.snip1584.hover h5 {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+/* Demo purposes only */
+body {
+    background-color: #212121;
+    text-align: center;
 }
