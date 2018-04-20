@@ -6,12 +6,12 @@ const router = require('./routers/router');
 app.set('view engine', 'ejs');
 app.use(router);
 app.use(express.static(__dirname +'/public'));
+
 app.use(function(req, res, next){
     res.status(404);
-
     // respond with html page
     if (req.accepts('html')) {
-        res.render('404', { url: req.url });
+        res.render('404_error_template', { url: req.url });
         return;
     }
     // respond with json

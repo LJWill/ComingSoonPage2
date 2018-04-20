@@ -1,0 +1,12 @@
+.img-container {
+    justify-self: center;
+}
+
+#winner {
+    width: 40%!important;
+}
+
+.crown{
+    position: relative;
+    
+}
