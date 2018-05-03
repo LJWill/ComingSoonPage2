@@ -76,3 +76,33 @@ module.exports=evaluation=function(req,res){
 
     });
 };
+
+// user api
+var mongoose = require('mongoose');
+var User = mongoose.model('user');
+var createUser = function(req,res){
+    var user = new User({
+        "email": req.body.name,
+        "password": req.body.password
+    });
+    user.save(function(err, newUser){
+        if(!err){
+            res.send(newUser);
+        }else{
+            res.sendStatus(400);
+        }
+    });
+};
+
+var findUser = function(req, res) {
+    var userEmail = req.params.email;
+    var userPassword = req.params.password;
+
+    User.find(function(err, user){
+        if(!err){
+            res.send(user);
+        }else{
+            res.sendStatus(404);
+        }
+    })
+}

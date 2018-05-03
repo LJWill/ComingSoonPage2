@@ -23,4 +23,10 @@ router.get('/index',indexPage);
 
 router.get('/evaluation', evaluation);
 
+// user api
+router.post('/api/user', controller.createUser);
+router.get('/api/user', controller.findUser);
+
+
+
 module.exports = router;
