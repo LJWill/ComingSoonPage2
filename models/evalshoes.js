@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 var evalshoesSchema = mongoose.Schema(
     {
         "user": String,
-        "time": String,
+        "time": Date,
         "image": String,
-        "rating": String,
+        "rating": Number,
         "coupon": String
     }
 );

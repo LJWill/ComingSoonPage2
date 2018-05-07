@@ -1,7 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const router = require('./routers/router');
+
 const app = express();
 
-const router = require('./routers/router');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 app.set('view engine', 'ejs');
 app.use(router);
@@ -13,13 +20,6 @@ app.use(function(req, res, next){
     if (req.accepts('html')) {
         res.render('404_error_template', { url: req.url });
     }
-    // respond with json
-    if (req.accepts('json')) {
-        res.send({ error: 'Not found' });
-        return;
-    }
-    // default to plain-text. send()
-    res.type('txt').send('Not found');
 });
 
 const PORT = process.env.PORT || 3000;

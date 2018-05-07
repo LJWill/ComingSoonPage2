@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/controller');
+const controller = require('../controllers/controller.js');
 
 router.get('/', indexPage);
 
@@ -24,8 +24,8 @@ router.get('/index',indexPage);
 router.get('/evaluation', evaluation);
 
 // user api
-router.post('/api/user', controller.createUser);
-router.get('/api/user', controller.findUser);
+router.post('/api/sign_up', createUser);
+// router.get('/api/user', controller.findUser);
 
 
 
