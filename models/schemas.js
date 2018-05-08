@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-
-// users
-const userSchema = mongoose.Schema({
-    "email": String,
-    "password": String
-});
-module.exports.User = mongoose.model('users', userSchema);
+//
+// // users
+// const userSchema = mongoose.Schema({
+//     "email": {type: String, required: true, validate: [validators.notEmpty, 'Name is empty']},
+//     "password": {type: String, required: true, validate: [validators.notEmpty, 'Name is empty']},
+// });
+// module.exports.User = mongoose.model('users', userSchema);
 
 // quizzes
 const quizSchema = mongoose.Schema({
@@ -32,8 +32,7 @@ const evalshoesSchema = mongoose.Schema({
 module.exports.Evalshoes = mongoose.model('eval shoes', evalshoesSchema);
 
 // diy shoes
-const diyshoesSchema = mongoose.Schema(
-    {
+const diyshoesSchema = mongoose.Schema({
         "name": String,
         "part": String,
         "color": String,

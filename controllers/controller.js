@@ -79,12 +79,14 @@ module.exports=evaluation=function(req,res){
 
 // user api
 var mongoose = require("../models/mongoose.js");
+var User = require('../models/user_model.js');
 
 module.exports.createUser = function(req,res){
-    var user = new mongoose.User({
-        email: req.body.email,
+    var user = new User({
+        username: req.body.username,
         password: req.body.password
     });
+    console.log(user);
     user.save(function(err, save){
         console.log(save);
         if(!err){
@@ -95,17 +97,17 @@ module.exports.createUser = function(req,res){
     });
 };
 
-// var findUser = function(req, res) {
-//     var userEmail = req.params.email;
-//     var userPassword = req.params.password;
-//
-//     User.find(function(err, user){
-//         if(!err){
-//             res.send(user);
-//         }else{
-//             res.sendStatus(404);
-//         }
-//     });
-// };
 
-// module.exports.findUser = findUser;
+module.exports.verifyUser = function(req, res) {
+    var user = new User({
+        username: req.body.username,
+        password: req.body.password
+    });
+    user.comparePassword(user.username, function(err, isMatch){
+        if(!err){
+            res.send("log in");
+        }else{
+            res.sendStatus(400);
+        }
+    });
+};
