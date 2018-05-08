@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var evalshoesSchema = mongoose.Schema(
+var evalshoesSchema = new mongoose.Schema(
     {
         "user": String,
         "time": Date,

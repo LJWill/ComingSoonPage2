@@ -9,6 +9,6 @@ mongoose.connect('mongodb://zichunz:Reporkey1996@ds161041.mlab.com:61041/mydb', 
 });
 
 require('./user.js');
-require('./quiz.js');
-require('./evalshoes.js');
-require('./diyshoes.js');
+// require('./quiz.js');
+// require('./evalshoes.js');
+// require('./diyshoes.js');
