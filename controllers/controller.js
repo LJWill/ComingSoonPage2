@@ -77,10 +77,12 @@ module.exports=evaluation=function(req,res){
     });
 };
 
-// user api
+/* user api */
+
 var mongoose = require("../models/mongoose.js");
 var User = require('../models/user_model.js');
 
+// sign up
 module.exports.createUser = function(req,res){
     var user = new User({
         username: req.body.username,
@@ -97,7 +99,7 @@ module.exports.createUser = function(req,res){
     });
 };
 
-
+// log in
 module.exports.verifyUser = function(req, res) {
     var user = new User({
         username: req.body.username,

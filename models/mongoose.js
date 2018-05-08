@@ -1,6 +1,6 @@
 //create database
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://zichunz:Reporkey1996@ds161041.mlab.com:61041/mydb', function(err){
+mongoose.connect('mongodb://admin:123@ds161041.mlab.com:61041/mydb', function(err){
     if(!err){
         console.log('Connected to mongo');
     }else{
