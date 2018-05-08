@@ -1,5 +1,5 @@
 //create database
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.connect('mongodb://zichunz:Reporkey1996@ds161041.mlab.com:61041/mydb', function(err){
     if(!err){
         console.log('Connected to mongo');
@@ -8,7 +8,4 @@ mongoose.connect('mongodb://zichunz:Reporkey1996@ds161041.mlab.com:61041/mydb', 
     }
 });
 
-require('./user.js');
-// require('./quiz.js');
-// require('./evalshoes.js');
-// require('./diyshoes.js');
+module.exports = require('./schemas.js');
