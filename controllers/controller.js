@@ -84,6 +84,7 @@ var User = require('../models/user_model.js');
 
 // sign up
 module.exports.createUser = function(req,res){
+    console.log("start sign up");
     var user = new User({
         username: req.body.username,
         password: req.body.password
@@ -105,6 +106,7 @@ module.exports.verifyUser = function(req, res) {
         username: req.body.username,
         password: req.body.password
     });
+    console.log(user);
     user.comparePassword(user.username, function(err, isMatch){
         if(!err){
             res.send("log in");

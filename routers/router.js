@@ -16,8 +16,8 @@ router.get('/index',indexPage);
 router.get('/evaluation', evaluation);
 
 // user api
-router.post('/api/sign_up', controller.createUser);
-router.post('/api/login', controller.verifyUser);
+router.post('/signup', controller.createUser);
+router.post('/login', controller.verifyUser);
 
 
 module.exports = router;

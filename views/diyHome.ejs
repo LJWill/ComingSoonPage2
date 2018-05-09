@@ -17,6 +17,7 @@
     <title>DIY shoes</title>
 
     <script>
+
         $(function() {
             $('#out').change(function(){
                 $('.out').hide();
@@ -29,7 +30,6 @@
                 $('.mid').hide();
                 $('#' + $(this).val()).show();
                 document.getElementById("select mid").innerText = document.getElementById("mid").options[document.getElementById("mid").selectedIndex].text;
-
             });
         });
         $(function() {
@@ -40,8 +40,16 @@
             });
         });
 
+        var $up = 1;
+        var $mid = 1;
 
-
+        function combinator(){
+            $up = $('#up').val();
+            $mid = $('#mid').val();
+            $up = $up[1];
+            $mid = $mid[1];
+            document.getElementById("finalRender").src = "images/combinations/U" + $up + "M" + $mid + ".png";
+        };
 
     </script>
 
@@ -65,25 +73,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="container">
         <div class="row">
             <div class="col-sm">
@@ -92,18 +81,22 @@
 
                 <label class="wrapper" for="states">Please choose out sole:</label>
                 <div class="button dropdown">
-                    <select id="out">
-                        <option value="o1">o1</option>
-                        <option value="o2">o2</option>
-                        <option value="o3">o3</option>
+                    <select id="out" onclick="combinator()">
+                        <option value="o1">out1</option>
+                        <option value="o2">out2</option>
+                        <option value="o3">out3</option>
+                        <option value="o4">out4</option>
+                        <option value="o5">out5</option>
                     </select>
                 </div>
 
                 <figure class="snip1584">
                     <div class="output">
-                        <div id="o1" class="out o1" style="display: block"><img src="images/one.jpeg" alt="bottom"></div>
-                        <div id="o2" class="out o2" style="display: none"><img src="images/two.jpeg" alt="bottom"></div>
-                        <div id="o3" class="out o3" style="display: none"><img src="images/three.jpeg" alt="bottom"></div>
+                        <div id="o1" class="out o1" style="display: block"><img src="images/outsoles/outsole1.jpg" alt="bottom"></div>
+                        <div id="o2" class="out o2" style="display: none"><img src="images/outsoles/outsole2.jpg" alt="bottom"></div>
+                        <div id="o3" class="out o3" style="display: none"><img src="images/outsoles/outsole3.jpg" alt="bottom"></div>
+                        <div id="o4" class="out o4" style="display: none"><img src="images/outsoles/outsole4.jpg" alt="bottom"></div>
+                        <div id="o5" class="out o5" style="display: none"><img src="images/outsoles/outsole5.jpg" alt="bottom"></div>
                     </div>
                     <figcaption>
                         <h3>AJ Air</h3>
@@ -117,9 +110,9 @@
 
                 <!--mid-->
 
-                <label class="wrapper" for="states">Please shoose mid sole:</label>
+                <label class="wrapper" for="states">Please choose mid sole:</label>
                 <div class="button dropdown">
-                    <select id="mid">
+                    <select id="mid" onclick="combinator()">
                         <option value="m1">m1</option>
                         <option value="m2">m2</option>
                         <option value="m3">m3</option>
@@ -127,9 +120,9 @@
                 </div>
                 <figure class="snip1584">
                     <div class="output">
-                        <div id="m1" class="mid m1" style="display: block"><img src="images/one.jpeg" alt="bottom"></div>
-                        <div id="m2" class="mid m2" style="display: none"><img src="images/two.jpeg" alt="bottom"></div>
-                        <div id="m3" class="mid m3" style="display: none"><img src="images/three.jpeg" alt="bottom"></div>
+                        <div id="m1" class="mid m1" style="display: block"><img src="images/midsoles/midsole1.png" alt="bottom"></div>
+                        <div id="m2" class="mid m2" style="display: none"><img src="images/midsoles/midsole2.png" alt="bottom"></div>
+                        <div id="m3" class="mid m3" style="display: none"><img src="images/midsoles/midsole3.png" alt="bottom"></div>
                     </div>
                     <figcaption>
                         <h3>AJ Air</h3>
@@ -143,17 +136,21 @@
                 <!--up-->
                 <label class="wrapper" for="states">Please choose upper material:</label>
                 <div class="button dropdown">
-                    <select id="up">
+                    <select id="up" onclick="combinator()">
                         <option value="u1">u1</option>
                         <option value="u2">u2</option>
                         <option value="u3">u3</option>
+                        <option value="u4">u4</option>
+                        <option value="u5">u5</option>
                     </select>
                 </div>
               <figure class="snip1584">
                     <div class="output">
-                        <div id="u1" class="up u1" style="display: block"><img src="images/one.jpeg" alt="bottom"></div>
-                        <div id="u2" class="up u2" style="display: none"><img src="images/two.jpeg" alt="bottom"></div>
-                        <div id="u3" class="up u3" style="display: none"><img src="images/three.jpeg" alt="bottom"></div>
+                        <div id="u1" class="up u1" style="display: block"><img src="images/uppermaterials/uppermaterial1.png" alt="bottom"></div>
+                        <div id="u2" class="up u2" style="display: none"><img src="images/uppermaterials/uppermaterial2.png" alt="bottom"></div>
+                        <div id="u3" class="up u3" style="display: none"><img src="images/uppermaterials/uppermaterial3.png" alt="bottom"></div>
+                        <div id="u4" class="up u4" style="display: none"><img src="images/uppermaterials/uppermaterial4.png" alt="bottom"></div>
+                        <div id="u5" class="up u5" style="display: none"><img src="images/uppermaterials/uppermaterial5.png" alt="bottom"></div>
                     </div>
                     <figcaption>
                         <h3>AJ Air</h3>
@@ -175,7 +172,7 @@
                 <!--final render-->
 
                 <p style="font-size: 200%">Your design: </p>
-                <img src="images/three.jpeg" style="height: 100%" alt="bottom">
+                <img id="finalRender" src="images/combinations/U1M1.png" style="max-height: 400px; margin-left: 100px" alt="bottom">
 
 
             </div>
