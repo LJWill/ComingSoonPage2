@@ -4,7 +4,11 @@ const controller = require('../controllers/controller');
 
 router.get('/', indexPage);
 
-router.get('/quiz', quizPage);
+router.get('/quiz', (req, res) => {
+    res.render('quizPage.ejs', {
+        score: '666'
+    });
+});
 
 router.get('/quiz2', quizPage2);
 
