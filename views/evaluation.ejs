@@ -1,0 +1,161 @@
+<!doctype  <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Start Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/eval_style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/hf_style.css" />
+
+    <!-- bootstrap CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script>
+       
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <a href="index"><img class="homepage_logo" src="images/logo.png",alt="group logo"></a>
+        <h1>Renike</h1>
+        <button class="signup"><a href="signup">Sign up</a></button>
+        <button class="login"><a href="login">Login</a></button>
+        <ul>
+            <li><a href="/evaluation">Shoes Evaluation</a></li>
+            <li><a href="/diy">DIY</a></li>
+            <li><a href="/quiz">Quiz Show</a></li>
+            <li><a href="/index">Home</a></li>
+        </ul>
+    </div>
+
+    <div class="bg">
+        <div class="bg-title">
+                <h2 class="d-flex p-2 justify-content-center">Start Your Shoes Evaluation</h2>
+                <p class="d-flex p-2 justify-content-center">Step1:Choose One Pair Of Shoes You Won't Wear Anymore</p>
+                <p class="d-flex p-2 justify-content-center">Step2:Choose The Worn Down Level For Out Sole</p>
+                <p class="d-flex p-2 justify-content-center">Step3:Choose The Worn Down Level For Mid Sole</p>
+                <p class="d-flex p-2 justify-content-center">Step4:Choose The Worn Down Level For Upper Material</p>
+                <p class="d-flex p-2 justify-content-center">Step5:Know How Much Your Old Shoes Worths And Get A Voucher </p>
+        </div>
+    </div>
+
+    <div class="select-bar">
+        <div class="row">
+            <div class="pt-5">
+                    <div class="row">
+                            <!-- tab -->
+                            <div class="col-5">
+                                <div  class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="tab-old1" role="tabpanel" aria-labelledby="list-home-list">
+                                            <img src="/images/bottom_old.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                    </div>
+                                    <div class="tab-pane fade" id="tab-new1" role="tabpanel" aria-labelledby="list-profile-list">
+                                            <img src="/images/bottom_new.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- list -->
+                            <div class="col-5 d-flex flex-column">
+                                <div class="p-2 mx-auto"><h3>Out Sole</h3></div>
+                                <div class="p-2 mx-auto">select worn-out level</div>
+                                <div class="p-2">
+                                    <div class="">
+                                            <div class="list-group" id="list-tab" role="tablist">
+                                                <a class="list-group-item btn-secondary list-group-item-action active" id="list-new1" data-toggle="list" href="#tab-old1" role="tab" aria-controls="old">old</a>
+                                                <a class="list-group-item btn-secondary list-group-item-action" id="list-old1" data-toggle="list" href="#tab-new1" role="tab" aria-controls="new">new</a>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+            </div>
+            <div class="w-100"></div>
+            
+            <div class="pt-5">
+                    <div class="row">
+                            <!-- tab -->
+                            <div class="col-5">
+                                <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="tab-old2" role="tabpanel" aria-labelledby="list-home-list">
+                                        <img src="/images/mid_old.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                        
+                                </div>
+                                <div class="tab-pane fade" id="tab-new2" role="tabpanel" aria-labelledby="list-profile-list">
+                                        <img src="/images/mid_new.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- list -->
+                            <div class="col-5 d-flex flex-column">
+                                    <div class="p-2 mx-auto"><h3>Mid Sole</h3></div>
+                                    <div class="p-2 mx-auto">select worn-out level</div>
+                                    <div class="p-2">
+                                        <div class="">
+                                                <div class="list-group" id="list-tab" role="tablist">
+                                                    <a class="list-group-item btn-secondary list-group-item-action active" id="list-new2" data-toggle="list" href="#tab-old2" role="tab" aria-controls="old">old</a>
+                                                    <a class="list-group-item btn-secondary list-group-item-action" id="list-old2" data-toggle="list" href="#tab-new2" role="tab" aria-controls="new">new</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+            </div>
+            <div class="w-100"></div>
+
+            <div class="pt-5">
+                    <div class="row">
+                            <!-- tab -->
+                            <div class="col-5">
+                                <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="tab-old3" role="tabpanel" aria-labelledby="list-home-list">
+                                        <img src="/images/upper_old.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                </div>
+                                <div class="tab-pane fade" id="tab-new3" role="tabpanel" aria-labelledby="list-profile-list">
+                                        <img src="/images/upper_new.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- list -->
+                            <div class="col-5 d-flex flex-column">
+                                    <div class="p-2 mx-auto"><h3>Upper Material</h3></div>
+                                    <div class="p-2 mx-auto">select worn-out level</div>
+                                    <div class="p-2">
+                                        <div class="">
+                                                <div class="list-group" id="list-tab" role="tablist">
+                                                    <a class="list-group-item btn-secondary list-group-item-action active" id="list-new3" data-toggle="list" href="#tab-old3" role="tab" aria-controls="old">old</a>
+                                                    <a class="list-group-item btn-secondary list-group-item-action" id="list-old3" data-toggle="list" href="#tab-new3" role="tab" aria-controls="new">new</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div>
+            
+    </div>
+
+
+
+
+    <footer class="footer">
+        <div class="footer-copyright py-3 text-center">
+            © 2018 Copyright:
+            <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> the-abacus.herokuapp.com </a>
+        </div>
+    </footer>
+
+    
+</body>
+
+</html>
