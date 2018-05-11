@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/controller');
+const quiz = require('../models/quiz.js');
 
 router.get('/', indexPage);
 
 router.get('/quiz', (req, res) => {
     res.render('quizPage.ejs', {
-        score: '666'
+        score: '666',
+        q: quiz.questions
     });
 });
 

@@ -1,11 +1,8 @@
-const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results');
-const submitButton = document.getElementById('submit');
 
 const myQuestions = [
     {
       question: "Who is the strongest?",
-      answers: {
+      option: {
         a: "Superman",
         b: "The Terminator",
         c: "Batman, obviously",
@@ -15,7 +12,7 @@ const myQuestions = [
     },
     {
       question: "What is the best site ever created?",
-      answers: {
+      option: {
         a: "Renike",
         b: "Simple Steps Code",
         c: "Trick question; they're both the best",
@@ -25,7 +22,7 @@ const myQuestions = [
     },
     {
       question: "Where is Waldo really?",
-      answers: {
+      option: {
         a: "Antarctica",
         b: "Exploring the Pacific Ocean",
         c: "Sitting in a tree",
@@ -35,14 +32,4 @@ const myQuestions = [
     }
   ];
 
-  module.exports.questions = myQuestions;
-
-function buildQuiz(){}
-
-function showResults(){}
-
-// display quiz right away
-buildQuiz();
-
-// on submit, show results
-submitButton.addEventListener('click', showResults);
+module.exports.questions = myQuestions;
