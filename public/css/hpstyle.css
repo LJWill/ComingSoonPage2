@@ -1,0 +1,130 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans');
+
+html{
+    height:100%;
+    width:100%;
+}
+
+.main_wrap{
+    min-height:100%
+}
+.content_wrap{
+    text-align: center;
+}
+.main{
+    padding-bottom:30px;
+    overflow:hidden;
+}
+
+body{
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    padding-up:0px;
+}
+
+
+img{
+    width:100%;
+    margin:0;
+    padding:0;
+    height:700px;
+}
+
+
+
+
+
+.icon{
+    height:180px;
+    width:180px;
+}
+.quiz_content_container{
+    margin-top:3em;
+
+    float: left;
+    width: 33.33%;
+    box-sizing: border-box;
+}
+.evaluation_content_container{
+
+    margin-top:3em;
+
+    float: left;
+    width: 33.33%;
+    box-sizing: border-box;
+}
+.diy_content_container{
+
+    margin-top:3em;
+    float: left;
+    width: 33.33%;
+    box-sizing: border-box;
+}
+
+h2{
+
+    font-family: Noto Sans;
+}
+
+.quiz_intro{
+    word-wrap:break-word;
+
+    font-family: Noto Sans;
+}
+.evaluation_intro{
+    word-wrap:break-word;
+    font-family: Noto Sans;
+}
+.diy_intro{
+    word-wrap:break-word;
+    font-family: Noto Sans;
+}
+
+.btn {
+    display: inline-block!important;
+    border-radius: 4px!important;
+    background-color: #3e4444!important;
+    font-family:"Noto Sans"!important;
+    border: none!important;
+    color: #FFFFFF!important;
+    text-align: center!important;
+    font-size: 20px!important;
+    padding: 20px!important;
+    width: 200px!important;
+    hight:100px!important;
+    transition: all 0.5s!important;
+    cursor: pointer!important;
+    margin: 5px!important;
+    vertical-align:middle!important;
+}
+.btn span {
+    cursor: pointer!important;
+    display: inline-block!important;
+    position: relative!important;
+    transition: 0.5s!important;
+    vertical-align:middle!important;
+}
+.btn span:after {
+    content: '»' !important;
+    position: absolute!important;
+    opacity: 0!important;
+    top: 0!important;
+    right: -20px!important;
+    transition: 0.5s!important;
+    vertical-align:middle!important;
+}
+.btn:hover span {
+    padding-right: 25px!important;
+    vertical-align:middle!important;
+}
+
+.btn:hover span:after {
+    opacity: 1!important;
+    right: 0!important;
+    vertical-align:middle!important;
+}
