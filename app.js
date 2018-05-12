@@ -1,33 +1,43 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
+var express  = require('express');
+var app = express();
+var router = express.Router();
+var PORT = process.env.PORT || 3001;
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash    = require('connect-flash');
 
-const session = require('express-session');
+var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
-const passport = require('passport');
-const flash = require('connect-flash');
+var bodyParser   = require('body-parser');
+var session = require('express-session');
 
-const router = require('./routers/router');
 
+mongoose.connect('mongodb://admin:123@ds119490.mlab.com:19490/info30005');
+
+require('./controllers/passport')(passport);
+
+// require('./controllers/passport.js')(passport);
+app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 
-app.set('trust proxy', 1) // trust first proxy
+// app.set('trust proxy', 1); // trust first proxy
 app.use(session({
-    secret: 'amazing',
+    secret: 'ilovescotchscotchyscotchscotch',
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use(express.static(__dirname +'/public'));
-module.exports = passport;
 
-app.use(router);
+app.use(express.static(__dirname +'/public'));
+
+
+require('./routers/router.js')(app, passport);
 
 app.use(function(req, res, next){
     res.status(404);
@@ -36,6 +46,6 @@ app.use(function(req, res, next){
     }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, function(){ });
+app.listen(PORT);
 console.log('Express listening on port ' + PORT);
+

@@ -1,147 +1,104 @@
 var db = require('../models/db.js');    // whatever you exported in db.js (in module.exports)
+module.exports = {
+    indexPage: function (req, res) {
+        res.render('index.ejs', {
+        });
+    },
+    diyHome: function (req, res) {
+        res.render('diyHome.ejs', {
 
-module.exports = indexPage = function (req, res) {
-    res.render('index.ejs', {
+        });
+    },
+    quizPage: function (req, res) {
+        res.render('quizPage.ejs', {
+            title: "this is a quiz page",
+            groupMembers: db.groupMembers
+        });
+    },
+    quizPage2: function (req, res) {
+        res.render('quizPage2.ejs', {
+            title: "this is a quiz page",
+            groupMembers: db.groupMembers
+        });
+    },
+    quizPage3: function (req, res) {
+        res.render('quizPage3.ejs', {
+            title: "this is a quiz page",
+            groupMembers: db.groupMembers
+        });
+    },
+    quizWin: function (req, res) {
+        res.render('quizWin.ejs', {
+            title: "this is a quiz page",
+            groupMembers: db.groupMembers
 
-        title: db.comingSoon,
-        groupMembers : db.groupMembers
-    });
+        });
+    },
+    evaluation: function(req,res){
+        res.render('evaluation.ejs',{
+
+        });
+    },
+
+    /* user api */
+
+    // sign up
+    signupPage: function(req,res){
+        res.render('signup.ejs',{
+            message: req.flash('signupMessage')
+        });
+    },
+    createUser: function(req, res) {
+        res.locals.passport.authenticate('local-signup', {
+            successRedirect : '/', // redirect to the secure profile section
+            failureRedirect : '/signup', // redirect back to the signup page if there is an error
+            failureFlash : true // allow flash messages
+        });
+    },
+
+    // log in
+    loginPage: function(req,res){
+        console.log(req.flash('loginMessage'));
+        res.render('login.ejs',{
+            message: req.flash('loginMessage'),
+        });
+    },
+    // verifyUser: function(req, res) {
+    //     res.locals.passport.authenticate('local-login', {
+    //         successRedirect : '/', // redirect to the secure profile section
+    //         failureRedirect : '/login', // redirect back to the login page if there is an error
+    //         failureFlash : true // allow flash messages
+    //     }, res.redirect("/login"));
+    // },
+    // verifyUser: function(req, res, next) {
+    //     res.locals.passport.authenticate('local-login', function(err, user, info){
+    //         if (err){
+    //             return next(err);
+    //         }
+    //         if (!user){
+    //             return res.redirect('/login');
+    //         }
+    //         req.logIn(user, function (err) {
+    //             if(err){
+    //                 return next(err);
+    //             }
+    //             return res.send(user);
+    //         });
+    //     }, res.redirect("/login"));
+    // },
+    isLoggedIn: function(req, res, next) {
+        if (req.isAuthenticated())
+            return next();
+
+        res.redirect('/');
+    },
 };
 
-module.exports = diyHome = function (req, res) {
-    res.render('diyHome.ejs', {
-
-    });
-};
-
-module.exports = diyTemplete = function (req, res) {
-    res.render('diyTemplete.ejs', {
-      });
-};
-
-module.exports = quizPage = function (req, res) {
-    res.render('quizPage.ejs', {
-        title: "this is a quiz page",
-        groupMembers: db.groupMembers
-    });
-};
-
-module.exports = quizPage2 = function (req, res) {
-    res.render('quizPage2.ejs', {
-        title: "this is a quiz page",
-        groupMembers: db.groupMembers
-    });
-};
-
-module.exports = quizPage3 = function (req, res) {
-    res.render('quizPage3.ejs', {
-        title: "this is a quiz page",
-        groupMembers: db.groupMembers
-    });
-};
-
-module.exports = quizWin = function (req, res) {
-    res.render('quizWin.ejs', {
-        title: "this is a quiz page",
-        groupMembers: db.groupMembers
-
-    });
-};
-
-module.exports = diyHome = function (req, res) {
-    res.render('diyHome.ejs', {
-
-    });
-};
-
-module.exports=loginPage=function(req,res){
-    res.render('login.ejs',{
-
-    });
-};
-
-module.exports = diyTemplete = function (req, res) {
-    res.render('diyTemplete.ejs', {
-    });
-};
-
-module.exports=signupPage=function(req,res){
-    res.render('signup.ejs',{
-
-    });
-};
-
-module.exports=evaluation=function(req,res){
-    res.render('evaluation.ejs',{
-
-    });
-};
-
-/* user api */
-
-var mongoose = require("../models/mongoose.js");
-var User = require('../models/user_model.js');
-
-// sign up
-module.exports.createUser = function(req,res){
-    console.log("start sign up");
-    var user = new User({
-        username: req.body.username,
-        password: req.body.password
-    });
-    console.log(user);
-    user.save(function(err, save){
-        console.log(save);
-        if(!err){
-            res.render('index.ejs')
-        }else{
-            res.sendStatus(400);
-        }
-    });
-};
-
-// log in
-module.exports.verifyUser = function(req, res) {
-    var user = new User({
-        username: req.body.username,
-        password: req.body.password
-    });
-    console.log(user);
-    user.comparePassword(user.username, function(err, isMatch){
-        if(!err){
-            res.render('index.ejs')
-        }else{
-            res.sendStatus(400);
-        }
-    });
-};
-
-// // passport/login.js
-// passport.use('login', new LocalStrategy({
-//         passReqToCallback : true
-//     },
-//     function(req, username, password, done) {
-//         // check in mongo if a user with username exists or not
-//         User.findOne({ 'username' :  username },
-//             function(err, user) {
-//                 // In case of any error, return using the done method
-//                 if (err)
-//                     return done(err);
-//                 // Username does not exist, log error & redirect back
-//                 if (!user){
-//                     console.log('User Not Found with username '+username);
-//                     return done(null, false,
-//                         req.flash('message', 'User Not found.'));
-//                 }
-//                 // User exists but wrong password, log the error
-//                 if (!isValidPassword(user, password)){
-//                     console.log('Invalid Password');
-//                     return done(null, false,
-//                         req.flash('message', 'Invalid Password'));
-//                 }
-//                 // User and password both match, return user from
-//                 // done method which will be treated like success
-//                 return done(null, user);
-//             }
-//         );
-//     }));
+// app.get('/connect/local', function(req, res) {
+//     res.render('connect-local.ejs', { message: req.flash('loginMessage') });
+// });
+// app.post('/connect/local', passport.authenticate('local-signup', {
+//     successRedirect : '/profile', // redirect to the secure profile section
+//     failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
+//     failureFlash : true // allow flash messages
+// }));
