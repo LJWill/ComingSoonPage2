@@ -1,25 +1,43 @@
-const express = require('express');
-const router = express.Router();
-const controller = require('../controllers/controller');
+var router = require('express').Router();
+var passport = require('../app').passport;
+var controller = require('../controllers/controller');
 
-router.get('/', indexPage);
+router.get("/", function(req, res) {
+    res.redirect('/index');
+});
+router.get('/index', isLoggedIn, controller.indexPage);
+router.get('/quiz', controller.quizPage);
+router.get('/quiz2', controller.quizPage2);
+router.get('/quiz3', controller.quizPage3);
+router.get('/quizWin', controller.quizWin);
+router.get('/diy', controller.diy);
+router.get('/evaluation', controller.evaluation);
 
-router.get('/quiz', quizPage);
+// user api
+router.get('/signup', controller.signupPage);
+router.post('/signup', passport.authenticate('local-signup', {
+    successRedirect : '/index', // redirect to the secure profile section
+    failureRedirect : '/signup', // redirect back to the signup page if there is an error
+    failureFlash : true // allow flash messages
+}));
 
-router.get('/quiz2', quizPage2);
 
-router.get('/quiz3', quizPage3);
+// log in
+router.get('/login', controller.loginPage);
+router.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/index', // redirect to the secure profile section
+    failureRedirect : '/login', // redirect back to the signup page if there is an error
+    failureFlash : true // allow flash messages
+}));
 
-router.get('/quizWin', quizWin);
+// log out
+router.get('/logout', isLoggedIn, controller.loginPage);
 
-router.get('/diy', diy);
-
-router.get('/login',loginPage);
-
-router.get('/signup',signupPage);
-
-router.get('/index',indexPage);
-
-router.get('/evaluation', evaluation);
 
 module.exports = router;
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/login');
+};

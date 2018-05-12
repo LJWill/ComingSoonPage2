@@ -1,64 +1,54 @@
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>login</title>
-    <link href="/css/loginstyle.css" rel="stylesheet" type="text/css"/>
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/hf_style.css" /> -->
-    <!-- bootstrap CDN -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <title>Node Authentication</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body {
+            padding-top: 80px;
+        }
+    </style>
 </head>
 
 <body>
-<div class="main">
-    <div>
-        <a href="index"><img class="homepage_logo" src="images/logo.png",alt="group logo"></a>
-        <h1>Renike</h1>
-        <button class="signup"><a href="signup">Sign up</a></button>
-        <ul>
-            <li><a href="/evaluation">Shoes Evaluation</a></li>
-            <li><a href="/diy">DIY</a></li>
-            <li><a href="/quiz">Quiz Show</a></li>
-            <li><a href="/index">Home</a></li>
-        </ul>
+    <div class="container">
+        <div class="col-sm-6 col-sm-offset-3">
+
+            <h1>
+                <span class="fa fa-sign-in"></span> Login</h1>
+
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger">
+                    <%= message %>
+                </div>
+                <% } %>
+
+                    <!-- LOGIN FORM -->
+                    <form action="/login" method="post">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+
+                        <button type="submit" class="btn btn-warning btn-lg">Login</button>
+                    </form>
+
+                    <hr>
+
+                    <p>Need an account?
+                        <a href="/signup">Signup</a>
+                    </p>
+                    <p>Or go
+                        <a href="/">home</a>.</p>
+
+        </div>
     </div>
-
-
-<div class=" row justify-content-center p-5" style="margin-top: 5em">
-
-<form action="#" method="post">
-    <div class="login">
-        <div class="login_title">Login</div>
-        <div class="wrap">
-        <div class="line"><span id="msg"></span></div>
-        <div class="line">Account:
-            <input name="username" type="text" placeholder="Email Address">
-        </div>
-        <div class="line">Password:
-            <input name="password" type="password" placeholder="Password">
-        </div>
-
-        <input class="login_submit" type="button" value="login">
-
-        <div class="line"><a href="#">Forgot Password?</a></div>
-        </div>
-    </div>
-</form>
-</div>
-</div>
-<div>
-
-    <footer class="footer">
-        <div class="footer-copyright py-3 text-center">
-            © 2018 Copyright:
-            <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> the-abacus.herokuapp.com </a>
-        </div>
-    </footer>
-</div>
 </body>
+
 </html>
