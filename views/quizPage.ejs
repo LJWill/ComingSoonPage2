@@ -1,5 +1,6 @@
 <!doctype  <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,93 +9,244 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/css/quiz_style.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/hf_style.css" />
     <!-- bootstrap CDN -->
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
 </head>
 
+<script>
+    $(document).ready(function () {
+        var numRight = 0;
+        var idx = 0;
+        var numRight = 0;
+        $('#next1').click((e) => {
+            var l1 = $('.l1');
+            var l1_selected = findSelect(l1);
+            if (l1_selected) {
+                $('#quiz1').fadeOut("slow");
+                $('#quiz2').fadeIn("slow");
+            } else {
+                alert("make selection");
+            }
+
+            if (l1_selected.id == "q1-a") {
+                numRight++;
+            }
+            console.log(l1_selected.id);
+
+        });
+
+        $('#next2').click(() => {
+            var l2 = $('.l2');
+            var l2_selected = findSelect(l2);
+            if (l2_selected) {
+                $('#quiz2').fadeOut("slow");
+                $('#quiz3').fadeIn("slow");
+            } else {
+                alert("make selection");
+            }
+            if (l2_selected.id == "q2-b") {
+                numRight++;
+            }
+            console.log(l2_selected.id);
+        });
+
+        $('#submit').click(() => {
+            var l3 = $('.l3');
+            var l3_selected = findSelect(l3);
+
+            if (l3_selected) {
+                $('#quiz3').fadeOut("slow");
+                $('.bg').fadeIn("slow");
+            } else {
+                alert("make selection");
+            }
+            if (l3_selected.id == "q3-c") {
+                numRight++;
+            }
+            document.getElementById('grade').innerHTML = "YOU'VE GOT " + numRight + " OUT OF 3!";
+
+            console.log(l3_selected.id);
+            console.log(numRight);
+        });
+
+        function findSelect(list) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].classList.contains('active')) {
+                    return list[i];
+                }
+            }
+        }
+
+    });
+</script>
+
+
 <body bgcolor="#ff0000">
-    <!-- header -->
-    <div>
-        <a href="index"><img class="homepage_logo" src="images/logo.png",alt="group logo"></a>
-        <h1>Renike</h1>
-        <button class="signup"><a href="signup">Sign up</a></button>
-        <button class="login"><a href="login">Login</a></button>
-        <ul>
-            <li><a href="/evaluation">Shoes Evaluation</a></li>
-            <li><a href="/diy">DIY</a></li>
-            <li><a href="/quiz">Quiz Show</a></li>
-            <li><a href="/index">Home</a></li>
-        </ul>
-    </div>
-    <div class="container title-bar">
-        
-        <div class="row justify-content-center">
-            <div class="col-2"></div>
-            <div class="col-5 row">
-                <div class="col-4">
-                        <img src="/images/player1.png" class="item rounded-circle" alt="Cinque Terre"></img>
-                </div>
-                <div class="col-4">
-                        <img src="/images/vs.png" class="item rounded-circle " alt="Cinque Terre"></img>
-                </div>
-                <div class="col-4">
-                        <img src="/images/player2.png" class="item rounded-circle" alt="Cinque Terre"></img>
+    <div class="quiz_container">
+        <!-- header -->
+        <div>
+            <a href="index">
+                <img class="homepage_logo" src="images/logo.png" ,alt="group logo">
+            </a>
+            <h1>Renike</h1>
+            <button class="signup">
+                <a href="signup">Sign up</a>
+            </button>
+            <button class="login">
+                <a href="login">Login</a>
+            </button>
+            <ul>
+                <li>
+                    <a href="/evaluation">Shoes Evaluation</a>
+                </li>
+                <li>
+                    <a href="/diy">DIY</a>
+                </li>
+                <li>
+                    <a href="/quiz">Quiz Show</a>
+                </li>
+                <li>
+                    <a href="/index">Home</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Progress Bar Loading Page -->
+        <div id="quiz1" style="display:block" class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
+            <div class="card justify-content-center m-3">
+                <div class="card-body">
+                    <h5 class="card-title">Question 1:</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
+                    <p class="card-text">Who is the strongest?</p>
                 </div>
             </div>
-            <div class="col-2"></div>
+
+            <div class="p-5">
+                <div class="col justify-content-center">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-a" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">A </span>Batman</a>
+                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-b" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">B </span>The Terminator</a>
+                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-c" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">C </span>Superman, obviously</a>
+                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-d" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">D </span>Iron Man</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center p-5 m-2">
+                <button id="next1" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
+            </div>
+        </div>
+
+
+
+
+        <div id="quiz2" style="display:none" class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
+            <div class="card justify-content-center m-3">
+                <div class="card-body">
+                    <h5 class="card-title">Question 2:</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
+                    <p class="card-text">What is the best site ever created?</p>
+                </div>
+            </div>
+
+            <div class="p-5">
+                <div class="col justify-content-center">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-a" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">A </span>w3school</a>
+                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-b" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">B </span>stackoverflow</a>
+                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-c" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">C </span>Renike, obviously</a>
+                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-d" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">D </span>They are equally the best</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center p-5 m-2">
+                <button id="next2" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="quiz3" style="display:none" class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
+            <div class="card justify-content-center m-3">
+                <div class="card-body">
+                    <h5 class="card-title">Question 3:</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
+                    <p class="card-text">Where is Waldo really?</p>
+                </div>
+            </div>
+
+            <div class="p-5">
+                <div class="col justify-content-center">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-a" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">A </span>Antarctica</a>
+                        <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-b" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">B </span>Exploring the Pacific Ocean</a>
+                        <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-c" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">C </span>Sitting in a tree</a>
+                        <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-d" data-toggle="list" role="tab">
+                            <span style="margin-right:30px;">D </span>Minding his own business, so stop asking</a>
+                    </div>
+                </div>
+            </div>
+            <!-- display submit button -->
+            <div class="row justify-content-center  p-5 m-2">
+                <button id="submit" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">SUBMIT</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="display:none" class="bg">
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/quizWin_style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/hf_style.css" />
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col"></div>
+                <div class="col-6">
+                    <!-- <img src="/images/winner.png" class="mt-5 mx-auto d-block w-50 img-fluid" alt="Responsive image"> -->
+                </div>
+                <div class="col"></div>
+            </div>
+
+            <div style="width:50%; height:60%" class=" border-dark mx-auto d-block">
+                <div class="d-flex flex-column  mx-auto d-block">
+                    <p id="grade" style="justify-content: center">YOU'VE GOT 3 OUT OF 3!</p>
+                </div>
+            </div>
+            <!-- <div class="row justify-content-center p-5 m-2 ">
+                <a class="p-3 col-2 btn btn-secondary btn-lg btn-block " style="background-color:#3e4444; " href="/index
+                            " role="button ">Back home</a>
+            </div> -->
         </div>
     </div>
 
-    <div class="progress-bar-container">
-        <div class="progress-bar">
-            <span class="progress-bar-inner shadow reverse"><h3></h3></span>
-        </div>
-    </div>
-
-    <!-- Progress Bar Loading Page -->
-    
-
-    <div class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
-        <div class="card justify-content-center m-3">
-            <div class="card-body">
-                <h5 class="card-title">Question 1:</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the  content.</p>
-            </div>
+    <footer class="footer">
+        <div class="footer-copyright py-3 text-center">
+            © 2018 Copyright:
+            <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> the-abacus.herokuapp.com </a>
         </div>
 
-        <div class="p-5">
-            <div class="col justify-content-center">
-                <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item btn-secondary list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">A</a>
-                    <a class="list-group-item btn-secondary list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">B</a>
-                    <a class="list-group-item btn-secondary list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">C</a>
-                    <a class="list-group-item btn-secondary list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">D</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+    </footer>
 
-    <div class="row justify-content-center p-5 m-2">
-            <div class="col-4"></div>
-            <a class="p-3 col-2 btn btn-secondary btn-lg btn-block" href="/quiz2" role="button">NEXT</a>
-            <div class="col-4"></div>
-    </div>
-    
-    <div>
-        <footer class="footer">
-            <div class="footer-copyright py-3 text-center">
-                © 2018 Copyright:
-                <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> the-abacus.herokuapp.com </a>
-            </div>
-
-        </footer>
-    </div>
 
 </body>
+
 </html>

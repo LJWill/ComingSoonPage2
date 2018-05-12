@@ -2,7 +2,7 @@ var router = require('express').Router();
 var passport = require('../app').passport;
 var controller = require('../controllers/controller');
 
-router.get("/", function(req, res) {
+router.get("/", function (req, res) {
     res.redirect('/index');
 });
 router.get('/index', isLoggedIn, controller.indexPage);
@@ -16,18 +16,18 @@ router.get('/evaluation', controller.evaluation);
 // user api
 router.get('/signup', controller.signupPage);
 router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect : '/index', // redirect to the secure profile section
-    failureRedirect : '/signup', // redirect back to the signup page if there is an error
-    failureFlash : true // allow flash messages
+    successRedirect: '/index', // redirect to the secure profile section
+    failureRedirect: '/signup', // redirect back to the signup page if there is an error
+    failureFlash: true // allow flash messages
 }));
 
 
 // log in
 router.get('/login', controller.loginPage);
 router.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/index', // redirect to the secure profile section
-    failureRedirect : '/login', // redirect back to the signup page if there is an error
-    failureFlash : true // allow flash messages
+    successRedirect: '/index', // redirect to the secure profile section
+    failureRedirect: '/login', // redirect back to the signup page if there is an error
+    failureFlash: true // allow flash messages
 }));
 
 // log out
@@ -35,6 +35,7 @@ router.get('/logout', isLoggedIn, controller.loginPage);
 
 
 module.exports = router;
+
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();

@@ -1,9 +1,9 @@
-var db = require('../models/db.js');    // whatever you exported in db.js (in module.exports)
+var db = require('../models/db.js'); // whatever you exported in db.js (in module.exports)
 var passport = require('../app').passport;
 module.exports = {
     indexPage: function (req, res) {
         res.render('index.ejs', {
-            user : req.user
+            user: req.user
         });
     },
     diy: function (req, res) {
@@ -36,8 +36,8 @@ module.exports = {
 
         });
     },
-    evaluation: function(req,res){
-        res.render('evaluation.ejs',{
+    evaluation: function (req, res) {
+        res.render('evaluation.ejs', {
 
         });
     },
@@ -45,21 +45,21 @@ module.exports = {
     /* user api */
 
     // sign up
-    signupPage: function(req,res){
-        res.render('signup.ejs',{
+    signupPage: function (req, res) {
+        res.render('signup.ejs', {
             message: req.flash('signupMessage')
         });
     },
 
     // log in
-    loginPage: function(req,res){
-        res.render('login.ejs',{
+    loginPage: function (req, res) {
+        res.render('login.ejs', {
             message: req.flash('loginMessage'),
         });
     },
 
     // log out
-    logout: function(req, res) {
+    logout: function (req, res) {
         var user = req.user;
         user.local.email = undefined;
         user.local.password = undefined;
