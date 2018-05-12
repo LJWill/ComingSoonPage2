@@ -3,6 +3,7 @@ var passport = require('../app').passport;
 module.exports = {
     indexPage: function (req, res) {
         res.render('index.ejs', {
+            user : req.user
         });
     },
     diyHome: function (req, res) {
@@ -49,58 +50,21 @@ module.exports = {
             message: req.flash('signupMessage')
         });
     },
-    createUser: function(req, res) {
-        res.locals.passport.authenticate('local-signup', {
-            successRedirect : '/', // redirect to the secure profile section
-            failureRedirect : '/signup', // redirect back to the signup page if there is an error
-            failureFlash : true // allow flash messages
-        });
-    },
 
     // log in
     loginPage: function(req,res){
-        console.log(req.flash('loginMessage'));
         res.render('login.ejs',{
             message: req.flash('loginMessage'),
         });
     },
 
-    verify: function(req, res, next){
-        passport.authenticate('local-login', {
-            successRedirect : '/index', // redirect to the secure profile section
-            failureRedirect : '/login', // redirect back to the signup page if there is an error
-            failureFlash : true // allow flash messages
+    // log out
+    logout: function(req, res) {
+        var user = req.user;
+        user.local.email = undefined;
+        user.local.password = undefined;
+        user.save(function (err) {
+            res.redirect('/');
         });
-        next();
-    },
-
-    // verifyUser: function(req, res) {
-    //     res.locals.passport.authenticate('local-login', {
-    //         successRedirect : '/', // redirect to the secure profile section
-    //         failureRedirect : '/login', // redirect back to the login page if there is an error
-    //         failureFlash : true // allow flash messages
-    //     }, res.redirect("/login"));
-    // },
-    // verifyUser: function(req, res, next) {
-    //     res.locals.passport.authenticate('local-login', function(err, user, info){
-    //         if (err){
-    //             return next(err);
-    //         }
-    //         if (!user){
-    //             return res.redirect('/login');
-    //         }
-    //         req.logIn(user, function (err) {
-    //             if(err){
-    //                 return next(err);
-    //             }
-    //             return res.send(user);
-    //         });
-    //     }, res.redirect("/login"));
-    // },
-    isLoggedIn: function(req, res, next) {
-        if (req.isAuthenticated())
-            return next();
-
-        res.redirect('/');
     },
 };

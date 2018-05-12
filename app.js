@@ -28,7 +28,8 @@ app.set('view engine', 'ejs');
 app.use(session({
     secret: 'ilovescotchscotchyscotchscotch',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    maxAge: 180000,
 }));
 app.use(passport.initialize());
 app.use(passport.session());
