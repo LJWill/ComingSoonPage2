@@ -25,15 +25,47 @@
     $(document).ready(function () {
         var numRight = 0;
         var idx = 0;
-        $('#next1').click(() => {
-            $('#quiz1').fadeOut("slow");
-            $('#quiz2').fadeIn("slow");
-        });
-        $('#next2').click(() => {
-            $('#quiz2').fadeOut("slow");
-            $('#quiz3').fadeIn("slow");
+        var numRight = 0;
+        $('#next1').click((e) => {
+            var l1 = $('.l1');
+            var l1_selected = findSelect(l1);
+            if (l1_selected) {
+                $('#quiz1').fadeOut("slow");
+                $('#quiz2').fadeIn("slow");
+            }
+
+            if(l1_selected ){
+
+            }
+            console.log(l1_selected.id);
         });
 
+        $('#next2').click(() => {
+            var l2 = $('.l2');
+            var l2_selected = findSelect(l2);
+            if (l2_selected) {
+                $('#quiz2').fadeOut("slow");
+                $('#quiz3').fadeIn("slow");
+            }
+            console.log(l2_selected.id);
+        });
+
+        $('#submit').click(() => {
+            var l3 = $('.l2');
+            var l3_selected = findSelect(l3);
+            console.log(l3_selected.id);
+        });
+
+
+
+
+        function findSelect(list) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].classList.contains('active')) {
+                    return list[i];
+                }
+            }
+        }
 
     });
 </script>
@@ -93,8 +125,8 @@
                     </div>
                 </div>
             </div>
-            <div id="next1" class="row justify-content-center p-5 m-2">
-                <button id="next" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
+            <div class="row justify-content-center p-5 m-2">
+                <button id="next1" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
             </div>
         </div>
 
@@ -124,8 +156,8 @@
                     </div>
                 </div>
             </div>
-            <div id="next2" class="row justify-content-center p-5 m-2">
-                <button id="next" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
+            <div class="row justify-content-center p-5 m-2">
+                <button id="next2" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
             </div>
         </div>
 
@@ -157,8 +189,8 @@
                 </div>
             </div>
             <!-- display submit button -->
-            <div id="submit" class="row justify-content-center  p-5 m-2">
-                <button class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">SUBMIT</button>
+            <div class="row justify-content-center  p-5 m-2">
+                <button id="submit" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">SUBMIT</button>
             </div>
         </div>
 
@@ -205,5 +237,5 @@
 
 
 </body>
-   
+
 </html>

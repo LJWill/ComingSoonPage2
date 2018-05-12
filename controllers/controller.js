@@ -23,6 +23,7 @@ module.exports = diy = function (req, res) {
 
 module.exports = quizPage = function (req, res) {
     res.render('quizPage.ejs', {
+        
     });
 };
 
