@@ -120,3 +120,8 @@ li a {
 li a:hover {
     background-color: #111;
 }
+
+
+#grade{
+    font-size: 3em;
+}

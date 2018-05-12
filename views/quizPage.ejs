@@ -32,12 +32,15 @@
             if (l1_selected) {
                 $('#quiz1').fadeOut("slow");
                 $('#quiz2').fadeIn("slow");
+            }else{
+                alert("make selection");
             }
 
-            if(l1_selected ){
-
+            if(l1_selected.id == "q1-a"){
+                numRight++;
             }
             console.log(l1_selected.id);
+            
         });
 
         $('#next2').click(() => {
@@ -46,17 +49,35 @@
             if (l2_selected) {
                 $('#quiz2').fadeOut("slow");
                 $('#quiz3').fadeIn("slow");
+            }else{
+                alert("make selection");
+            }
+            if(l2_selected.id == "q2-b"){
+                numRight++;
             }
             console.log(l2_selected.id);
         });
 
         $('#submit').click(() => {
-            var l3 = $('.l2');
+            var l3 = $('.l3');
             var l3_selected = findSelect(l3);
+            
+            if (l3_selected) {
+                $('#quiz3').fadeOut("slow");
+                $('.bg').fadeIn("slow");
+            }else{
+                alert("make selection");
+            }
+            if(l3_selected.id == "q3-c"){
+                numRight++;
+            }
+            document.getElementById('grade').innerHTML = "YOU'VE GOT " + numRight + " OUT OF 3!";
+
             console.log(l3_selected.id);
+            console.log(numRight);
         });
-
-
+        
+        
 
 
         function findSelect(list) {
@@ -194,13 +215,6 @@
             </div>
         </div>
 
-
-
-
-
-
-
-
     </div>
 
     <div style="display:none" class="bg">
@@ -216,17 +230,14 @@
             </div>
 
             <div style="width:50%; height:60%" class=" border-dark mx-auto d-block">
-                <div class="d-flex flex-column w-50 mx-auto d-block">
-                    <p style="justify-content: center">YOU'VE GOT 3 OUT OF 3!</p>
-                </div>
-
-                <div class="row justify-content-center p-5 m-2 ">
-                    <div class="col-4 "></div>
-                    <a class="p-3 col-2 btn btn-secondary btn-lg btn-block " style="background-color:#3e4444; " href="/index
-                                " role="button ">Back home</a>
-                    <div class="col-4 "></div>
+                <div class="d-flex flex-column  mx-auto d-block">
+                    <p id="grade" style="justify-content: center">YOU'VE GOT 3 OUT OF 3!</p>
                 </div>
             </div>
+            <!-- <div class="row justify-content-center p-5 m-2 ">
+                <a class="p-3 col-2 btn btn-secondary btn-lg btn-block " style="background-color:#3e4444; " href="/index
+                            " role="button ">Back home</a>
+            </div> -->
         </div>
     </div>
 
