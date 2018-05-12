@@ -1,3 +1,4 @@
+
 /* Container used for styling the custom select, the buttom class adds the bg gradient, corners, etc. */
 .dropdown {
     position: relative;
@@ -27,7 +28,6 @@
     padding: .6em 1.9em .5em .8em;
     line-height:1.3;
 }
-
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .dropdown select::-ms-expand {
@@ -72,7 +72,6 @@ select:-moz-focusring {
 option {
     font-weight:normal;
 }
-
 /* These are just demo button-y styles, style as you like */
 .button {
     border: 1px solid #bbb;
@@ -86,7 +85,6 @@ option {
     background: -ms-linear-gradient(top, #405d27 0%,#82b74b 100%); /* IE10+ */
     background: linear-gradient(to bottom, #405d27 0%,#82b74b 100%); /* W3C */
 }
-
 .output {
     margin: 0 auto;
     padding: 1em;
@@ -114,7 +112,6 @@ option {
     max-width: 100%;
     backface-visibility: hidden;
 }
-
 a{
     align-content: center!important;
 }
@@ -158,8 +155,6 @@ a{
     visibility: hidden;
     opacity: 0;
 }
-
-
 .noscrollbar {
     line-height:1.35;
     overflow:hidden;
