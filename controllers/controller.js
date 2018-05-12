@@ -1,4 +1,5 @@
 var db = require('../models/db.js');    // whatever you exported in db.js (in module.exports)
+var passport = require('../app').passport;
 module.exports = {
     indexPage: function (req, res) {
         res.render('index.ejs', {
@@ -63,6 +64,16 @@ module.exports = {
             message: req.flash('loginMessage'),
         });
     },
+
+    verify: function(req, res, next){
+        passport.authenticate('local-login', {
+            successRedirect : '/index', // redirect to the secure profile section
+            failureRedirect : '/login', // redirect back to the signup page if there is an error
+            failureFlash : true // allow flash messages
+        });
+        next();
+    },
+
     // verifyUser: function(req, res) {
     //     res.locals.passport.authenticate('local-login', {
     //         successRedirect : '/', // redirect to the secure profile section
@@ -93,12 +104,3 @@ module.exports = {
         res.redirect('/');
     },
 };
-
-// app.get('/connect/local', function(req, res) {
-//     res.render('connect-local.ejs', { message: req.flash('loginMessage') });
-// });
-// app.post('/connect/local', passport.authenticate('local-signup', {
-//     successRedirect : '/profile', // redirect to the secure profile section
-//     failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
-//     failureFlash : true // allow flash messages
-// }));

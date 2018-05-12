@@ -23,13 +23,9 @@
 // module.exports = function(app, passport) {
 var router = require('express').Router();
 var passport = require('../app').passport;
+var controller = require('../controllers/controller');
 
-    router.get('/login', function(req,res){
-        console.log(req.flash('loginMessage'));
-        res.render('login.ejs',{
-            message: req.flash('loginMessage'),
-        });
-    });
+    router.get('/login', controller.loginPage);
     // router.post('/login', controller.verifyUser);
     router.post('/login', passport.authenticate('local-login', {
         successRedirect : '/index', // redirect to the secure profile section
