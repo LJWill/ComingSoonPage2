@@ -5,7 +5,7 @@ var controller = require('../controllers/controller');
 router.get("/", function (req, res) {
     res.redirect('/index');
 });
-router.get('/index', isLoggedIn, controller.indexPage);
+router.get('/index', controller.indexPage);
 router.get('/quiz', controller.quizPage);
 router.get('/quiz2', controller.quizPage2);
 router.get('/quiz3', controller.quizPage3);
@@ -31,7 +31,7 @@ router.post('/login', passport.authenticate('local-login', {
 }));
 
 // log out
-router.get('/logout', isLoggedIn, controller.loginPage);
+router.get('/logout', isLoggedIn, controller.logout);
 
 
 module.exports = router;

@@ -3,7 +3,7 @@ var passport = require('../app').passport;
 module.exports = {
     indexPage: function (req, res) {
         res.render('index.ejs', {
-            user: req.user
+            email: req.user.email,
         });
     },
     diy: function (req, res) {
@@ -60,11 +60,7 @@ module.exports = {
 
     // log out
     logout: function (req, res) {
-        var user = req.user;
-        user.local.email = undefined;
-        user.local.password = undefined;
-        user.save(function (err) {
-            res.redirect('/');
-        });
+        req.logout();
+        res.redirect('/');
     },
 };
