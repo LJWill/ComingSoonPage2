@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/controller');
 
-router.get('/', indexPage);
+router.get('/', controller.index);
+router.get('/index', controller.index);
 
 router.get('/quiz', (req, res) => {
     res.render('quizPage.ejs', {
@@ -22,7 +23,7 @@ router.get('/login',loginPage);
 
 router.get('/signup',signupPage);
 
-router.get('/index',indexPage);
+// router.get('/index',indexPage);
 
 router.get('/evaluation', evaluation);
 
