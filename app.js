@@ -36,8 +36,10 @@ app.use(flash());
 
 app.use(express.static(__dirname +'/public'));
 
-
-require('./routers/router.js')(app, passport);
+module.exports.passport = passport;
+// require('./routers/router.js')(app, passport);
+var router = require('./routers/router');
+app.use(router);
 
 app.use(function(req, res, next){
     res.status(404);

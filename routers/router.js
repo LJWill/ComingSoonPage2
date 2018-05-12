@@ -20,21 +20,24 @@
 // router.get('/signup', controller.signupPage);
 // router.post('/signup', controller.createUser);
 
-module.exports = function(app, passport) {
+// module.exports = function(app, passport) {
+var router = require('express').Router();
+var passport = require('../app').passport;
 
-    app.get('/login', function(req,res){
+    router.get('/login', function(req,res){
         console.log(req.flash('loginMessage'));
         res.render('login.ejs',{
             message: req.flash('loginMessage'),
         });
     });
     // router.post('/login', controller.verifyUser);
-    app.post('/login', passport.authenticate('local-login', {
+    router.post('/login', passport.authenticate('local-login', {
         successRedirect : '/index', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
-}
+// }
+module.exports = router;
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
