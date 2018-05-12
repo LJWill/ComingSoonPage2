@@ -1,5 +1,7 @@
 var db = require('../models/db.js'); // whatever you exported in db.js (in module.exports)
 var passport = require('../app').passport;
+var quiz = require('../models/quiz.js');
+
 module.exports = {
     indexPage: function (req, res) {
         res.render('index.ejs', {
@@ -14,7 +16,8 @@ module.exports = {
     quizPage: function (req, res) {
         res.render('quizPage.ejs', {
             title: "this is a quiz page",
-            groupMembers: db.groupMembers
+            groupMembers: db.groupMembers,
+            q: quiz.questions
         });
     },
     quizPage2: function (req, res) {
