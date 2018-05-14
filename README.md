@@ -3,7 +3,7 @@ Web Information Technology
 The Abucas
 ----------
     A website focus on recycling.
-    See https://the-abacus.herokuapp.com
+    See [our website](https://the-abacus.herokuapp.com/index)
 
 How to run
 ----------
