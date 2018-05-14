@@ -1,55 +1,5 @@
 const myQuestions = [
   {
-    "question": "Who is the strongest?",
-    "option": [
-      "Superman",
-      "The Terminator",
-      "Batman, obviously",
-      "Iron Man"
-    ],
-    "correctIndex": 2
-  },
-  {
-    "question": "Which one is correct team name in NBA?",
-    "option": [
-      "New York Bulls",
-      "Los Angeles Kings",
-      "Golden State Warriros",
-      "Huston Rocket"
-    ],
-    "correctIndex": 3
-  },
-  {
-    "question": "What is the best site ever created?",
-    "option": [
-      "Renike",
-      "Simple Steps Code",
-      "Trick question; they're both the best",
-      "w3school"
-    ],
-    "correctIndex": 3
-  },
-  {
-    "question": "Where is Waldo really?",
-    "option": [
-      "Antarctica",
-      "Exploring the Pacific Ocean",
-      "Sitting in a tree",
-      "Minding his own business, so stop asking"
-    ],
-    "correctIndex": 2
-  },
-  {
-    "question": "What is the scientific name of a butterfly?",
-    "option": [
-      "Apis",
-      "Coleoptera",
-      "Formicidae",
-      "Rhopalocera"
-    ],
-    "correctIndex": 3
-  },
-  {
     "question": "How hot is the surface of the sun?",
     "option": [
       "1,233 K",

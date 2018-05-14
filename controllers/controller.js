@@ -1,6 +1,6 @@
-var db = require('../models/db.js'); // whatever you exported in db.js (in module.exports)
 var passport = require('../app').passport;
 var quiz = require('../models/quiz.js');
+var Quiz = require('../models/quiz_module.js');
 
 module.exports = {
     indexPage: function (req, res) {
@@ -14,10 +14,28 @@ module.exports = {
         });
     },
     quizPage: function (req, res) {
+        var quizzes = [];
+        // Get the count of all quizzes
+        var count = 0;
+
+        Quiz.count({}, function(err, count){
+            console.log(count);
+        });
+        // Generate 3 unique index in the range of quizzes numbers
+        var arr = [];
+        while(arr.length < 3){
+            console.log(count);
+            var randomnumber = Math.floor(Math.random()*count);
+            if(arr.indexOf(randomnumber) > -1) {
+                arr[arr.length] = randomnumber;
+                quizzes[quizzes.length] = Quiz.findOne().skip(randomnumber);
+                // console.log(quizzes);
+            }
+        };
         res.render('quizPage.ejs', {
             title: "this is a quiz page",
             user: req.user,
-            q: quiz.questions
+            q: quizzes
         });
     },
     evaluation: function (req, res) {
@@ -25,6 +43,7 @@ module.exports = {
             user: req.user,
         });
     },
+
 
     /* user api */
 
@@ -47,4 +66,12 @@ module.exports = {
         req.logout();
         res.redirect('/');
     },
+
+    isLoggedIn: function (req, res, next) {
+        if (req.isAuthenticated())
+            return next();
+
+        res.redirect('/login');
+    }
 };
+
