@@ -21,6 +21,7 @@
 .select-bar-container {
     display: grid;
     justify-items: center;
+    margin-top:20%
 }
 
 .select-bar {

@@ -1,4 +1,5 @@
-const myQuestions = [{
+const myQuestions = [
+  {
     "question": "Who is the strongest?",
     "option": [
       "Superman",

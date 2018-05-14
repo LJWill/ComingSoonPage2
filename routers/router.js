@@ -7,9 +7,6 @@ router.get("/", function (req, res) {
 });
 router.get('/index', controller.indexPage);
 router.get('/quiz', controller.quizPage);
-router.get('/quiz2', controller.quizPage2);
-router.get('/quiz3', controller.quizPage3);
-router.get('/quizWin', controller.quizWin);
 router.get('/diy', controller.diy);
 router.get('/evaluation', controller.evaluation);
 

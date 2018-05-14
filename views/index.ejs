@@ -28,8 +28,8 @@
         <div>
             <a href="index"><img class="homepage_logo" src="images/logo.png",alt="group logo"></a>
             <h1>Renike</h1>
-            <% if (email != undefined) { %>
-                <button class="login"><a ><%= email %></a></button>
+            <% if (user != undefined) { %>
+                <button class="login"><a href="/logout" title="logout"><%= user.email %></a></button>
             <% } else { %>
                 <button class="signup"><a href="/signup">Sign up</a></button>
                 <button class="login"><a href="/login">Login</a></button>
