@@ -2,10 +2,15 @@ Web Information Technology
 ==========
 The Abucas
 ----------
-    *A website focus on recycling
+    A website focus on recycling
 
-### Dependencies:
-    *"bcrypt-nodejs": "0.0.3",
+How to run
+----------
+    npm install
+    nodemon app
+
+##  Dependencies:
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
@@ -20,8 +25,3 @@ The Abucas
     "npm": "^6.0.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
-
-How to run
-----------
-    *npm install
-    *nodemon app
