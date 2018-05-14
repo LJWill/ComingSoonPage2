@@ -2,14 +2,15 @@ Web Information Technology
 ==========
 The Abucas
 ----------
-    A website focus on recycling
+    A website focus on recycling.
+    See https://the-abacus.herokuapp.com
 
 How to run
 ----------
     npm install
     nodemon app
 
-##  Dependencies:
+####Dependencies:
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "connect-flash": "^0.1.1",
