@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 
-var userSchema = mongoose.Schema({
+var quizSchema = mongoose.Schema({
     "question": String,
-    "option": [
+    "options": [
         String,
         String,
         String,
         String
     ],
-    "correctIndex": Number
+    "answer": Number
 });
 
-module.exports = mongoose.model('Quizzes', userSchema);
+module.exports = mongoose.model('Quizzes', quizSchema);

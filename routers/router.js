@@ -30,6 +30,8 @@ router.post('/login', passport.authenticate('local-login', {
 // log out
 router.get('/logout', controller.isLoggedIn, controller.logout);
 
+// temp: insert quizzes
+// router.get('/insert', controller.insertQuizzes);
 
 module.exports = router;
 

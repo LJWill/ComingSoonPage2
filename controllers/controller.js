@@ -1,5 +1,5 @@
 var passport = require('../app').passport;
-var quiz = require('../models/quiz.js');
+var quizfile = require('../models/quiz.js');
 var Quiz = require('../models/quiz_module.js');
 
 module.exports = {
@@ -13,36 +13,41 @@ module.exports = {
             user: req.user,
         });
     },
-    quizPage: function (req, res) {
-        var quizzes = [];
-        // Get the count of all quizzes
-        var count = 0;
-
-        Quiz.count({}, function(err, count){
-            console.log(count);
-        });
-        // Generate 3 unique index in the range of quizzes numbers
-        var arr = [];
-        while(arr.length < 3){
-            console.log(count);
-            var randomnumber = Math.floor(Math.random()*count);
-            if(arr.indexOf(randomnumber) > -1) {
-                arr[arr.length] = randomnumber;
-                quizzes[quizzes.length] = Quiz.findOne().skip(randomnumber);
-                // console.log(quizzes);
-            }
-        };
+    quizPage: async function (req, res) {
+        var quizzes = await getquiz();
+        console.log(quizzes);
         res.render('quizPage.ejs', {
             title: "this is a quiz page",
             user: req.user,
             q: quizzes
         });
+
     },
     evaluation: function (req, res) {
         res.render('evaluation.ejs', {
             user: req.user,
         });
     },
+
+    /* temp: insert quizzes */
+    insertQuizzes: function(req, res){
+        var quizs = quizfile.questions;
+        for (i=0; i<quizs.length; i++){
+            var tempquiz = new Quiz();
+            tempquiz.question =quizs[i].question;
+            for(j=0; j<4; j++){
+                tempquiz.options[j] = quizs[i].option[j];
+            }
+            tempquiz.answer = quizs[i].correctIndex;
+            tempquiz.save(function(err, save){
+
+            });
+
+        }
+        res.send("done");
+    },
+
+
 
 
     /* user api */
@@ -75,3 +80,19 @@ module.exports = {
     }
 };
 
+async function getquiz(){
+    var randomnumbers = [];
+    await Quiz.count({}, function(err, count) {
+        while (randomnumbers.length < 3) {
+            var randomnumber = Math.floor(Math.random() * count);
+            if(randomnumbers.indexOf(randomnumber) == -1) {
+                randomnumbers[randomnumbers.length] = randomnumber;
+            }
+        }
+    });
+    console.log(randomnumbers);
+    var quizzes0 = Quiz.findOne().skip(randomnumbers[0]).then(result =>   {return result});
+    var quizzes1 = Quiz.findOne().skip(randomnumbers[1]).then(result =>   {return result});
+    var quizzes2 = Quiz.findOne().skip(randomnumbers[2]).then(result =>   {return result});
+    return [await quizzes0, await quizzes1, await quizzes2];
+}
