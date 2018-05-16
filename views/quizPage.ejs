@@ -37,7 +37,7 @@
                 alert("make selection");
             }
 
-            if (l1_selected.id == ("q1-"+q[0].answer)) {
+            if (l1_selected.id == ("q1-"+"<%=q[0].answer%>")) {
                 numRight++;
             }
             console.log(l1_selected.id);
@@ -53,7 +53,7 @@
             } else {
                 alert("make selection");
             }
-            if (l2_selected.id == ("q2-"+q[1].answer)) {
+            if (l2_selected.id == ("q2-"+'<%=q[1].answer%>')) {
                 numRight++;
             }
             console.log(l2_selected.id);
@@ -69,7 +69,7 @@
             } else {
                 alert("make selection");
             }
-            if (l3_selected.id == "q3-"+q[2].answer) {
+            if (l3_selected.id == "q3-"+"<%=q[2].answer%>") {
                 numRight++;
             }
             document.getElementById('grade').innerHTML = "YOU'VE GOT " + numRight + " OUT OF 3!";
