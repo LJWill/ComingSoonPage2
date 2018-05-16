@@ -18,6 +18,8 @@
         crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
 
 
     <script>
@@ -35,26 +37,35 @@
         }
 
 
-        $(document).ready(function () {
-            var percent = 30;
-            var outsole = $('.l1');
-            $('.list-group').click(function (e) {
-                e.preventDefault()
-                $that = $(this);
-                $that.parent().find('li').removeClass('active');
-                $that.addClass('active');
-            });
 
-            for (var i = 0; i < outsole.length; i++) {
-                // if(outsole[i].classList.contains('active')){
-                console.log(outsole[i].classList);
-                // }
-            }
+        $(document).ready(function () {
             $('#prog-contain').click((e) => {
+                var percent=0;
+                var l1_selected = findSelect($('.l1')).innerHTML;
+                var l2_selected = findSelect($('.l2')).innerHTML;
+                var l3_selected = findSelect($('.l3')).innerHTML;
+                var selection = [l1_selected, l2_selected, l3_selected];
+                for (var i = 0; i < selection.length; i++) {
+                    if (selection[i] == "new") {
+                        percent += 33;
+                    } else if (selection[i] == "old") {
+                        percent += 20;
+                    } else {
+                        percent += 10;
+                    }
+                }
+
+                console.log(percent);
                 drawProgress(percent);
             });
 
-
+            function findSelect(list) {
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i].classList.contains('active')) {
+                        return list[i];
+                    }
+                }
+            }
         });
     </script>
 
@@ -62,165 +73,279 @@
 
 <body>
 
-        <div>
-                <a href="index"><img class="homepage_logo" src="images/logo.png",alt="group logo"></a>
-                <h1>Renike</h1>
-                <% if (user != undefined) { %>
-                    <button class="login"><a href="/logout" title="logout"><%= user.email %></a></button>
-                <% } else { %>
-                    <button class="signup"><a href="/signup">Sign up</a></button>
-                    <button class="login"><a href="/login">Login</a></button>
+    <div>
+        <a href="index">
+            <img class="homepage_logo" src="images/logo.png" ,alt="group logo">
+        </a>
+        <h1>Renike</h1>
+        <% if (user != undefined) { %>
+            <button class="login">
+                <a href="/logout" title="logout">
+                    <%= user.email %>
+                </a>
+            </button>
+            <% } else { %>
+                <button class="signup">
+                    <a href="/signup">Sign up</a>
+                </button>
+                <button class="login">
+                    <a href="/login">Login</a>
+                </button>
                 <% } %>
-            <ul>
-                <li><a href="/evaluation">Shoes Evaluation</a></li>
-                    <li><a href="/diy">DIY</a></li>
-                    <li><a href="/quiz">Quiz Show</a></li>
-                    <li><a href="/index">Home</a></li>
-            </ul>
-            </div>
+                    <ul>
+                        <li>
+                            <a href="/evaluation">Shoes Evaluation</a>
+                        </li>
+                        <li>
+                            <a href="/diy">DIY</a>
+                        </li>
+                        <li>
+                            <a href="/quiz">Quiz Show</a>
+                        </li>
+                        <li>
+                            <a href="/index">Home</a>
+                        </li>
+                    </ul>
+    </div>
 
 
-        <div class="bg">
-            <div class="bg-title">
-                <h2 class="d-flex p-2 justify-content-center">Start Your Shoes Evaluation</h2>
-                <p class="d-flex p-2 justify-content-center">Step1:Choose One Pair Of Shoes You Won't Wear Anymore</p>
-                <p class="d-flex p-2 justify-content-center">Step2:Choose The Worn Down Level For Out Sole</p>
-                <p class="d-flex p-2 justify-content-center">Step3:Choose The Worn Down Level For Mid Sole</p>
-                <p class="d-flex p-2 justify-content-center">Step4:Choose The Worn Down Level For Upper Material</p>
-                <p class="d-flex p-2 justify-content-center">Step5:Know How Much Your Old Shoes Worths And Get A Voucher </p>
+    <div class="bg">
+        <div class="bg-title">
+            <h2 class="d-flex p-2 justify-content-center">Start Your Shoes Evaluation</h2>
+            <p class="d-flex p-2 justify-content-center">Step1:Choose One Pair Of Shoes You Won't Wear Anymore</p>
+            <p class="d-flex p-2 justify-content-center">Step2:Choose The Worn Down Level For Out Sole</p>
+            <p class="d-flex p-2 justify-content-center">Step3:Choose The Worn Down Level For Mid Sole</p>
+            <p class="d-flex p-2 justify-content-center">Step4:Choose The Worn Down Level For Upper Material</p>
+            <p class="d-flex p-2 justify-content-center">Step5:Know How Much Your Old Shoes Worths And Get A Voucher </p>
 
-            </div>
+        </div>
 
-            <div class="select-bar-container">
-                <div class="select-bar">
-                    <div class="row">
-                        <div class="pt-5">
-                            <div class="row">
-                                <!-- tab -->
-                                <div class="col-5">
-                                    <div class="tab-content" id="nav1-tabContent">
-                                        <div class="tab-pane fade" id="tab-old1" role="tabpanel" aria-labelledby="list-home-list">
-                                            <img src="/images/bottom_old.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
-                                        </div>
-                                        <div class="tab-pane fade show active" id="tab-new1" role="tabpanel" aria-labelledby="list-profile-list">
-                                            <img src="/images/bottom_new.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
-                                        </div>
-                                        <div class="tab-pane fade" id="tab-wearing1" role="tabpanel" aria-labelledby="list-profile-list">
-                                            <img src="/images/bottom_wearing.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
-                                        </div>
+        <div class="select-bar-container">
+            <div class="select-bar">
+                <div class="row">
+                    <div class="pt-5">
+                        <div class="row">
+                            <!-- tab -->
+                            <div class="col-5">
+                                <div class="tab-content" id="nav1-tabContent">
+                                    <div class="tab-pane fade" id="tab-old1" role="tabpanel" aria-labelledby="list-home-list">
+                                        <img src="/images/bottom_old.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
                                     </div>
-                                </div>
-                                <!-- list -->
-                                <div class="col-5 d-flex flex-column">
-                                    <div class="p-2 mx-auto">
-                                        <h3>Out Sole</h3>
+                                    <div class="tab-pane fade show active" id="tab-new1" role="tabpanel" aria-labelledby="list-profile-list">
+                                        <img src="/images/bottom_new.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
                                     </div>
-                                    <div class="p-2 mx-auto">select worn-out level</div>
-                                    <div class="p-2">
-                                        <div class="list-group" id="list-tab" role="tablist">
-                                            <a class="l1 list-group-item btn-secondary list-group-item-action" id="list-new1" data-toggle="list" href="#tab-new1" role="tab"
-                                                aria-controls="new">new</a>
-                                            <a class="l1 list-group-item btn-secondary list-group-item-action" id="list-old1" data-toggle="list" href="#tab-old1" role="tab"
-                                                aria-controls="old">old</a>
-                                            <a class="l1 list-group-item btn-secondary list-group-item-action" id="list-wearing1" data-toggle="list" href="#tab-wearing1"
-                                                role="tab" aria-controls="old">wearing</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="w-100"></div>
-
-                        <div class="pt-5">
-                            <div class="row">
-                                <!-- tab -->
-                                <div class="col-5">
-                                    <div class="tab-content" id="nav2-tabContent">
-                                        <div class="tab-pane fade" id="tab-old2" role="tabpanel" aria-labelledby="list-home-list">
-                                            <img src="/images/mid_old.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
-
-                                        </div>
-                                        <div class="tab-pane fade show active" id="tab-new2" role="tabpanel" aria-labelledby="list-profile-list">
-                                            <img src="/images/mid_new.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
-                                        </div>
-                                        <div class="tab-pane fade" id="tab-wearing2" role="tabpanel" aria-labelledby="list-profile-list">
-                                            <img src="/images/mid_wearing.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- list -->
-                                <div class="col-5 d-flex flex-column">
-                                    <div class="p-2 mx-auto">
-                                        <h3>Mid Sole</h3>
-                                    </div>
-                                    <div class="p-2 mx-auto">select worn-out level</div>
-                                    <div class="p-2">
-                                        <div class="list-group" id="list-tab" role="tablist">
-                                            <a class="l2 list-group-item btn-secondary list-group-item-action" id="list-new2" data-toggle="list" href="#tab-new2" role="tab"
-                                                aria-controls="new">new</a>
-                                            <a class="l2 list-group-item btn-secondary list-group-item-action" id="list-old2" data-toggle="list" href="#tab-old2" role="tab"
-                                                aria-controls="old">old</a>
-                                            <a class="l2 list-group-item btn-secondary list-group-item-action" id="list-old2" data-toggle="list" href="#tab-wearing2"
-                                                role="tab" aria-controls="new">wearing</a>
-                                        </div>
+                                    <div class="tab-pane fade" id="tab-wearing1" role="tabpanel" aria-labelledby="list-profile-list">
+                                        <img src="/images/bottom_wearing.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="w-100"></div>
-
-                        <div class="pt-5">
-                            <div class="row">
-                                <!-- tab -->
-                                <div class="col-5">
-                                    <div class="tab-content" id="nav3-tabContent">
-                                        <div class="tab-pane fade" id="tab-old3" role="tabpanel" aria-labelledby="list-home-list">
-                                            <img src="/images/upper_old.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
-                                        </div>
-                                        <div class="tab-pane fade show active" id="tab-new3" role="tabpanel" aria-labelledby="list-profile-list">
-                                            <img src="/images/upper_new.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
-                                        </div>
-                                        <div class="tab-pane fade" id="tab-wearing3" role="tabpanel" aria-labelledby="list-profile-list">
-                                            <img src="/images/upper_wearing.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
-                                        </div>
-                                    </div>
+                            <!-- list -->
+                            <div class="col-5 d-flex flex-column">
+                                <div class="p-2 mx-auto">
+                                    <h3>Out Sole</h3>
                                 </div>
-                                <!-- list -->
-                                <div class="col-5 d-flex flex-column">
-                                    <div class="p-2 mx-auto">
-                                        <h3>Upper Material</h3>
-                                    </div>
-                                    <div class="p-2 mx-auto">select worn-out level</div>
-                                    <div class="p-2">
-                                        <div class="">
-                                            <div class="list-group" id="list-tab" role="tablist">
-                                                <a class="l3 list-group-item btn-secondary list-group-item-action" id="list-old3" data-toggle="list" href="#tab-new3" role="tab"
-                                                    aria-controls="new">new</a>
-                                                <a class="l3 list-group-item btn-secondary list-group-item-action" id="list-new3" data-toggle="list" href="#tab-old3" role="tab"
-                                                    aria-controls="old">old</a>
-                                                <a class="l3 list-group-item btn-secondary list-group-item-action" id="list-wearing3" data-toggle="list" href="#tab-wearing3"
-                                                    role="tab" aria-controls="new">wearing</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container">
-                            <div class="row eval-container">
-                                <div id="prog-contain">
-                                    <div class="prog">
+                                <div class="p-2 mx-auto">select worn-out level</div>
+                                <div class="p-2">
+                                    <div class="list-group" id="list-tab" role="tablist">
+                                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="list-new1" data-toggle="list" href="#tab-new1" role="tab"
+                                            aria-controls="new">new</a>
+                                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="list-old1" data-toggle="list" href="#tab-old1" role="tab"
+                                            aria-controls="old">old</a>
+                                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="list-wearing1" data-toggle="list" href="#tab-wearing1"
+                                            role="tab" aria-controls="old">wearing</a>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
+                    <div class="w-100"></div>
+
+                    <div class="pt-5">
+                        <div class="row">
+                            <!-- tab -->
+                            <div class="col-5">
+                                <div class="tab-content" id="nav2-tabContent">
+                                    <div class="tab-pane fade" id="tab-old2" role="tabpanel" aria-labelledby="list-home-list">
+                                        <img src="/images/mid_old.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+
+                                    </div>
+                                    <div class="tab-pane fade show active" id="tab-new2" role="tabpanel" aria-labelledby="list-profile-list">
+                                        <img src="/images/mid_new.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                    </div>
+                                    <div class="tab-pane fade" id="tab-wearing2" role="tabpanel" aria-labelledby="list-profile-list">
+                                        <img src="/images/mid_wearing.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- list -->
+                            <div class="col-5 d-flex flex-column">
+                                <div class="p-2 mx-auto">
+                                    <h3>Mid Sole</h3>
+                                </div>
+                                <div class="p-2 mx-auto">select worn-out level</div>
+                                <div class="p-2">
+                                    <div class="list-group" id="list-tab" role="tablist">
+                                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="list-new2" data-toggle="list" href="#tab-new2" role="tab"
+                                            aria-controls="new">new</a>
+                                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="list-old2" data-toggle="list" href="#tab-old2" role="tab"
+                                            aria-controls="old">old</a>
+                                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="list-old2" data-toggle="list" href="#tab-wearing2"
+                                            role="tab" aria-controls="new">wearing</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+
+                    <div class="pt-5">
+                        <div class="row">
+                            <!-- tab -->
+                            <div class="col-5">
+                                <div class="tab-content" id="nav3-tabContent">
+                                    <div class="tab-pane fade" id="tab-old3" role="tabpanel" aria-labelledby="list-home-list">
+                                        <img src="/images/upper_old.jpg" class="border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                    </div>
+                                    <div class="tab-pane fade show active" id="tab-new3" role="tabpanel" aria-labelledby="list-profile-list">
+                                        <img src="/images/upper_new.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                    </div>
+                                    <div class="tab-pane fade" id="tab-wearing3" role="tabpanel" aria-labelledby="list-profile-list">
+                                        <img src="/images/upper_wearing.jpg" class=" border border-dark w-75 h-auto" alt="Cinque Terre"></img>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- list -->
+                            <div class="col-5 d-flex flex-column">
+                                <div class="p-2 mx-auto">
+                                    <h3>Upper Material</h3>
+                                </div>
+                                <div class="p-2 mx-auto">select worn-out level</div>
+                                <div class="p-2">
+                                    <div class="">
+                                        <div class="list-group" id="list-tab" role="tablist">
+                                            <a class="l3 list-group-item btn-secondary list-group-item-action" id="list-old3" data-toggle="list" href="#tab-new3" role="tab"
+                                                aria-controls="new">new</a>
+                                            <a class="l3 list-group-item btn-secondary list-group-item-action" id="list-new3" data-toggle="list" href="#tab-old3" role="tab"
+                                                aria-controls="old">old</a>
+                                            <a class="l3 list-group-item btn-secondary list-group-item-action" id="list-wearing3" data-toggle="list" href="#tab-wearing3"
+                                                role="tab" aria-controls="new">wearing</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="container">
+                        <div class="row eval-container">
+                            <div id="prog-contain">
+                                <div class="prog"></div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
+
+            <div class="border" id='map'></div>
+            <style>
+                .marker {
+                    display: block;
+                    border: none;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    padding: 0;
+                }
+            </style>
+
+            <script>
+                mapboxgl.accessToken =
+                    'pk.eyJ1Ijoic2lsdmVyYmxhemUiLCJhIjoiY2poOHB0M2t4MDRmdzM2bXNodzJwYnljYSJ9.RsI4kCNnKwJNQQHtKH3HRw';
+
+                var geojson = {
+                    "type": "FeatureCollection",
+                    "features": [{
+                            "type": "Feature",
+                            "properties": {
+                                "message": "Foo",
+                                "iconSize": [60, 60]
+                            },
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [144.961726, -37.8149324]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "message": "Bar",
+                                "iconSize": [50, 50]
+                            },
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [144.961754, -37.834349]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "message": "Baz",
+                                "iconSize": [40, 40]
+                            },
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [144.961737, -37.813449]
+                            }
+                        }
+                    ]
+                };
+
+
+                
+                var map = new mapboxgl.Map({
+                    container: 'map', // container id
+                    style: 'mapbox://styles/mapbox/light-v9',
+                    center: [144.9617, -37.8149], // starting position
+                    zoom: 9 // starting zoom
+                });
+
+
+                // add markers to map
+                geojson.features.forEach(function (marker) {
+                    // create a DOM element for the marker
+                    var el = document.createElement('div');
+                    el.className = 'marker';
+                    el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join(
+                        '/') + '/)';
+                    el.style.width = marker.properties.iconSize[0] + 'px';
+                    el.style.height = marker.properties.iconSize[1] + 'px';
+
+                    el.addEventListener('click', function () {
+                        window.alert(marker.properties.message);
+                    });
+
+                    // add marker to map
+                    new mapboxgl.Marker(el)
+                        .setLngLat(marker.geometry.coordinates)
+                        .addTo(map);
+                });
+
+                var geolocate = new mapboxgl.GeolocateControl({
+                    positionOptions: {
+                        enableHighAccuracy: true
+                    },
+                    trackUserLocation: true
+                })
+                map.addControl(geolocate);
+
+                // Add zoom and rotation controls to the map.
+                map.addControl(new mapboxgl.NavigationControl());
+            </script>
+        </div>
+
 
 
         <footer class="footer">
