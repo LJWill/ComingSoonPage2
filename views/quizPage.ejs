@@ -31,7 +31,7 @@
             var l1 = $('.l1');
             var l1_selected = findSelect(l1);
             if (l1_selected) {
-                $('#quiz1').fadeOut("slow");
+                $('#quiz1').hide();
                 $('#quiz2').fadeIn("slow");
             } else {
                 alert("make selection");
@@ -48,7 +48,7 @@
             var l2 = $('.l2');
             var l2_selected = findSelect(l2);
             if (l2_selected) {
-                $('#quiz2').fadeOut("slow");
+                $('#quiz2').hide();
                 $('#quiz3').fadeIn("slow");
             } else {
                 alert("make selection");
@@ -64,7 +64,7 @@
             var l3_selected = findSelect(l3);
 
             if (l3_selected) {
-                $('#quiz3').fadeOut("slow");
+                $('#quiz3').hide();
                 $('.bg').fadeIn("slow");
             } else {
                 alert("make selection");

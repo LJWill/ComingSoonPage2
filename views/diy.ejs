@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <!-- top header -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/diy.css"  type="text/css">
+    <link rel="stylesheet" href="/css/diy.css" type="text/css">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/hf_style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
 
 
     <title>DIY Shoes</title>
     <script>
-
-        $(function() {
-            $('#out').change(function(){
+        $(function () {
+            $('#out').change(function () {
                 $('.out').hide();
                 $('#' + $(this).val()).show();
-                document.getElementById("select out").innerText = document.getElementById("out").options[document.getElementById("out").selectedIndex].text;
+                document.getElementById("select out").innerText = document.getElementById("out").options[
+                    document.getElementById("out").selectedIndex].text;
             });
         });
-        $(function() {
-            $('#mid').change(function(){
+        $(function () {
+            $('#mid').change(function () {
                 $('.mid').hide();
                 $('#' + $(this).val()).show();
-                document.getElementById("select mid").innerText = document.getElementById("mid").options[document.getElementById("mid").selectedIndex].text;
+                document.getElementById("select mid").innerText = document.getElementById("mid").options[
+                    document.getElementById("mid").selectedIndex].text;
             });
         });
-        $(function() {
-            $('#up').change(function(){
+        $(function () {
+            $('#up').change(function () {
                 $('.up').hide();
                 $('#' + $(this).val()).show();
-                document.getElementById("select up").innerText = document.getElementById("up").options[document.getElementById("up").selectedIndex].text;
+                document.getElementById("select up").innerText = document.getElementById("up").options[
+                    document.getElementById("up").selectedIndex].text;
             });
         });
 
         var $up = 1;
         var $mid = 1;
 
-        function combinator(){
+        function combinator() {
             $up = $('#up').val();
             $mid = $('#mid').val();
             $up = $up[1];
@@ -55,116 +62,158 @@
 
 <body>
 
-
-<div id="all">
+    <div id="all">
         <div>
-                <a href="index"><img class="homepage_logo" src="images/logo.png",alt="group logo"></a>
-                <h1>Renike</h1>
-                <% if (user != undefined) { %>
-                    <button class="login"><a href="/logout" title="logout"><%= user.email %></a></button>
+            <a href="index">
+                <img class="homepage_logo" src="images/logo.png" ,alt="group logo">
+            </a>
+            <h1>Renike</h1>
+            <% if (user != undefined) { %>
+                <button class="login">
+                    <a href="/logout" title="logout">
+                        <%= user.email %>
+                    </a>
+                </button>
                 <% } else { %>
-                    <button class="signup"><a href="/signup">Sign up</a></button>
-                    <button class="login"><a href="/login">Login</a></button>
-                <% } %>
-            <ul>
-                <li><a href="/evaluation">Shoes Evaluation</a></li>
-                    <li><a href="/diy">DIY</a></li>
-                    <li><a href="/quiz">Quiz Show</a></li>
-                    <li><a href="/index">Home</a></li>
-            </ul>
+                    <button class="signup">
+                        <a href="/signup">Sign up</a>
+                    </button>
+                    <button class="login">
+                        <a href="/login">Login</a>
+                    </button>
+                    <% } %>
+                        <ul>
+                            <li>
+                                <a href="/evaluation">Shoes Evaluation</a>
+                            </li>
+                            <li>
+                                <a href="/diy">DIY</a>
+                            </li>
+                            <li>
+                                <a href="/quiz">Quiz Show</a>
+                            </li>
+                            <li>
+                                <a href="/index">Home</a>
+                            </li>
+                        </ul>
             </div>
 
-    <div class="bg">
-        <div class="bg-title">
-            <h2 class="d-flex p-2 justify-content-center">Start Designing Your Own Shoes</h2>
-            <p class="d-flex p-2 justify-content-center">Play Your Unlimited Creativity</p>
-            <p class="d-flex p-2 justify-content-center">Step1:Choose Out Sole</p>
-            <p class="d-flex p-2 justify-content-center">Step2:Choose Mid Sole</p>
-            <p class="d-flex p-2 justify-content-center">Step3:Choose Upper Material</p>
+        <div class="bg">
+            <div class="bg-title">
+                <h2 class="d-flex p-2 justify-content-center">Start Designing Your Own Shoes</h2>
+                <p class="d-flex p-2 justify-content-center">Play Your Unlimited Creativity</p>
+                <p class="d-flex p-2 justify-content-center">Step1:Choose Out Sole</p>
+                <p class="d-flex p-2 justify-content-center">Step2:Choose Mid Sole</p>
+                <p class="d-flex p-2 justify-content-center">Step3:Choose Upper Material</p>
+            </div>
         </div>
-    </div>
 
-    <div id="content_container">
-    <div id="final_design_container">
-        <img id="finalRender" src="images/combinations/U1M1.png" style="height:100%;width:100%;text-align: center;" alt="bottom">
-    </div>
+        <div id="content_container">
+            <div id="final_design_container">
+                <img id="finalRender" src="images/combinations/U1M1.png" style="height:100%;width:100%;text-align: center;" alt="bottom">
+            </div>
 
-        <div id="row">
+            <div id="row">
 
-            <div id="side">
-            <div class="col-sm">
-                <!--out-->
-                <div class="button dropdown">
-                    <select id="out" onclick="combinator()">
-                        <option value="o1">out1</option>
-                        <option value="o2">out2</option>
-                        <option value="o3">out3</option>
-                    </select>
-                </div>
-                <figure class="snip1584">
-                    <div class="output">
-                        <div id="o1" class="out o1" style="display: block"><img src="images/outsoles/outsole1.png" alt="bottom"></div>
-                        <div id="o2" class="out o2" style="display: none"><img src="images/outsoles/outsole2.png" alt="bottom"></div>
-                        <div id="o3" class="out o3" style="display: none"><img src="images/outsoles/outsole3.png" alt="bottom"></div>
+                <div id="side">
+                    <div class="col-sm">
+                        <!--out-->
+                        <div class="button dropdown">
+                            <select id="out" onclick="combinator()">
+                                <option value="o1">out1</option>
+                                <option value="o2">out2</option>
+                                <option value="o3">out3</option>
+                            </select>
+                        </div>
+                        <figure class="snip1584">
+                            <div class="output">
+                                <div id="o1" class="out o1" style="display: block">
+                                    <img src="images/outsoles/outsole1.png" alt="bottom">
+                                </div>
+                                <div id="o2" class="out o2" style="display: none">
+                                    <img src="images/outsoles/outsole2.png" alt="bottom">
+                                </div>
+                                <div id="o3" class="out o3" style="display: none">
+                                    <img src="images/outsoles/outsole3.png" alt="bottom">
+                                </div>
+                            </div>
+                        </figure>
                     </div>
-                </figure>
-            </div>
-            </div>
-
-            <div id="side">
-            <div class="col-sm">
-                <!--mid-->
-                <div class="button dropdown">
-                    <select id="mid" onclick="combinator()">
-                        <option value="m1">m1</option>
-                        <option value="m2">m2</option>
-                        <option value="m3">m3</option>
-                    </select>
                 </div>
-                <figure class="snip1584">
-                    <div class="output">
-                        <div id="m1" class="mid m1" style="display: block"><img src="images/midsoles/midsole1.png" alt="bottom"></div>
-                        <div id="m2" class="mid m2" style="display: none"><img src="images/midsoles/midsole2.png" alt="bottom"></div>
-                        <div id="m3" class="mid m3" style="display: none"><img src="images/midsoles/midsole3.png" alt="bottom"></div>
+
+                <div id="side">
+                    <div class="col-sm">
+                        <!--mid-->
+                        <div class="button dropdown">
+                            <select id="mid" onclick="combinator()">
+                                <option value="m1">m1</option>
+                                <option value="m2">m2</option>
+                                <option value="m3">m3</option>
+                            </select>
+                        </div>
+                        <figure class="snip1584">
+                            <div class="output">
+                                <div id="m1" class="mid m1" style="display: block">
+                                    <img src="images/midsoles/midsole1.png" alt="bottom">
+                                </div>
+                                <div id="m2" class="mid m2" style="display: none">
+                                    <img src="images/midsoles/midsole2.png" alt="bottom">
+                                </div>
+                                <div id="m3" class="mid m3" style="display: none">
+                                    <img src="images/midsoles/midsole3.png" alt="bottom">
+                                </div>
+                            </div>
+                        </figure>
                     </div>
-                </figure>
-            </div>
-            </div>
-
-
-            <div id="side">
-            <div class="col-sm">
-                <!--up-->
-                <div class="button dropdown">
-                    <select id="up" onclick="combinator()">
-                        <option value="u1">u1</option>
-                        <option value="u2">u2</option>
-                        <option value="u3">u3</option>
-                        <option value="u4">u4</option>
-                        <option value="u5">u5</option>
-                    </select>
                 </div>
-              <figure class="snip1584">
-                    <div class="output">
-                        <div id="u1" class="up u1" style="display: block"><img src="images/uppermaterials/uppermaterial1.png" alt="bottom"></div>
-                        <div id="u2" class="up u2" style="display: none"><img src="images/uppermaterials/uppermaterial2.png" alt="bottom"></div>
-                        <div id="u3" class="up u3" style="display: none"><img src="images/uppermaterials/uppermaterial3.png" alt="bottom"></div>
-                        <div id="u4" class="up u4" style="display: none"><img src="images/uppermaterials/uppermaterial4.png" alt="bottom"></div>
-                        <div id="u5" class="up u5" style="display: none"><img src="images/uppermaterials/uppermaterial5.png" alt="bottom"></div>
-                    </div>
-                </figure>
-            </div>
-            </div>
 
+
+                <div id="side">
+                    <div class="col-sm">
+                        <!--up-->
+                        <div class="button dropdown">
+                            <select id="up" onclick="combinator()">
+                                <option value="u1">u1</option>
+                                <option value="u2">u2</option>
+                                <option value="u3">u3</option>
+                                <option value="u4">u4</option>
+                                <option value="u5">u5</option>
+                            </select>
+                        </div>
+                        <figure class="snip1584">
+                            <div class="output">
+                                <div id="u1" class="up u1" style="display: block">
+                                    <img src="images/uppermaterials/uppermaterial1.png" alt="bottom">
+                                </div>
+                                <div id="u2" class="up u2" style="display: none">
+                                    <img src="images/uppermaterials/uppermaterial2.png" alt="bottom">
+                                </div>
+                                <div id="u3" class="up u3" style="display: none">
+                                    <img src="images/uppermaterials/uppermaterial3.png" alt="bottom">
+                                </div>
+                                <div id="u4" class="up u4" style="display: none">
+                                    <img src="images/uppermaterials/uppermaterial4.png" alt="bottom">
+                                </div>
+                                <div id="u5" class="up u5" style="display: none">
+                                    <img src="images/uppermaterials/uppermaterial5.png" alt="bottom">
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+
+                </div>
+            </div>
         </div>
+
     </div>
-</div>
-    <footer class="footer">
+
+    <footer class="footer diy-footer">
         <div class="footer-copyright py-3 text-center">
             © 2018 Copyright:
             <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> the-abacus.herokuapp.com </a>
         </div>
     </footer>
+
 </body>
 
 </html>

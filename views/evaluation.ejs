@@ -85,11 +85,9 @@
         <h1>Renike</h1>
             <% if (user != undefined) { %>
                 <button class="login">
-                    <!-- <a href="/logout" title="logout"> -->
                     <div data-toggle="modal" data-target="#logout-modal">
-                            <%= user.email %>
+                        <%= user.email %>
                     </div>    
-                    <!-- </a> -->
                 </button>
             <% } else { %>
                 <button class="signup"><a href="/signup">Sign up</a></button>
@@ -120,7 +118,6 @@
                             </div>
                         </div>
                     </div>
-
 
 
                     <ul>
