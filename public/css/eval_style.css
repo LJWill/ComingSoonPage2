@@ -3,7 +3,7 @@
     /* The image used */
     background-image: url("/images/shoe_eval.jpg");
     /* Full height */
-    height: 60%;
+    height: 90vh;
     width: 100%;
     /* Center and scale the image nicely */
     background-position: center;
@@ -21,7 +21,8 @@
 .select-bar-container {
     display: grid;
     justify-items: center;
-    margin-top:20%
+    position: relative;
+    top: 65%;
 }
 
 .select-bar {
@@ -168,4 +169,16 @@
     margin-top: 5%;
     width: 80vw!important;
     height: 50vh!important;
+}
+
+.grid-contact-info{
+    width: 50%!important;
+}
+
+#notes{
+    width:96%;
+}
+
+#submit-btn{
+    justify-self: center;
 }
