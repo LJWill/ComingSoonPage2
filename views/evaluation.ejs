@@ -42,7 +42,7 @@
             $('#prog-contain').click((e) => {
                 var percent = 0;
                 var l1_selected = findSelect($('.l1')).innerHTML;
-                var l2_selected = findSelect($('.l2')).innerHTML;
+                var l2_selected = findSelect($('.l2')).innerHTML; 
                 var l3_selected = findSelect($('.l3')).innerHTML;
                 var selection = [l1_selected, l2_selected, l3_selected];
                 for (var i = 0; i < selection.length; i++) {
@@ -81,21 +81,48 @@
         <a href="index">
             <img class="homepage_logo" src="images/logo.png" ,alt="group logo">
         </a>
+        
         <h1>Renike</h1>
-        <% if (user != undefined) { %>
-            <button class="login">
-                <a href="/logout" title="logout">
-                    <%= user.email %>
-                </a>
-            </button>
-            <% } else { %>
-                <button class="signup">
-                    <a href="/signup">Sign up</a>
-                </button>
+            <% if (user != undefined) { %>
                 <button class="login">
-                    <a href="/login">Login</a>
+                    <!-- <a href="/logout" title="logout"> -->
+                    <div data-toggle="modal" data-target="#logout-modal">
+                            <%= user.email %>
+                    </div>    
+                    <!-- </a> -->
                 </button>
-                <% } %>
+            <% } else { %>
+                <button class="signup"><a href="/signup">Sign up</a></button>
+                <button class="login"><a href="/login">Login</a></button>
+            <% } %>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="logout-modal" role="dialog"  aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                            <% if (user != undefined) { %>
+                                                User: <%= user.email %>
+                                            <% } else { %>
+                                                User:
+                                            <% } %>
+                                    </h5>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>More User Info...</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="/logout" class="btn btn-secondary"  title="logout" style="color:#fff">
+                                        logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <ul>
                         <li>
                             <a href="/evaluation">Shoes Evaluation</a>
@@ -238,9 +265,9 @@
                     </div>
 
                     <div class="container">
-                        <div class="row eval-container">    
+                        <div class="row eval-container">
                             <div id="prog-contain">
-                                    
+
                                 <div class="prog">
                                 </div>
                             </div>
@@ -254,40 +281,42 @@
             <h2>Fill in the form and contact US!</h2>
             <div class="grid-contact-info p-5 m-5">
                 <form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbx5UAbngUPvgbUKYhYiGBAwBBd_yFzs0_C5KSki35yxcHBe-3Q/exec">
-                <div class="form-group row">
-                    <div class="col m-3">
-                        <input name="name" type="text" class="form-control" placeholder="Name">
+                    <div class="form-group row">
+                        <div class="col m-3">
+                            <input name="name" type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="col m-3">
+                            <input name="email" type="email" class="form-control" placeholder="Email">
+                        </div>
                     </div>
-                    <div class="col m-3">
-                        <input name="email" type="email" class="form-control" placeholder="Email">
+                    <div class="form-group row">
+                        <div class="col m-3">
+                            <input name="shoe" type="text" class="form-control" placeholder="Shoe's name">
+                        </div>
+                        <div class="col m-3">
+                            <input name="price" type="number" class="form-control" placeholder="How much did you pay for the shoe">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col m-3">
-                        <input name="shoe" type="text" class="form-control" placeholder="Shoe's name">
+                    <div class="form-group">
+                        <label for="notes" class="ml-3">Notes</label>
+                        <textarea name="notes" class="m-3 col form-control" id="notes" rows="3"></textarea>
                     </div>
-                    <div class="col m-3">
-                        <input name="price" type="number" class="form-control" placeholder="How much did you pay for the shoe">
+                    <input type="hidden" name="outsole" id="outsole" />
+                    <input type="hidden" name="midesole" id="midsole" />
+                    <input type="hidden" name="upper-material" id="upper-material" />
+                    <div class="row justify-content-center p-5 ">
+                        <input id="submit-btn" type="submit" class="p-3 col-4 btn btn-secondary btn-lg btn-block" value="SUBMIT" id="submit" />
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="notes" class="ml-3">Notes</label>
-                    <textarea name="notes" class="m-3 col form-control" id="notes" rows="3"></textarea>
-                </div>
-                <input type="hidden" name="outsole" id="outsole" />
-                <input type="hidden" name="midesole" id="midsole"/>
-                <input type="hidden" name="upper-material" id="upper-material"/>
-                <div class="row justify-content-center p-5 ">
-                        <input id="submit-btn" type="submit" class="p-3 col-4 btn btn-secondary btn-lg btn-block" value="SUBMIT"
-                        id="submit" />
-                </div>
-                
+
                 </form>
             </div>
-            
+
             <div class="" style="display:none;" id="thankyou_message">
                 <div class="thankyou_message">
                     <h4>Thank you for contacting us, we will get back to you soon</h4>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
 

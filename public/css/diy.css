@@ -170,9 +170,9 @@ a{
 
 .bg {
     /* The image used */
-    background-image: url("/images/green.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("/images/green.jpg");
     /* Full height */
-    height: 520px;
+    height: 80vh;
     width:100%;
     /* Center and scale the image nicely */
     background-position: center;
