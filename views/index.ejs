@@ -25,22 +25,7 @@
 <div class="main_wrap">
     <div class="main">
 
-        <div>
-            <a href="index"><img class="homepage_logo" src="images/logo.png", alt="group logo"></a>
-            <h1>Renike</h1>
-            <% if (user != undefined) { %>
-                <button class="login"><a href="/logout" title="logout"><%= user.email %></a></button>
-            <% } else { %>
-                <button class="signup"><a href="/signup">Sign up</a></button>
-                <button class="login"><a href="/login">Login</a></button>
-            <% } %>
-        <ul>
-            <li><a href="/evaluation">Shoes Evaluation</a></li>
-                <li><a href="/diy">DIY</a></li>
-                <li><a href="/quiz">Quiz Show</a></li>
-                <li><a href="/index">Home</a></li>
-        </ul>
-        </div>
+            <%- include header.ejs %>
 
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
