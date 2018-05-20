@@ -265,7 +265,41 @@
                         </div>
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
-                                lead board
+                                    <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">name</th>
+                                                <th scope="col">mark</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>3</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>3</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>3</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">4</th>
+                                                <td> <% if (user != undefined) { %>
+                                                    <%= user.email %>
+                                                        <% } else { %>
+                                                            user-unknown
+                                                            <% } %></td>
+                                                <td>2</td>
+                                                </tr>
+                                            </tbody>
+                                          </table>
                             </div>
                         </div>
                     </div>
