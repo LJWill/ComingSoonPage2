@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans');
 .bg {
     /* The image used */
-    background-image: url("/images/shoe_eval.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),url("/images/shoe_eval.jpg");
     /* Full height */
-    height: 60%;
+    height: 90vh;
     width: 100%;
     /* Center and scale the image nicely */
     background-position: center;
@@ -21,7 +21,8 @@
 .select-bar-container {
     display: grid;
     justify-items: center;
-    margin-top:20%
+    position: relative;
+    top: 65%;
 }
 
 .select-bar {
@@ -154,4 +155,30 @@
 ::after,
 ::before {
     box-sizing: content-box !important;
+}
+
+
+#prog-info{
+    justify-content: center;
+    position: relative;
+    bottom: 30%;
+}
+
+#map{
+    margin-bottom: 10%;
+    margin-top: 5%;
+    width: 80vw!important;
+    height: 50vh!important;
+}
+
+.grid-contact-info{
+    width: 50%!important;
+}
+
+#notes{
+    width:96%;
+}
+
+#submit-btn{
+    justify-self: center;
 }
