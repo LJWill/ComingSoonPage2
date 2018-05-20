@@ -8,7 +8,8 @@ var quizSchema = mongoose.Schema({
         String,
         String
     ],
-    "answer": Number
+    "answer": Number,
+    "description": String
 });
 
 module.exports = mongoose.model('Quizzes', quizSchema);

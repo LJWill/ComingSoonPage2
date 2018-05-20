@@ -44,7 +44,7 @@
                 $('#q1-result').addClass('fa-times');
             }
             console.log(l1_selected.id);
-
+            console.log();
         });
 
         $('#next2').click(() => {
@@ -279,8 +279,8 @@
                                         <div class="card">
                                           <div class="card-header" id="headingOne">
                                             <h5 class="mb-0">
-                                            <i id="q1-result" class="fas"></i>
-                                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <span><i id="q1-result" class="fas"></i></span>
+                                              <button class="q btn btn-info" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 Question #1: 
                                               </button>
                                                 <% var a0 = q[0].answer %>
@@ -289,15 +289,15 @@
                                           </div>
                                           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                             <div class="card-body">
-                                                    
+                                                    <%= q[0].description %>
                                             </div>
                                           </div>
                                         </div>
                                         <div class="card">
                                           <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
-                                            <i id="q2-result" class="fas"></i>
-                                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <span><i id="q2-result" class="fas"></i></span>
+                                              <button class="q btn btn-info collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                 Question #2:
                                               </button>
                                                 <% var a1 = q[1].answer %>
@@ -306,15 +306,15 @@
                                           </div>
                                           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                             <div class="card-body">
-                                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                    <%= q[1].description %>
                                             </div>
                                           </div>
                                         </div>
                                         <div class="card">
                                           <div class="card-header" id="headingThree">
                                             <h5 class="mb-0">
-                                            <i id="q3-result" class="fas"></i>
-                                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <span><i id="q3-result" class="fas"></i></span>
+                                              <button class="q btn btn-info collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                 Question #3:
                                               </button>
                                                 <% var a2 = q[2].answer %>
@@ -323,7 +323,7 @@
                                           </div>
                                           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                             <div class="card-body">
-                                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                    <%= q[2].description %>
                                             </div>
                                           </div>
                                         </div>

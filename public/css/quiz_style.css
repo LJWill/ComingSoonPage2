@@ -93,4 +93,11 @@ img {
 
 .fa-times {
     color: red;
+    width:20px;
+}
+
+
+.q{
+    margin-left: 10px;
+    margin-right: 10px;
 }
