@@ -22,7 +22,6 @@
 </head>
 
 <script>
-
     $(document).ready(function () {
         var numRight = 0;
         var idx = 0;
@@ -37,7 +36,7 @@
                 alert("make selection");
             }
 
-            if (l1_selected.id == ("q1-"+q[0].answer)) {
+            if (l1_selected.id == ("q1-"+ '<%=q[0].answer%>')) {
                 numRight++;
             }
             console.log(l1_selected.id);
