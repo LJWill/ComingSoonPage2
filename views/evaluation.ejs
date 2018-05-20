@@ -1,5 +1,5 @@
 <!doctype  <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -39,6 +39,9 @@
 
 
         $(document).ready(function () {
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
             $('#prog-contain').click((e) => {
                 var percent = 0;
                 var l1_selected = findSelect($('.l1')).innerHTML;
@@ -206,18 +209,12 @@
                     <div class="container">
                         <div class="row eval-container" >
                             <div id="prog-contain">
-                                <div class="prog" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                <div class="prog" data-toggle="tooltip" data-placement="top" data-html="true" title="<b>Click me after you've chosen</b> <br>">
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                            Tooltip on top
-                    </button>
-                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
-                        Tooltip with HTML
-                      </button>
                 </div>
 
             </div>
@@ -266,102 +263,173 @@
 
 
 
-
-            <h2>Bring your shoes to the nearby local store</h2>
-            <div class="border" id='map'></div>
             <style>
-                .marker {
-                    display: block;
-                    border: none;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    padding: 0;
+                /* Always set the map height explicitly to define the size of the div
+                 * element that contains the map. */
+                #map {
+                    height: 100%;
                 }
             </style>
-
             <script>
-                mapboxgl.accessToken =
-                    'pk.eyJ1Ijoic2lsdmVyYmxhemUiLCJhIjoiY2poOHB0M2t4MDRmdzM2bXNodzJwYnljYSJ9.RsI4kCNnKwJNQQHtKH3HRw';
+                // This example requires the Places library. Include the libraries=places
+                // parameter when you first load the API. For example:
+                // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-                var geojson = {
-                    "type": "FeatureCollection",
-                    "features": [{
-                            "type": "Feature",
-                            "properties": {
-                                "message": "Foo",
-                                "iconSize": [60, 60]
-                            },
-                            "geometry": {
-                                "type": "Point",
-                                "coordinates": [144.961726, -37.8149324]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {
-                                "message": "Bar",
-                                "iconSize": [50, 50]
-                            },
-                            "geometry": {
-                                "type": "Point",
-                                "coordinates": [144.961754, -37.834349]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {
-                                "message": "Baz",
-                                "iconSize": [40, 40]
-                            },
-                            "geometry": {
-                                "type": "Point",
-                                "coordinates": [144.961737, -37.813449]
-                            }
-                        }
-                    ]
-                };
+                var map;
+                var infowindow;
+                var service;
 
+                function initMap() {
+                    var pyrmont = {lat: -37.8149, lng: 144.9617};
 
-
-                var map = new mapboxgl.Map({
-                    container: 'map', // container id
-                    style: 'mapbox://styles/mapbox/light-v9',
-                    center: [144.9617, -37.8149], // starting position
-                    zoom: 9 // starting zoom
-                });
-
-
-                // add markers to map
-                geojson.features.forEach(function (marker) {
-                    // create a DOM element for the marker
-                    var el = document.createElement('div');
-                    el.className = 'marker';
-                    el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join(
-                        '/') + '/)';
-                    el.style.width = marker.properties.iconSize[0] + 'px';
-                    el.style.height = marker.properties.iconSize[1] + 'px';
-
-                    el.addEventListener('click', function () {
-                        window.alert(marker.properties.message);
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: pyrmont,
+                        zoom: 15
                     });
 
-                    // add marker to map
-                    new mapboxgl.Marker(el)
-                        .setLngLat(marker.geometry.coordinates)
-                        .addTo(map);
-                });
+                    infowindow = new google.maps.InfoWindow();
+                    service = new google.maps.places.PlacesService(map);
+                    service.nearbySearch({
+                        location: pyrmont,
+                        radius: 50000,
+                        keyword: 'Nike',
+                    }, callback);
 
-                var geolocate = new mapboxgl.GeolocateControl({
-                    positionOptions: {
-                        enableHighAccuracy: true
-                    },
-                    trackUserLocation: true
-                })
-                map.addControl(geolocate);
+                }
 
-                // Add zoom and rotation controls to the map.
-                map.addControl(new mapboxgl.NavigationControl());
+                function callback(results, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        for (var i = 0; i < results.length; i++) {
+                            createMarker(results[i]);
+
+                        }
+                    }
+                }
+
+                function createMarker(place) {
+
+                    var placeLoc = place.geometry.location;
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location,
+                    });
+
+                    var request = { reference: place.reference };
+                    service.getDetails(request, function(details, status) {
+                        google.maps.event.addListener(marker, 'click', function() {
+                            console.log(details);
+                            var content = '<div><strong>' + place.name + '</strong><br>' +
+                                details.formatted_address + "<br />" +
+                                details.website + "<br />" +
+                                details.formatted_phone_number + '</div>';
+
+                            infowindow.setContent(content);
+                            // infowindow.setContent(details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number);
+                            infowindow.open(map, this);
+                        });
+                    });
+                }
             </script>
+            <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALJ48kPpE41UcfsJFVtPBF4umjrvW0zeQ&libraries=places&callback=initMap" async defer></script>
+
+
+            <!--<h2>Bring your shoes to the nearby local store</h2>-->
+            <!--<div class="border" id='map'></div>-->
+            <!--<style>-->
+                <!--.marker {-->
+                    <!--display: block;-->
+                    <!--border: none;-->
+                    <!--border-radius: 50%;-->
+                    <!--cursor: pointer;-->
+                    <!--padding: 0;-->
+                <!--}-->
+            <!--</style>-->
+
+            <!--<script>-->
+                <!--mapboxgl.accessToken =-->
+                    <!--'pk.eyJ1Ijoic2lsdmVyYmxhemUiLCJhIjoiY2poOHB0M2t4MDRmdzM2bXNodzJwYnljYSJ9.RsI4kCNnKwJNQQHtKH3HRw';-->
+
+                <!--var geojson = {-->
+                    <!--"type": "FeatureCollection",-->
+                    <!--"features": [{-->
+                            <!--"type": "Feature",-->
+                            <!--"properties": {-->
+                                <!--"message": "Foo",-->
+                                <!--"iconSize": [60, 60]-->
+                            <!--},-->
+                            <!--"geometry": {-->
+                                <!--"type": "Point",-->
+                                <!--"coordinates": [144.961726, -37.8149324]-->
+                            <!--}-->
+                        <!--},-->
+                        <!--{-->
+                            <!--"type": "Feature",-->
+                            <!--"properties": {-->
+                                <!--"message": "Bar",-->
+                                <!--"iconSize": [50, 50]-->
+                            <!--},-->
+                            <!--"geometry": {-->
+                                <!--"type": "Point",-->
+                                <!--"coordinates": [144.961754, -37.834349]-->
+                            <!--}-->
+                        <!--},-->
+                        <!--{-->
+                            <!--"type": "Feature",-->
+                            <!--"properties": {-->
+                                <!--"message": "Baz",-->
+                                <!--"iconSize": [40, 40]-->
+                            <!--},-->
+                            <!--"geometry": {-->
+                                <!--"type": "Point",-->
+                                <!--"coordinates": [144.961737, -37.813449]-->
+                            <!--}-->
+                        <!--}-->
+                    <!--]-->
+                <!--};-->
+
+
+
+                <!--var map = new mapboxgl.Map({-->
+                    <!--container: 'map', // container id-->
+                    <!--style: 'mapbox://styles/mapbox/light-v9',-->
+                    <!--center: [144.9617, -37.8149], // starting position-->
+                    <!--zoom: 9 // starting zoom-->
+                <!--});-->
+
+
+                <!--// add markers to map-->
+                <!--geojson.features.forEach(function (marker) {-->
+                    <!--// create a DOM element for the marker-->
+                    <!--var el = document.createElement('div');-->
+                    <!--el.className = 'marker';-->
+                    <!--el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join(-->
+                        <!--'/') + '/)';-->
+                    <!--el.style.width = marker.properties.iconSize[0] + 'px';-->
+                    <!--el.style.height = marker.properties.iconSize[1] + 'px';-->
+
+                    <!--el.addEventListener('click', function () {-->
+                        <!--window.alert(marker.properties.message);-->
+                    <!--});-->
+
+                    <!--// add marker to map-->
+                    <!--new mapboxgl.Marker(el)-->
+                        <!--.setLngLat(marker.geometry.coordinates)-->
+                        <!--.addTo(map);-->
+                <!--});-->
+
+                <!--// Add geolocate control to the map.-->
+                <!--map.addControl(mapboxgl.GeolocateControl({-->
+                    <!--positionOptions: {-->
+                        <!--enableHighAccuracy: true-->
+                    <!--},-->
+                    <!--trackUserLocation: true-->
+                <!--}));-->
+
+                <!--// Add zoom and rotation controls to the map.-->
+                <!--map.addControl(new mapboxgl.NavigationControl());-->
+
+            <!--</script>-->
             <footer class="footer1">
                 <div class="footer-copyright py-3 text-center">
                     © 2018 Copyright:

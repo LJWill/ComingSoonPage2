@@ -40,12 +40,18 @@ module.exports = {
             for(j=0; j<4; j++){
                 tempquiz.options[j] = quizs[i].option[j];
             }
-            tempquiz.answer = quizs[i].correctIndex;
+            tempquiz.answer = quizs[i].answer;
+            tempquiz.description = quizs[i].description;
             tempquiz.save(function(err, save){
                 if (err) throw err;
             });
         }
         res.send("done");
+    },
+    google: function(req, res){
+        res.render("google.ejs", {
+            user:req.user,
+        })
     },
 
     // insertImage: function(req, res, next){
@@ -111,18 +117,20 @@ module.exports = {
 
 async function getquiz(){
     var randomnumbers = [];
-    await Quiz.count({}, function(err, count) {
+    Quiz.count({}, function(err, count) {
         while (randomnumbers.length < 3) {
             var randomnumber = Math.floor(Math.random() * count);
             if(randomnumbers.indexOf(randomnumber) == -1) {
+                console.log("ran = "+randomnumber);
                 randomnumbers[randomnumbers.length] = randomnumber;
             }
         }
+        console.log("randomnumbers = "+randomnumbers);
+        quizzes0 = Quiz.findOne().skip(randomnumbers[0]).then(result =>   {return result});
+        quizzes1 = Quiz.findOne().skip(randomnumbers[1]).then(result =>   {return result});
+        quizzes2 = Quiz.findOne().skip(randomnumbers[2]).then(result =>   {return result});
     });
-    console.log(randomnumbers);
-    var quizzes0 = Quiz.findOne().skip(randomnumbers[0]).then(result =>   {return result});
-    var quizzes1 = Quiz.findOne().skip(randomnumbers[1]).then(result =>   {return result});
-    var quizzes2 = Quiz.findOne().skip(randomnumbers[2]).then(result =>   {return result});
+
     return [await quizzes0, await quizzes1, await quizzes2];
 }
 
