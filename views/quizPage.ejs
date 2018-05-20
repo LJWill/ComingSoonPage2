@@ -11,6 +11,7 @@
     <!-- bootstrap CDN -->
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
@@ -38,6 +39,9 @@
 
             if (l1_selected.id == ("q1-" + "<%=q[0].answer%>")) {
                 numRight++;
+                $('#q1-result').addClass('fa-check');
+            }else{
+                $('#q1-result').addClass('fa-times');
             }
             console.log(l1_selected.id);
 
@@ -54,6 +58,9 @@
             }
             if (l2_selected.id == ("q2-" + '<%=q[1].answer%>')) {
                 numRight++;
+                $('#q2-result').addClass('fa-check');
+            }else{
+                $('#q2-result').addClass('fa-times');
             }
             console.log(l2_selected.id);
         });
@@ -70,9 +77,12 @@
             }
             if (l3_selected.id == "q3-" + "<%=q[2].answer%>") {
                 numRight++;
+                $('#q3-result').addClass('fa-check');
+            }else{
+                $('#q3-result').addClass('fa-times');
             }
             document.getElementById('grade').innerHTML = "YOU'VE GOT " + numRight + " OUT OF 3!";
-
+            document.getElementById('user-mark').innerHTML = numRight;
             console.log(l3_selected.id);
             console.log(numRight);
         });
@@ -231,15 +241,15 @@
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-dark d-flex flex-column  mx-auto d-block justify-content-center" data-toggle="modal"
-                data-target="#exampleModalCenter">
+                data-target="#result-modal">
                 See your result
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal fade" id="result-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header justify-content-center">
                             <h5 class="modal-title" id="exampleModalLongTitle">
                                 <% if (user != undefined) { %>
                                     User:
@@ -256,50 +266,108 @@
                             <span id="grade">YOU'VE GOT 3 OUT OF 3!</span>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                aria-controls="collapseExample">
-                                See your rank
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#answer" aria-expanded="false" aria-controls="collapseExample">
+                                Show Answer
+                            </button>
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#rank" aria-expanded="false" aria-controls="collapseExample">
+                                See Your Rank
                             </button>
 
                         </div>
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse" id="answer">
+                                <div class="accordion" id="accordionExample">
+                                        <div class="card">
+                                          <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                            <i id="q1-result" class="fas"></i>
+                                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Question #1: 
+                                              </button>
+                                                <% var a0 = q[0].answer %>
+                                                <%= q[0].options[a0] %>
+                                            </h5>
+                                          </div>
+                                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                    
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="card">
+                                          <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                            <i id="q2-result" class="fas"></i>
+                                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                Question #2:
+                                              </button>
+                                                <% var a1 = q[1].answer %>
+                                                <%= q[1].options[a1] %>
+                                            </h5>
+                                          </div>
+                                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="card">
+                                          <div class="card-header" id="headingThree">
+                                            <h5 class="mb-0">
+                                            <i id="q3-result" class="fas"></i>
+                                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                Question #3:
+                                              </button>
+                                                <% var a2 = q[2].answer %>
+                                                <%= q[2].options[a2] %>
+                                            </h5>
+                                          </div>
+                                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                        </div>
+                        <div class="collapse" id="rank">
                             <div class="card card-body">
-                                    <table class="table">
-                                            <thead>
-                                              <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">name</th>
-                                                <th scope="col">mark</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>3</td>
-                                              </tr>
-                                              <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>3</td>
-                                              </tr>
-                                              <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>3</td>
-                                              </tr>
-                                              <tr>
-                                                <th scope="row">4</th>
-                                                <td> <% if (user != undefined) { %>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">name</th>
+                                            <th scope="col">mark</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="btn-secondary">
+                                            <th scope="row">4</th>
+                                            <td>
+                                                <% if (user != undefined) { %>
                                                     <%= user.email %>
                                                         <% } else { %>
                                                             user-unknown
-                                                            <% } %></td>
-                                                <td>2</td>
-                                                </tr>
-                                            </tbody>
-                                          </table>
+                                                            <% } %>
+                                            </td>
+                                            <td id="user-mark">2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

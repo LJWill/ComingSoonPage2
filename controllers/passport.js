@@ -89,15 +89,15 @@ module.exports = function(passport) {
                         } else {
 
                             // create the user
-                            var newUser            = new User();
-
+                            var newUser      = new User();
                             newUser.email    = email;
+                            newUser.name     = req.body.name;
+                            newUser.phone    = req.body.phone;
                             newUser.password = newUser.generateHash(password);
 
                             newUser.save(function(err, save) {
                                 if (err)
                                     return done(err);
-                                console.log(save);
                                 return done(null, newUser);
                             });
                         }
