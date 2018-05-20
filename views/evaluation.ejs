@@ -346,16 +346,17 @@
                         .addTo(map);
                 });
 
-                var geolocate = new mapboxgl.GeolocateControl({
+                // Add geolocate control to the map.
+                map.addControl(mapboxgl.GeolocateControl({
                     positionOptions: {
                         enableHighAccuracy: true
                     },
                     trackUserLocation: true
-                })
-                map.addControl(geolocate);
+                }));
 
                 // Add zoom and rotation controls to the map.
                 map.addControl(new mapboxgl.NavigationControl());
+
             </script>
             <footer class="footer1">
                 <div class="footer-copyright py-3 text-center">
