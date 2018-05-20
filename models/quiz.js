@@ -19,12 +19,12 @@ const myQuestions = [
           "Dark Green or Black body with Yellow lid"
       ],
       "answer": 3,
-      "description": "Australia introduced standard colours for mobile waste and recycling bins in 2006 which are common place in the market now. KS Environmental offers bins and equipment colour coded to the Standards Australia colours.  These are:\n" +
-      "\n" +
-      "General Waste – Dark Green or Black body with Red lid\n" +
-      "Mixed (Commingled) recycling (glass, plastic, metal and paper combined) – Dark Green or Black body with Yellow lid\n" +
-      "Green Waste/Organics – Dark Green or Black body with Lime Green lid\n" +
-      "Food Waste – Dark Green or Black body with Burgundy lid\n" +
+      "description": "Australia introduced standard colours for mobile waste and recycling bins in 2006 which are common place in the market now. KS Environmental offers bins and equipment colour coded to the Standards Australia colours.  These are:<br>" +
+      "<br>" +
+      "General Waste – Dark Green or Black body with Red lid<br>" +
+      "Mixed (Commingled) recycling (glass, plastic, metal and paper combined) – Dark Green or Black body with Yellow lid<br>" +
+      "Green Waste/Organics – Dark Green or Black body with Lime Green lid<br>" +
+      "Food Waste – Dark Green or Black body with Burgundy lid<br>" +
       "Paper and cardboard recycling – Dark Green or Black body with Blue lid"
   },
   {
@@ -36,17 +36,17 @@ const myQuestions = [
           "Air Jordan 12 (Flu Game)"
       ],
       "answer": 3,
-      "description": " It’s still Air Jordan 12 (Flu Game), costing $104,000! Here’s the 2018 list of the most expensive Air Jordan sneakers:\n" +
-      "\n" +
-      "Air Jordan 12 (Flu Game) – $104,000\n" +
-      "Air Jordan 12 OVO – $100,000\n" +
-      "Air Jordan Silver Shoe (Autographed) – $60,000\n" +
-      "Air Jordan 2 OG – $31,000\n" +
-      "Air Jordan I (Autographed) – $25,000\n" +
-      "Air Jordan 1 (Black and Gold) – $25,000\n" +
-      "Air Jordan 11 (Blackout) – $21,780\n" +
-      "Air Jordan 10 OVO – $20,000\n" +
-      "Air Jordan XVII (Out of the Box)–$11,267\n" +
+      "description": " It’s still Air Jordan 12 (Flu Game), costing $104,000! Here’s the 2018 list of the most expensive Air Jordan sneakers:<br>" +
+      "<br>" +
+      "Air Jordan 12 (Flu Game) – $104,000<br>" +
+      "Air Jordan 12 OVO – $100,000<br>" +
+      "Air Jordan Silver Shoe (Autographed) – $60,000<br>" +
+      "Air Jordan 2 OG – $31,000<br>" +
+      "Air Jordan I (Autographed) – $25,000<br>" +
+      "Air Jordan 1 (Black and Gold) – $25,000<br>" +
+      "Air Jordan 11 (Blackout) – $21,780<br>" +
+      "Air Jordan 10 OVO – $20,000<br>" +
+      "Air Jordan XVII (Out of the Box)–$11,267<br>" +
       "Air Jordan V – $10,000"
   },
 ];

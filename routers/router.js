@@ -34,7 +34,6 @@ router.get('/logout', controller.isLoggedIn, controller.logout);
 // router.get('/insert', controller.insertQuizzes);
 // router.get('/insert/image', controller.insertImage);
 // router.get('/images', controller.allImages);
-router.get('/google', controller.google);
 
 module.exports = router;
 
