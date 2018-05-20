@@ -22,7 +22,6 @@
 </head>
 
 <script>
-
     $(document).ready(function () {
         var numRight = 0;
         var idx = 0;
@@ -37,7 +36,7 @@
                 alert("make selection");
             }
 
-            if (l1_selected.id == ("q1-"+"<%=q[0].answer%>")) {
+            if (l1_selected.id == ("q1-" + "<%=q[0].answer%>")) {
                 numRight++;
             }
             console.log(l1_selected.id);
@@ -53,7 +52,7 @@
             } else {
                 alert("make selection");
             }
-            if (l2_selected.id == ("q2-"+'<%=q[1].answer%>')) {
+            if (l2_selected.id == ("q2-" + '<%=q[1].answer%>')) {
                 numRight++;
             }
             console.log(l2_selected.id);
@@ -69,7 +68,7 @@
             } else {
                 alert("make selection");
             }
-            if (l3_selected.id == "q3-"+"<%=q[2].answer%>") {
+            if (l3_selected.id == "q3-" + "<%=q[2].answer%>") {
                 numRight++;
             }
             document.getElementById('grade').innerHTML = "YOU'VE GOT " + numRight + " OUT OF 3!";
@@ -93,98 +92,128 @@
 <body bgcolor="#ff0000">
     <div class="quiz_container">
         <%- include header.ejs %>
-        <!-- Progress Bar Loading Page -->
-        <div id="quiz1" style="display:block" class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
-            <div class="card justify-content-center m-3">
-                <div class="card-body">
-                    <h5 class="card-title">Question 1:</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
-                    <p class="card-text"><%=q[0].question %></p>
-                </div>
-            </div>
-
-            <div class="p-5">
-                <div class="col justify-content-center">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-0" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">A </span><%=q[0].options[0] %></a>
-                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-1" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">B </span><%=q[0].options[1] %></a>
-                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-2" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">C </span><%=q[0].options[2] %></a>
-                        <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-3" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">D </span><%=q[0].options[3] %></a>
+            <!-- Progress Bar Loading Page -->
+            <div id="quiz1" style="display:block" class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
+                <div class="card justify-content-center m-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 1:</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
+                        <p class="card-text">
+                            <%=q[0].question %>
+                        </p>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-center p-5 m-2">
-                <button id="next1" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
-            </div>
-        </div>
 
-
-
-
-        <div id="quiz2" style="display:none" class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
-            <div class="card justify-content-center m-3">
-                <div class="card-body">
-                    <h5 class="card-title">Question 2:</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
-                    <p class="card-text"><%=q[1].question %></p>
-                </div>
-            </div>
-
-            <div class="p-5">
-                <div class="col justify-content-center">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-0" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">A </span><%=q[1].options[0] %></a>
-                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-1" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">B </span><%=q[1].options[1] %></a>
-                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-2" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">C </span><%=q[1].options[2] %></a>
-                        <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-3" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">D </span><%=q[1].options[3] %></a>
+                <div class="p-5">
+                    <div class="col justify-content-center">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-0" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">A </span>
+                                <%=q[0].options[0] %>
+                            </a>
+                            <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-1" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">B </span>
+                                <%=q[0].options[1] %>
+                            </a>
+                            <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-2" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">C </span>
+                                <%=q[0].options[2] %>
+                            </a>
+                            <a class="l1 list-group-item btn-secondary list-group-item-action" id="q1-3" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">D </span>
+                                <%=q[0].options[3] %>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-center p-5 m-2">
-                <button id="next2" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
-            </div>
-        </div>
-
-
-
-
-
-        <div id="quiz3" style="display:none" class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
-            <div class="card justify-content-center m-3">
-                <div class="card-body">
-                    <h5 class="card-title">Question 3:</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
-                    <p class="card-text"><%=q[2].question %></p>
+                <div class="row justify-content-center p-5 m-2">
+                    <button id="next1" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
                 </div>
             </div>
 
-            <div class="p-5">
-                <div class="col justify-content-center">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-0" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">A </span><%=q[2].options[0] %></a>
-                        <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-1" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">B </span><%=q[2].options[1] %></a>
-                        <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-2" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">C </span><%=q[2].options[2] %></a>
-                        <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-3" data-toggle="list" role="tab">
-                            <span style="margin-right:30px;">D </span><%=q[2].options[3] %></a>
+
+
+
+            <div id="quiz2" style="display:none" class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
+                <div class="card justify-content-center m-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 2:</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
+                        <p class="card-text">
+                            <%=q[1].question %>
+                        </p>
                     </div>
                 </div>
+
+                <div class="p-5">
+                    <div class="col justify-content-center">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-0" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">A </span>
+                                <%=q[1].options[0] %>
+                            </a>
+                            <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-1" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">B </span>
+                                <%=q[1].options[1] %>
+                            </a>
+                            <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-2" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">C </span>
+                                <%=q[1].options[2] %>
+                            </a>
+                            <a class="l2 list-group-item btn-secondary list-group-item-action" id="q2-3" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">D </span>
+                                <%=q[1].options[3] %>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center p-5 m-2">
+                    <button id="next2" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">NEXT</button>
+                </div>
             </div>
-            <!-- display submit button -->
-            <div class="row justify-content-center  p-5 m-2">
-                <button id="submit" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">SUBMIT</button>
+
+
+
+
+
+            <div id="quiz3" style="display:none" class="container col-5 border border-dark quiz-container p-1" style="margin-top: 2em">
+                <div class="card justify-content-center m-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 3:</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Question subtitle</h6>
+                        <p class="card-text">
+                            <%=q[2].question %>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-5">
+                    <div class="col justify-content-center">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-0" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">A </span>
+                                <%=q[2].options[0] %>
+                            </a>
+                            <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-1" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">B </span>
+                                <%=q[2].options[1] %>
+                            </a>
+                            <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-2" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">C </span>
+                                <%=q[2].options[2] %>
+                            </a>
+                            <a class="l3 list-group-item btn-secondary list-group-item-action" id="q3-3" data-toggle="list" role="tab">
+                                <span style="margin-right:30px;">D </span>
+                                <%=q[2].options[3] %>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- display submit button -->
+                <div class="row justify-content-center  p-5 m-2">
+                    <button id="submit" class="p-3 col-4 btn btn-secondary btn-lg btn-block" role="button">SUBMIT</button>
+                </div>
             </div>
-        </div>
 
     </div>
 
@@ -200,9 +229,52 @@
                 <div class="col"></div>
             </div>
 
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-dark d-flex flex-column  mx-auto d-block justify-content-center" data-toggle="modal"
+                data-target="#exampleModalCenter">
+                See your result
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">
+                                <% if (user != undefined) { %>
+                                    User:
+                                    <%= user.email %>
+                                        <% } else { %>
+                                            User: unknown
+                                            <% } %>
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <span id="grade">YOU'VE GOT 3 OUT OF 3!</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                aria-controls="collapseExample">
+                                See your rank
+                            </button>
+
+                        </div>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                lead board
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div style="width:50%; height:60%" class=" border-dark mx-auto d-block">
                 <div class="d-flex flex-column  mx-auto d-block">
-                    <p id="grade" style="justify-content: center">YOU'VE GOT 3 OUT OF 3!</p>
+
                 </div>
             </div>
             <!-- <div class="row justify-content-center p-5 m-2 ">
