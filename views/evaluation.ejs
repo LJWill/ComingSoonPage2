@@ -21,7 +21,7 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
 
-
+    <script src="https://cdn.bootcss.com/popper.js/1.14.3/esm/popper-utils.min.js"></script>
     <script>
         function drawProgress(percent) {
             $('div.prog').html('<div class="percent"></div><div id="slice"' + (percent > 50 ? ' class="gt50"' : '') +
@@ -204,15 +204,20 @@
                     </div>
 
                     <div class="container">
-                        <div class="row eval-container">
+                        <div class="row eval-container" >
                             <div id="prog-contain">
-
-                                <div class="prog">
+                                <div class="prog" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                                 </div>
                             </div>
                         </div>
 
                     </div>
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            Tooltip on top
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+                        Tooltip with HTML
+                      </button>
                 </div>
 
             </div>

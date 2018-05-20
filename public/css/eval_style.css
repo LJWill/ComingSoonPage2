@@ -78,6 +78,13 @@
     float: left;
 }
 
+#prog-tip{
+    overflow: hidden;
+}
+#prog-tip:hover{
+    display: block;
+}
+
 #prog-contain {
     width: 300px;
     height: 300px;

@@ -85,3 +85,19 @@ img {
 #grade {
     font-size: 1em;
 }
+
+
+.fa-check {
+    color: green;
+}
+
+.fa-times {
+    color: red;
+    width:20px;
+}
+
+
+.q{
+    margin-left: 10px;
+    margin-right: 10px;
+}

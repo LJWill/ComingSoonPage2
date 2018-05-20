@@ -23,6 +23,7 @@
     "node": "^10.0.0",
     "nodemon": "^1.17.4",
     "npm": "^6.0.0",
+    "octicons": "^7.3.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
   },
