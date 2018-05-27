@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-
     <!-- top header -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/diy.css" type="text/css">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/hf_style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -57,33 +57,28 @@
             document.getElementById("finalRender").src = "images/combinations/U" + $up + "M" + $mid + ".png";
         };
     </script>
-
 </head>
 
 <body>
 
-    <div id="all">
+    <div id="all" class="">
+
         <%- include header.ejs %>
 
-        <div class="bg">
-            <div class="bg-title">
-                <h2 class="d-flex p-2 justify-content-center">Start Designing Your Own Shoes</h2>
-                <p class="d-flex p-2 justify-content-center">Play Your Unlimited Creativity</p>
-                <p class="d-flex p-2 justify-content-center">Step1:Choose Out Sole</p>
-                <p class="d-flex p-2 justify-content-center">Step2:Choose Mid Sole</p>
-                <p class="d-flex p-2 justify-content-center">Step3:Choose Upper Material</p>
-            </div>
-        </div>
-
-        <div id="content_container">
-            <div id="final_design_container">
-                <img class="img-fluid" id="finalRender" src="images/combinations/U1M1.png" style="height:100%;width:100%;text-align: center;" alt="bottom">
+            <div class="bg">
+                <div class="bg-title">
+                    <h2 class="d-flex p-2 justify-content-center">Start Designing Your Own Shoes</h2>
+                    <p class="d-flex p-2 justify-content-center">Play Your Unlimited Creativity</p>
+                    <p class="d-flex p-2 justify-content-center">Step1:Choose Out Sole</p>
+                    <p class="d-flex p-2 justify-content-center">Step2:Choose Mid Sole</p>
+                    <p class="d-flex p-2 justify-content-center">Step3:Choose Upper Material</p>
+                </div>
             </div>
 
-            <div id="row">
 
-                <div id="side">
-                    <div class="col-sm">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-4">
                         <!--out-->
                         <div class="button dropdown">
                             <select id="out" onclick="combinator()">
@@ -92,7 +87,7 @@
                                 <option value="o3">out3</option>
                             </select>
                         </div>
-                        <figure class="snip1584">
+                        <figure class="snip1584 border border-dark">
                             <div class="output">
                                 <div id="o1" class="out o1" style="display: block">
                                     <img src="images/outsoles/outsole1.png" alt="bottom">
@@ -106,10 +101,7 @@
                             </div>
                         </figure>
                     </div>
-                </div>
-
-                <div id="side">
-                    <div class="col-sm">
+                    <div class="col-md-4">
                         <!--mid-->
                         <div class="button dropdown">
                             <select id="mid" onclick="combinator()">
@@ -118,7 +110,7 @@
                                 <option value="m3">m3</option>
                             </select>
                         </div>
-                        <figure class="snip1584">
+                        <figure class="snip1584 border border-dark">
                             <div class="output">
                                 <div id="m1" class="mid m1" style="display: block">
                                     <img src="images/midsoles/midsole1.png" alt="bottom">
@@ -132,11 +124,7 @@
                             </div>
                         </figure>
                     </div>
-                </div>
-
-
-                <div id="side">
-                    <div class="col-sm">
+                    <div class="col-md-4">
                         <!--up-->
                         <div class="button dropdown">
                             <select id="up" onclick="combinator()">
@@ -147,7 +135,7 @@
                                 <option value="u5">u5</option>
                             </select>
                         </div>
-                        <figure class="snip1584">
+                        <figure class="snip1584 border border-dark">
                             <div class="output">
                                 <div id="u1" class="up u1" style="display: block">
                                     <img src="images/uppermaterials/uppermaterial1.png" alt="bottom">
@@ -167,19 +155,34 @@
                             </div>
                         </figure>
                     </div>
+                </div>
 
+                <h2 class="text-center mt-5">SEE WAHT YOU GOT</h2>
+                <div class="row justify-content-center">
+                    <div class="container-arrow scroll-to">
+                            <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+                
+
+                <div class="row justify-content-center m-md-5 mb-5">
+                    <div id="final_design_container">
+                        <img class="img-fluid border border-dark rounded-circle" id="finalRender" src="images/combinations/U1M1.png" style="height:100%;width:100%;text-align: center;"
+                            alt="bottom">
+                    </div>
                 </div>
             </div>
-        </div>
+
+
 
     </div>
 
-    <footer class="footer diy-footer">
-            <div class="footer-copyright py-3 text-center">
-                © 2018 Copyright:
-                <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> the-abacus.herokuapp.com </a>
-            </div>
-        </footer>
+    <footer class="footer">
+        <div class="footer-copyright py-3 text-center">
+            © 2018 Copyright:
+            <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> the-abacus.herokuapp.com </a>
+        </div>
+    </footer>
 
 </body>
 

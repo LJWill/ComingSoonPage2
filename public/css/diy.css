@@ -26,7 +26,6 @@
     /* font-weight: bold; */
     color: #ffffff;
     padding: .6em 1.9em .5em .8em;
-    line-height:1.3;
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -76,6 +75,9 @@ option {
 .button {
     border: 1px solid #bbb;
     border-radius: .3em;
+    margin: 10px 8px;
+    min-width: 230px;
+    max-width: 315px;
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     background: #405d27; /* Old browsers */
     background: -moz-linear-gradient(top, #405d27 0%, #82b74b 100%); /* FF3.6+ */
@@ -94,12 +96,12 @@ option {
     display: inline-block;
     overflow: hidden;
     margin: 10px 8px;
-    min-width: 230px;
     max-width: 315px;
     width: 100%;
     color: #ffffff;
     font-size: 16px;
     text-align: left;
+    background-color: #f2f2f2;
 }
 .snip1584 * {
     -webkit-box-sizing: border-box;
@@ -115,30 +117,6 @@ option {
 a{
     align-content: center!important;
 }
-/* .btn {
-    align-content: center!important;
-    cursor: pointer!important;
-    color: #fff!important;
-    width: 340px!important;
-    height: 3em!important;
-    padding: 0.5em!important;
-    background-color: #405d27!important;
-    border: 0 transparent!important;
-    -webkit-box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.18)!important;
-    -moz-box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.18)!important;
-    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.18)!important;
-    -webkit-transition: none!important;
-    -moz-transition: none!important;
-    transition: none!important;
-}
-
-.btn:hover {
-    background-color: #82b74b!important;
-}
-
-.btn:active {
-    transform: scale(0.9, 1)!important;
-} */
 
 
 .overlay {
@@ -158,8 +136,24 @@ a{
     white-space:nowrap;
 }
 
-#all{width:100%}
-#final_design_container{width:50%;float:left;}
+@media screen and (max-width: 800px) {
+    .bg-title {
+        top: 8em!important;
+        left:0!important;
+    }
+}
+#all{
+    width:100%;
+    justify-content: center;
+}
+#final_design_container{
+    width:50%;
+}
+
+#final_design_container > img{
+    background-color: #f2f2f2; 
+}
+
 #content_container{margin-top:-10em}
 #row{width:50%;float:left;padding-top: 20%}
 #side {width:33%;float:left;}
@@ -195,3 +189,26 @@ h3{
     word-wrap:break-word;
     font-weight: bold;
 }
+
+/* Arrow Bouncing */
+.container-arrow span {
+    display: inline-block;
+    font-size: 80px;
+    animation: .7s down infinite alternate;
+    -webkit-animation: .7s down infinite alternate;
+}
+
+/***Animation Arrow down***/
+
+@keyframes down {
+    0% {
+        transform: translateY(0px)
+    }
+    100% {
+        transform: translateY(20px)
+    }
+}
+
+@-webkit-keyframes down{ 0%{-webkit-transform:translateY(0px)} 100%{-webkit-transform:translateY(20px)} } 
+            
+    

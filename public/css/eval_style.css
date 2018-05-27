@@ -45,7 +45,6 @@
         margin-top:20%;
         font-size: 20px;
     }
-   
 }
 
 .select-bar-container {
@@ -198,4 +197,8 @@
 
 #submit-btn{
     justify-self: center;
+}
+
+.prog>.percent, .prog>#slice>.pie,  #prog-contain, ::before {
+    box-sizing: content-box!important;
 }
