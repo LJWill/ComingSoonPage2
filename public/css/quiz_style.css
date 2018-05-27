@@ -37,7 +37,6 @@ img {
     width: 450px;
     margin: 50px auto;
     border-radius: 10px;
-    /* box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444; */
 }
 
 .reverse {
@@ -50,13 +49,11 @@ img {
     width: 0%;
     background-color: #82b74b;
     border-radius: 10px;
-    /* box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset; */
     animation: auto-progress 10s infinite linear;
 }
 
 
 /* Transition speed for progress bar */
-
 .six-sec-ease-in-out {
     -webkit-transition: width 6s ease-in-out;
     -moz-transition: width 6s ease-in-out;

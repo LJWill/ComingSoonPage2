@@ -18,8 +18,6 @@
         crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
-    <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' /> -->
 
     <script src="https://cdn.bootcss.com/popper.js/1.14.3/esm/popper-utils.min.js"></script>
     <script>
@@ -220,7 +218,7 @@
 
             </div>
 
-            <h2 class="slogan">Fill in the form and contact US!</h2>
+            <h2 class="slogan">Fill in the form and contact us!</h2>
             <div class="grid-contact-info p-md-5 m-md-5 pt-5">
                 <form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbx5UAbngUPvgbUKYhYiGBAwBBd_yFzs0_C5KSki35yxcHBe-3Q/exec">
                     <div class="form-group row">
@@ -276,8 +274,6 @@
             <script>
                 // This example requires the Places library. Include the libraries=places
                 // parameter when you first load the API. For example:
-                // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
                 var map;
                 var infowindow;
                 var service;
@@ -327,7 +323,6 @@
                                 details.formatted_phone_number + '</div>';
 
                             infowindow.setContent(content);
-                            // infowindow.setContent(details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number);
                             infowindow.open(map, this);
                         });
                     });
@@ -336,101 +331,6 @@
             <div id="map"></div>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALJ48kPpE41UcfsJFVtPBF4umjrvW0zeQ&libraries=places&callback=initMap" async defer></script>
 
-
-            <!--<h2>Bring your shoes to the nearby local store</h2>-->
-            <!--<div class="border" id='map'></div>-->
-            <!--<style>-->
-                <!--.marker {-->
-                    <!--display: block;-->
-                    <!--border: none;-->
-                    <!--border-radius: 50%;-->
-                    <!--cursor: pointer;-->
-                    <!--padding: 0;-->
-                <!--}-->
-            <!--</style>-->
-
-            <!--<script>-->
-                <!--mapboxgl.accessToken =-->
-                    <!--'pk.eyJ1Ijoic2lsdmVyYmxhemUiLCJhIjoiY2poOHB0M2t4MDRmdzM2bXNodzJwYnljYSJ9.RsI4kCNnKwJNQQHtKH3HRw';-->
-
-                <!--var geojson = {-->
-                    <!--"type": "FeatureCollection",-->
-                    <!--"features": [{-->
-                            <!--"type": "Feature",-->
-                            <!--"properties": {-->
-                                <!--"message": "Foo",-->
-                                <!--"iconSize": [60, 60]-->
-                            <!--},-->
-                            <!--"geometry": {-->
-                                <!--"type": "Point",-->
-                                <!--"coordinates": [144.961726, -37.8149324]-->
-                            <!--}-->
-                        <!--},-->
-                        <!--{-->
-                            <!--"type": "Feature",-->
-                            <!--"properties": {-->
-                                <!--"message": "Bar",-->
-                                <!--"iconSize": [50, 50]-->
-                            <!--},-->
-                            <!--"geometry": {-->
-                                <!--"type": "Point",-->
-                                <!--"coordinates": [144.961754, -37.834349]-->
-                            <!--}-->
-                        <!--},-->
-                        <!--{-->
-                            <!--"type": "Feature",-->
-                            <!--"properties": {-->
-                                <!--"message": "Baz",-->
-                                <!--"iconSize": [40, 40]-->
-                            <!--},-->
-                            <!--"geometry": {-->
-                                <!--"type": "Point",-->
-                                <!--"coordinates": [144.961737, -37.813449]-->
-                            <!--}-->
-                        <!--}-->
-                    <!--]-->
-                <!--};-->
-
-
-
-                <!--var map = new mapboxgl.Map({-->
-                    <!--container: 'map', // container id-->
-                    <!--style: 'mapbox://styles/mapbox/light-v9',-->
-                    <!--center: [144.9617, -37.8149], // starting position-->
-                    <!--zoom: 9 // starting zoom-->
-                <!--});-->
-
-
-                <!--// add markers to map-->
-                <!--geojson.features.forEach(function (marker) {-->
-                    <!--// create a DOM element for the marker-->
-                    <!--var el = document.createElement('div');-->
-                    <!--el.className = 'marker';-->
-                    <!--el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join(-->
-                        <!--'/') + '/)';-->
-                    <!--el.style.width = marker.properties.iconSize[0] + 'px';-->
-                    <!--el.style.height = marker.properties.iconSize[1] + 'px';-->
-
-                    <!--el.addEventListener('click', function () {-->
-                        <!--window.alert(marker.properties.message);-->
-                    <!--});-->
-
-                    <!--// add marker to map-->
-                    <!--new mapboxgl.Marker(el)-->
-                        <!--.setLngLat(marker.geometry.coordinates)-->
-                        <!--.addTo(map);-->
-                <!--});-->
-
-                <!--// Add geolocate control to the map.-->
-                <!--map.addControl(mapboxgl.GeolocateControl({-->
-                    <!--positionOptions: {-->
-                        <!--enableHighAccuracy: true-->
-                    <!--},-->
-                    <!--trackUserLocation: true-->
-                <!--}));-->
-
-                <!--// Add zoom and rotation controls to the map.-->
-                <!--map.addControl(new mapboxgl.NavigationControl());-->
 
             <!--</script>-->
             <footer class="footer1">

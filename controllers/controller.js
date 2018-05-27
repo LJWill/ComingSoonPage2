@@ -1,8 +1,5 @@
 var quizfile = require('../models/quiz.js');
 var Quiz = require('../models/quiz_model.js');
-// var Image = require('../models/image_model');
-// var fs = require("fs");
-// var path = require("path");
 
 module.exports = {
     indexPage: function (req, res) {
@@ -48,11 +45,6 @@ module.exports = {
         }
         res.send("done");
     },
-    google: function(req, res){
-        res.render("google.ejs", {
-            user:req.user,
-        })
-    },
 
     // sign up
     signupPage: function (req, res) {
@@ -88,12 +80,10 @@ async function getquiz(){
     while (randomnumbers.length < 3) {
         var randomnumber = Math.floor(Math.random() * count);
         if(randomnumbers.indexOf(randomnumber) == -1) {
-            console.log("ran = "+randomnumber);
             randomnumbers[randomnumbers.length] = randomnumber;
         }
     }
 
-    console.log("randomnumbers = " + randomnumbers);
     var quizzes0 = Quiz.findOne().skip(randomnumbers[0]).then(result =>   {return result});
     var quizzes1 = Quiz.findOne().skip(randomnumbers[1]).then(result =>   {return result});
     var quizzes2 = Quiz.findOne().skip(randomnumbers[2]).then(result =>   {return result});

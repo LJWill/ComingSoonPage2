@@ -32,8 +32,6 @@ router.get('/logout', controller.isLoggedIn, controller.logout);
 
 // temp
 // router.get('/insert', controller.insertQuizzes);
-// router.get('/insert/image', controller.insertImage);
-// router.get('/images', controller.allImages);
 
 module.exports = router;
 

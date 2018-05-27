@@ -35,8 +35,6 @@ module.exports = function(passport) {
         if (email)
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
-        console.log(password);
-
             // asynchronous
             process.nextTick(function() {
                 User.findOne({ 'email' :  email}, function(err, user) {
@@ -72,7 +70,6 @@ module.exports = function(passport) {
         },
         function(req, email, password, done) {
             // asynchronous
-            console.log("get in ");
             process.nextTick(function() {
                 // if the user is not already logged in:
                 if (!req.user) {
