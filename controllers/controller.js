@@ -1,5 +1,5 @@
 var quizfile = require('../models/quiz.js');
-var Quiz = require('../models/quiz_module.js');
+var Quiz = require('../models/quiz_model.js');
 // var Image = require('../models/image_model');
 // var fs = require("fs");
 // var path = require("path");
