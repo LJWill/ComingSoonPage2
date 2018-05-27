@@ -5,6 +5,7 @@
     /* Full height */
     height: 90vh;
     width: 100%;
+    justify-content: center;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
@@ -16,6 +17,35 @@
     font-family: "Noto Sans";
     position: relative;
     top: 15em;
+    left:55%;
+    text-align: left!important;
+}
+
+@media screen and (max-width: 800px) {
+    .bg-title {
+        top: 5em;
+        left:0!important;
+    }
+
+    .select-bar {
+        max-width: 85%!important;
+    }
+
+    .list-title {
+        font-size: 20px!important;
+        margin-bottom: 0!important;
+    }
+    .select-bar-container{
+        top:50%!important;
+    }
+    .tab-content{
+        margin-bottom: 10%;
+    }
+    .slogan{
+        margin-top:20%;
+        font-size: 20px;
+    }
+   
 }
 
 .select-bar-container {
@@ -144,7 +174,6 @@
     width: 1em;
     height: 1em;
 }
-
 
 #prog-info{
     justify-content: center;
