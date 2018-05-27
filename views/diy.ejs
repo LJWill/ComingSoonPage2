@@ -25,24 +25,20 @@
             $('#out').change(function () {
                 $('.out').hide();
                 $('#' + $(this).val()).show();
-                document.getElementById("select out").innerText = document.getElementById("out").options[
-                    document.getElementById("out").selectedIndex].text;
             });
         });
         $(function () {
             $('#mid').change(function () {
                 $('.mid').hide();
                 $('#' + $(this).val()).show();
-                document.getElementById("select mid").innerText = document.getElementById("mid").options[
-                    document.getElementById("mid").selectedIndex].text;
+                combinator();
             });
         });
         $(function () {
             $('#up').change(function () {
                 $('.up').hide();
                 $('#' + $(this).val()).show();
-                document.getElementById("select up").innerText = document.getElementById("up").options[
-                    document.getElementById("up").selectedIndex].text;
+                combinator();
             });
         });
 
@@ -50,6 +46,7 @@
         var $mid = 1;
 
         function combinator() {
+            console.log("heloooooo");
             $up = $('#up').val();
             $mid = $('#mid').val();
             $up = $up[1];
@@ -81,7 +78,7 @@
                     <div class="col-md-4">
                         <!--out-->
                         <div class="button dropdown">
-                            <select id="out" onclick="combinator()">
+                            <select id="out" >
                                 <option value="o1">out1</option>
                                 <option value="o2">out2</option>
                                 <option value="o3">out3</option>
@@ -104,7 +101,7 @@
                     <div class="col-md-4">
                         <!--mid-->
                         <div class="button dropdown">
-                            <select id="mid" onclick="combinator()">
+                            <select id="mid" >
                                 <option value="m1">m1</option>
                                 <option value="m2">m2</option>
                                 <option value="m3">m3</option>
@@ -127,7 +124,7 @@
                     <div class="col-md-4">
                         <!--up-->
                         <div class="button dropdown">
-                            <select id="up" onclick="combinator()">
+                            <select id="up">
                                 <option value="u1">u1</option>
                                 <option value="u2">u2</option>
                                 <option value="u3">u3</option>
