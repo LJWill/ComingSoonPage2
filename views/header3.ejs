@@ -1,0 +1,75 @@
+<div>
+        <a href="index">
+            <img class="homepage_logo" src="images/logo.png" ,alt="group logo">
+        </a>
+        
+        
+        <h1 class="title">Renike</h1>
+            <% if (user != undefined) { %>
+                <button class="login">
+                    <div data-toggle="modal" data-target="#logout-modal">
+                        <%= user.name %>
+                    </div>    
+                </button>
+            <% } else { %>
+                <button class="signup"><a href="/signup">Sign up</a></button>
+                <button class="login"><a href="/login">Login</a></button>
+            <% } %>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="logout-modal" role="dialog"  aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLabel">
+                                            <% if (user != undefined) { %>
+                                                User name: <%= user.name %>
+                                            <% } else { %>
+                                                User:
+                                            <% } %>
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <h6>
+                                        <% if (user != undefined) { %>
+                                            <% if (user.email != undefined) { %>
+                                                Email: <%= user.email %>
+                                            <% } else { %>
+                                                Email:
+                                            <% } %>
+                                        <% } %>
+                                    </h6>
+                                    <h6>
+                                        <% if (user != undefined) { %>
+                                            <% if (user.phone != undefined) { %>
+                                                Phone: <%= user.phone %>
+                                            <% } %>
+                                        <% } %>
+                                    </h6>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="/logout" class="btn btn-secondary"  title="logout" style="color:#fff">
+                                        logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <ul>
+                        <li>
+                            <a href="/evaluation">Shoes Evaluation</a>
+                        </li>
+                        <li>
+                            <a href="/diy">DIY</a>
+                        </li>
+                        <li>
+                            <a href="/quiz">Quiz Show</a>
+                        </li>
+                        <li>
+                            <a href="/index">Home</a>
+                        </li>
+                    </ul>
+    </div>

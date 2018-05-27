@@ -1,5 +1,5 @@
 <!doctype  <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -18,8 +18,8 @@
         crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' /> -->
 
     <script src="https://cdn.bootcss.com/popper.js/1.14.3/esm/popper-utils.min.js"></script>
     <script>
@@ -39,6 +39,9 @@
 
 
         $(document).ready(function () {
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
             $('#prog-contain').click((e) => {
                 var percent = 0;
                 var l1_selected = findSelect($('.l1')).innerHTML;
@@ -206,18 +209,12 @@
                     <div class="container">
                         <div class="row eval-container" >
                             <div id="prog-contain">
-                                <div class="prog" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                <div class="prog" data-toggle="tooltip" data-placement="top" data-html="true" title="<b>Click me after you've chosen</b> <br>">
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                            Tooltip on top
-                    </button>
-                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
-                        Tooltip with HTML
-                      </button>
                 </div>
 
             </div>
@@ -256,8 +253,8 @@
             </div>
 
             <div class="" style="display:none;" id="thankyou_message">
-                <div class="thankyou_message btn-info">
-                    <h4>Thank you for contacting us, we will get back to you soon</h4>
+                <div class="thankyou_message ">
+                    <h2 >Thank you for contacting us, we will get back to you soon</h2>
                     <br>
                     <br>
                     <br>

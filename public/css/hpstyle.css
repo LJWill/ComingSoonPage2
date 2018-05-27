@@ -37,29 +37,23 @@ img{
 
 
 
-
-
 .icon{
     height:180px;
     width:180px;
 }
 .quiz_content_container{
     margin-top:3em;
-
     float: left;
     width: 33.33%;
     box-sizing: border-box;
 }
 .evaluation_content_container{
-
     margin-top:3em;
-
     float: left;
     width: 33.33%;
     box-sizing: border-box;
 }
 .diy_content_container{
-
     margin-top:3em;
     float: left;
     width: 33.33%;
@@ -67,7 +61,6 @@ img{
 }
 
 h2{
-
     font-family: Noto Sans;
 }
 
@@ -83,48 +76,4 @@ h2{
 .diy_intro{
     word-wrap:break-word;
     font-family: Noto Sans;
-}
-
-.btn {
-    display: inline-block!important;
-    border-radius: 4px!important;
-    background-color: #3e4444!important;
-    font-family:"Noto Sans"!important;
-    border: none!important;
-    color: #FFFFFF!important;
-    text-align: center!important;
-    font-size: 20px!important;
-    padding: 20px!important;
-    width: 200px!important;
-    hight:100px!important;
-    transition: all 0.5s!important;
-    cursor: pointer!important;
-    margin: 5px!important;
-    vertical-align:middle!important;
-}
-.btn span {
-    cursor: pointer!important;
-    display: inline-block!important;
-    position: relative!important;
-    transition: 0.5s!important;
-    vertical-align:middle!important;
-}
-.btn span:after {
-    content: '»' !important;
-    position: absolute!important;
-    opacity: 0!important;
-    top: 0!important;
-    right: -20px!important;
-    transition: 0.5s!important;
-    vertical-align:middle!important;
-}
-.btn:hover span {
-    padding-right: 25px!important;
-    vertical-align:middle!important;
-}
-
-.btn:hover span:after {
-    opacity: 1!important;
-    right: 0!important;
-    vertical-align:middle!important;
 }

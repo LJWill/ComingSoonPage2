@@ -1,74 +1,94 @@
-<div>
+<head>
+    <script>
+    </script>
+</head>
+
+
+
+<div class="row align-items-center m-3 ml-5 mr-5">
+    <div class="col-sm text-center">
         <a href="index">
-            <img class="homepage_logo" src="images/logo.png" ,alt="group logo">
+            <img class="homepage_logo mx-auto d-block float-md-left" src="images/logo.png" ,alt="group logo">
         </a>
-        
-        <h1 class="title">Renike</h1>
-            <% if (user != undefined) { %>
-                <button class="login">
-                    <div data-toggle="modal" data-target="#logout-modal">
-                        <%= user.name %>
-                    </div>    
-                </button>
-            <% } else { %>
-                <button class="signup"><a href="/signup">Sign up</a></button>
-                <button class="login"><a href="/login">Login</a></button>
-            <% } %>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="logout-modal" role="dialog"  aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="exampleModalLabel">
-                                            <% if (user != undefined) { %>
-                                                User name: <%= user.name %>
-                                            <% } else { %>
-                                                User:
-                                            <% } %>
-                                    </h4>
-                                </div>
-                                <div class="modal-body">
-                                    <h6>
-                                        <% if (user != undefined) { %>
-                                            <% if (user.email != undefined) { %>
-                                                Email: <%= user.email %>
-                                            <% } else { %>
-                                                Email:
-                                            <% } %>
-                                        <% } %>
-                                    </h6>
-                                    <h6>
-                                        <% if (user != undefined) { %>
-                                            <% if (user.phone != undefined) { %>
-                                                Phone: <%= user.phone %>
-                                            <% } %>
-                                        <% } %>
-                                    </h6>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="/logout" class="btn btn-secondary"  title="logout" style="color:#fff">
-                                        logout
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <ul>
-                        <li>
-                            <a href="/evaluation">Shoes Evaluation</a>
-                        </li>
-                        <li>
-                            <a href="/diy">DIY</a>
-                        </li>
-                        <li>
-                            <a href="/quiz">Quiz Show</a>
-                        </li>
-                        <li>
-                            <a href="/index">Home</a>
-                        </li>
-                    </ul>
     </div>
+    <div class="col-sm text-center">
+        <h1 class="title">Renike</h1>
+    </div>
+    <div class="col-sm text-md-right text-center">
+            <% if (user != undefined) { %>
+                    <div class="btn-outline-dark rounded-circle user-btn" data-toggle="modal" data-target="#logout-modal">
+                        <div class="align-middle"><%= user.name %></div>
+                    </div>
+            <% } else { %>
+                        <a class="btn btn-outline-dark my-btn" href="/signup">Sign up</a>
+                        <a class="btn btn-outline-dark my-btn" href="/login">Login</a>
+            <% } %>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="logout-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">
+                    <% if (user != undefined) { %>
+                        User name:
+                        <%= user.name %>
+                            <% } else { %>
+                                User:
+                                <% } %>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <h6>
+                    <% if (user != undefined) { %>
+                        <% if (user.email != undefined) { %>
+                            Email:
+                            <%= user.email %>
+                                <% } else { %>
+                                    Email:
+                                    <% } %>
+                                        <% } %>
+                </h6>
+                <h6>
+                    <% if (user != undefined) { %>
+                        <% if (user.phone != undefined) { %>
+                            Phone:
+                            <%= user.phone %>
+                                <% } %>
+                                    <% } %>
+                </h6>
+
+            </div>
+            <div class="modal-footer">
+                <a href="/logout" class="btn btn-secondary" title="logout" style="color:#fff">
+                    logout
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <a class="navbar-brand" href="/index">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ">
+            <li class="nav-item ml-md-auto">
+                <a class="nav-link" href="/quiz">Quiz Show</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/diy">DIY</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/evaluation">Shoes Evaluation</a>
+            </li>
+        </ul>
+    </div>
+</nav>

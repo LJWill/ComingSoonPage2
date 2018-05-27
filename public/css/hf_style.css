@@ -4,24 +4,34 @@
 
 /* header */
 .homepage_logo{
-    float:left;
     height: 100px;
-    width:100px;
+    width: 100px;
 }
 
-h1{
+/* h1{
     font-family: "Dancing Script"!important;
     font-size: 70px !important;
     margin-left:40%;
-}
+} */
 
 .title{
+    font-family: "Dancing Script"!important;
+    font-size: 70px !important;
     justify-content: center;
     display: inline-flex;
 }
 
+@media screen and (max-width: 800px) {
+    .homepage_logo{
+        height: 70px;
+        width: 70px;
+    }
+    .title{
+        font-size: 50px !important;
+    }
+}
 
-.login{
+/* .login{
     position: absolute;
     right:0px;
     font-family: "Noto Sans";
@@ -75,14 +85,38 @@ h1{
 }
 .login a:visited{
     color:#3e4444;
+}  */
+
+.join-btn{
+    background-color: #3e4444!important;
+    color:white!important;
 }
-
-
+.my-btn {
+    width:35%;
+}
+.user-btn{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width:70px;
+    height:70px;
+    text-align: center; 
+    line-height: 65px;  
+}
 
 
 ul {
     list-style-type: none;
-
     margin:0!important;
     padding: 0;
     width:100%;
@@ -144,4 +178,9 @@ li a:hover {
 
 .diy-footer{
     bottom: -700px
+}
+
+
+#navbarNav{
+    justify-content: right;
 }

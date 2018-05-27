@@ -15,7 +15,7 @@
     color: white;
     font-family: "Noto Sans";
     position: relative;
-    top: 9em;
+    top: 15em;
 }
 
 .select-bar-container {
@@ -41,10 +41,6 @@
 .circle-bar-container {
     display: block !important;
     justify-content: center;
-}
-
-.container {
-    margin-top: 10%;
 }
 
 .eval-container {
