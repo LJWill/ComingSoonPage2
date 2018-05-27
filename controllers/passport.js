@@ -1,8 +1,8 @@
 // load all the things we need
-var LocalStrategy    = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 
 // load up the user model
-var User       = require('../models/user_model.js');
+var User = require('../models/user_model.js');
 
 module.exports = function(passport) {
 
@@ -12,7 +12,6 @@ module.exports = function(passport) {
     // required for persistent login sessions
     // passport needs ability to serialize and unserialize users out of session
 
-    // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
@@ -25,7 +24,7 @@ module.exports = function(passport) {
     });
 
     // =========================================================================
-    // LOCAL LOGIN =============================================================
+    // LOGIN =============================================================
     // =========================================================================
     passport.use('local-login', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
@@ -63,7 +62,7 @@ module.exports = function(passport) {
 
 
     // // =========================================================================
-    // // LOCAL SIGNUP ============================================================
+    // // SIGNUP ============================================================
     // // =========================================================================
     passport.use('local-signup', new LocalStrategy({
             // by default, local strategy uses username and password, we will override with email

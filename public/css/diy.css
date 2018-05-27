@@ -115,7 +115,7 @@ option {
 a{
     align-content: center!important;
 }
-.btn {
+/* .btn {
     align-content: center!important;
     cursor: pointer!important;
     color: #fff!important;
@@ -127,9 +127,6 @@ a{
     -webkit-box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.18)!important;
     -moz-box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.18)!important;
     box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.18)!important;
-    /*-webkit-transition:all 0.1s ease 0s;
-    -moz-transition:all 0.1s ease 0s;
-    transition: all 0.1s ease ;*/
     -webkit-transition: none!important;
     -moz-transition: none!important;
     transition: none!important;
@@ -141,7 +138,7 @@ a{
 
 .btn:active {
     transform: scale(0.9, 1)!important;
-}
+} */
 
 
 .overlay {

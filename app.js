@@ -11,12 +11,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session = require('express-session');
 
-
-mongoose.connect('mongodb://admin:123@ds119490.mlab.com:19490/info30005');
-
+require('./models/mongoose.js');
 require('./controllers/passport')(passport);
 
-// require('./controllers/passport.js')(passport);
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -24,9 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 
-// app.set('trust proxy', 1); // trust first proxy
 app.use(session({
-    secret: 'ilovescotchscotchyscotchscotch',
+    secret: 'theabcusisthebesthahaha',
     resave: true,
     saveUninitialized: true,
     maxAge: 180000,
@@ -38,7 +34,6 @@ app.use(flash());
 app.use(express.static(__dirname +'/public'));
 
 module.exports.passport = passport;
-// require('./routers/router.js')(app, passport);
 var router = require('./routers/router');
 app.use(router);
 
